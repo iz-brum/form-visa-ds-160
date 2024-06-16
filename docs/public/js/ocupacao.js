@@ -329,7 +329,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 async function populateCoursesFromJson() {
     try {
         // Simulando a obtenção dos dados do JSON
-        const coursesJson = await fetch('json/run_results.json');
+        const coursesJson = await fetch('public/json/run_results.json');
         const coursesData = await coursesJson.json();
         return coursesData.courses_in_order;
     } catch (error) {

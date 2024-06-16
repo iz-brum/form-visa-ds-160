@@ -10,7 +10,7 @@ async function getNameFromGeonameId(geonameId) {
 }
 
 async function loadCountryTranslations() {
-    const translationsPath = path.join(__dirname, '../public/json/countryTranslations.json');
+    const translationsPath = path.join(__dirname, '../docs/public/json/countryTranslations.json');
     const fileContent = await fs.readFile(translationsPath, 'utf-8');
     return JSON.parse(fileContent);
 }

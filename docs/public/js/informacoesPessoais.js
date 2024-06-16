@@ -7,7 +7,7 @@
 function populateCountrySelect(countrySelectId) {
     console.log('Populando dropdown de países...');
     var countrySelect = document.getElementById(countrySelectId);
-    fetch('json/countryTranslations.json')
+    fetch('public/json/countryTranslations.json')
         .then(response => response.json())
         .then(countryTranslations => {
             console.log('Traduzindo nomes de países...');
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const nationalitySelect = document.getElementById(selectId);
 
         // Carrega o arquivo JSON de traduções de nacionalidades
-        fetch('json/nationalitiesTranslations.json')
+        fetch('public/json/nationalitiesTranslations.json')
             .then(response => response.json())
             .then(nationalitiesData => {
                 // Preenche o seletor de nacionalidades com as traduções
