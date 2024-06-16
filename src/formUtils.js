@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs').promises;
 
 async function getNameFromGeonameId(geonameId) {
-    const response = await fetch(`http://api.geonames.org/getJSON?geonameId=${geonameId}&username=izann_brum`);
+    const response = await fetch(`https://api.geonames.org/getJSON?geonameId=${geonameId}&username=izann_brum`);
     const data = await response.json();
     return data;
 }
