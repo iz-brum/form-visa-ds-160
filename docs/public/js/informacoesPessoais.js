@@ -112,8 +112,8 @@ function getCitiesByState(stateCode, citySelectId) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-     // Função para popular o seletor de nacionalidades
-     function populateNationalities(selectId) {
+    // Função para popular o seletor de nacionalidades
+    function populateNationalities(selectId) {
         const nationalitySelect = document.getElementById(selectId);
 
         // Carrega o arquivo JSON de traduções de nacionalidades
@@ -175,8 +175,8 @@ function addOtherName() {
 }
 
 function toggleOtherNamesFields() {
-    var radioButton = document.getElementById("used_other_names_yes ");
-    toggleFields(radioButton, "other-names-div", "block");
+    var radioButton = document.getElementById("outros_nomes_sim");
+    toggleFields(radioButton, "outro_nome_div", "block");
 }
 
 
