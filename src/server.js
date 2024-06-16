@@ -33,13 +33,17 @@ app.get('/', (req, res) => {
 
 // Nova rota para buscar dados da API Geonames
 app.get('/api/countries', async (req, res) => {
-    try {
-        const response = await fetch(`https://secure.geonames.org/countryInfoJSON?username=izann_brum`);
-        const data = await response.json();
-        res.json(data);
-    } catch (error) {
-        res.status(500).json({ error: 'Erro ao buscar dados da API de países' });
-    }
+  try {
+      const response = await fetch(`https://secure.geonames.org/countryInfoJSON?username=izann_brum`);
+      if (!response.ok) {
+          throw new Error(`Erro ao acessar API: ${response.statusText}`);
+      }
+      const data = await response.json();
+      res.json(data);
+  } catch (error) {
+      console.error('Erro ao buscar dados da API de países:', error);
+      res.status(500).json({ error: 'Erro ao buscar dados da API de países' });
+  }
 });
 
 app.post('/submit', async (req, res) => {
