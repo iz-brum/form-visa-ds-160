@@ -1,35 +1,5 @@
 // DIR: FORMULARIO-VISTO\PUBLIC\JS\GEONAMES.JS
 
-
-
-
-
-// function getCitiesInUSA(selectId, containerId) {
-//     var citySelect = document.getElementById(selectId);
-//     citySelect.innerHTML = "<option value='outros' selected>Outros</option><option value='' disabled>──────────────</option><option value='' disabled>Carregando...</option>";
-//     // Faz uma requisição para obter as cidades dos EUA
-//     fetch(`http://api.geonames.org/searchJSON?country=US&maxRows=1000&username=izann_brum`)
-//         .then(response => response.json())
-//         .then(data => {
-//             // Preenche o dropdown de cidades com as cidades dos EUA obtidas
-//             var cities = data.geonames;
-//             citySelect.innerHTML = "<option value='null'>Inserir cidade manualmente</option><option value='' disabled>──────────────</option><option value='' selected disabled hidden>Selecione uma cidade</option>";
-//             cities.forEach(city => {
-//                 var option = document.createElement("option");
-//                 option.value = city.name;
-//                 option.textContent = city.name;
-//                 citySelect.appendChild(option);
-//             });
-//             var otherCityContainer = document.getElementById(containerId);
-//             otherCityContainer.style.display = 'none';
-//         })
-//         .catch(error => {
-//             console.error('Erro ao buscar cidades:', error);
-//             citySelect.innerHTML = "<option value='null'>Inserir cidade manualmente</option><option value='' disabled>──────────────</option><option value='' selected disabled hidden>Erro ao carregar cidades</option>";
-//         });
-// }
-
-
 function getAddressDetailsByCoordinates(latitude, longitude) {
     return fetch(`http://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
         .then(response => response.json())
