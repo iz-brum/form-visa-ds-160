@@ -314,7 +314,7 @@ async function fetchCSVFile(url) {
 // Event listener para carregar o arquivo CSV e popular o seletor de instituições
 window.addEventListener('DOMContentLoaded', async () => {
     try {
-        const csvFileUrl = '/csv/universidades.csv'; // Substitua pelo URL do seu arquivo CSV
+        const csvFileUrl = 'public/csv/universidades.csv'; // Substitua pelo URL do seu arquivo CSV
         const csvData = await fetchCSVFile(csvFileUrl);
         populateInstitutionsFromCSV(csvData);
     } catch (error) {
