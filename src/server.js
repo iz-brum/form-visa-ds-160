@@ -1,9 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const { getNameFromGeonameId, processFormData } = require('./formUtils');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+const geonamesUsername = process.env.GEONAMES_USERNAME;
 
 // Middlewares para analisar o corpo da requisição
 app.use(express.json());
@@ -29,6 +31,17 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../docs/index.html'));
 });
 
+// Nova rota para buscar dados da API Geonames
+app.get('/api/countries', async (req, res) => {
+    try {
+        const response = await fetch(`https://secure.geonames.org/countryInfoJSON?username=${geonamesUsername}`);
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao buscar dados da API de países' });
+    }
+});
+
 app.post('/submit', async (req, res) => {
   const formData = req.body;
   console.log("DADOS BRUTOS:");
@@ -44,5 +57,5 @@ app.post('/submit', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
+  console.log(`Servidor rodando no ambiente ${process.env.NODE_ENV || 'desenvolvimento'} na porta ${port}`);
 });
