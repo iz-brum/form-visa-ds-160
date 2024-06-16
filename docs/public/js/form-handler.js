@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector('formulario');
+    const form = document.querySelector('#formulario'); // Seleciona pelo ID
 
     // Atualizar os selects de data
     const daySelect = document.getElementById('dia_nascimento');
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const yearSelect = document.getElementById('ano_nascimento');
     const birthdateInput = document.getElementById('data_nascimento');
 
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('https://formspree.io/f/xayrrvpn', function(event) {
         event.preventDefault(); // Evita a recarga da página
 
         const day = daySelect.value;
