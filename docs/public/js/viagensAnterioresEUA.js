@@ -90,11 +90,11 @@ function removeLastVisit() {
 let americanLicenseCount = 0;
 
 function toggleAmericanLicenseFields() {
-    const radioButton = document.getElementById("yesAmericanLicense");
-    const americanLicenseFields = document.getElementById("americanLicenseFields");
-    const licenseMessages = document.getElementById("licenseMessages");
+    const radioButton = document.getElementById("possui_carteira_americana_sim");
+    const americanLicenseFields = document.getElementById("campos_carteira_americana");
+    const licenseMessages = document.getElementById("mensagens_carteira");
 
-    toggleFields(radioButton, "americanLicenseFields", "block");
+    toggleFields(radioButton, "campos_carteira_americana", "block");
 
     if (americanLicenseCount === 0 && americanLicenseFields.style.display === "block") {
         addAmericanLicense();
@@ -107,7 +107,7 @@ function addAmericanLicense() {
     americanLicenseCount++;
     const idSuffix = `_${americanLicenseCount}`; // Garante IDs únicos
 
-    const licenseMessages = document.getElementById('licenseMessages');
+    const licenseMessages = document.getElementById('mensagens_carteira');
     licenseMessages.innerHTML = ''; // Limpa todas as mensagens de erro
 
     const americanLicenseList = document.getElementById('americanLicenseList');
@@ -140,7 +140,7 @@ function addAmericanLicense() {
 
 function removeAmericanLicense() {
     const americanLicenseList = document.getElementById('americanLicenseList');
-    const licenseMessages = document.getElementById('licenseMessages');
+    const licenseMessages = document.getElementById('mensagens_carteira');
 
     licenseMessages.innerHTML = ''; // Limpa todas as mensagens
 
