@@ -1,0 +1,121 @@
+
+/* Estilos para laptops (entre 992px e 1199.98px de largura) */
+@media (min-width: 990px) and (max-width: 1199.98px) {
+    /* Seus estilos para laptops aqui */
+     /* Seus estilos para desktops aqui */
+     .bg-info {
+        background-color: #53bd08ea !important;
+    }
+
+    /* Centralizar o logo na barra de navegação */
+    .navbar-brand {
+        position: absolute;
+        top: 10px;
+        /* Adicionando margem superior de 10 pixels */
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: block;
+        text-align: center;
+    }
+
+    .title-form {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: calc(4vw - 20px);
+        font-weight: 700;
+        /* Regular */
+        text-align: center;
+        color: #cc5f06ed;
+        /* Cor azul personalizada */
+        margin: 10px 0;
+    }
+
+    .custom-text {
+        font-family: 'Nunito', sans-serif;
+        font-size: 1em;
+        font-weight: normal;
+        color: #000000c7;
+        /* Cor preta */
+        text-align: center;
+    }
+
+    /* Estilo para a div de avisos importantes */
+    .trigger-paragraph-desktop {
+        /* From https://css.glass */
+        color: azure;
+        background: #FFA500;
+        border-radius: 16px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(9.7px);
+        -webkit-backdrop-filter: blur(9.7px);
+        border: 1px solid rgba(0, 0, 0, 0.41);
+        width: fit-content;
+        margin: auto;
+        font-size: smaller;
+        font-weight: 900;
+    }
+
+    /* Estilo para o pop-up */
+    .popup {
+        display: none;
+        position: fixed;
+        /* Mudado para 'fixed' para garantir que o pop-up fique visível independentemente do scroll */
+        padding: 20px;
+        /* Aumentando o preenchimento para melhor legibilidade */
+        width: 85%;
+        max-width: calc(100% - 10px);
+        /* Largura máxima ajustada */
+        height: min-content;
+        /* Define a altura como mínima necessária para o conteúdo */
+        left: 50%;
+        /* Posicionando o pop-up no centro horizontalmente */
+        transform: translateX(-50%);
+        /* Movendo o pop-up para o centro horizontalmente */
+        /* top: 5vh; */
+        /* Distância do pop-up ao topo da tela */
+        bottom: 20vh;
+        /* Distância do pop-up ao fundo da tela */
+        z-index: 9999;
+        /* Garantindo que o pop-up esteja sempre acima de outros elementos */
+        font-size: 12px;
+        /* Tamanho da fonte reduzido para melhor legibilidade em dispositivos móveis */
+        line-height: 1.6;
+        /* Espaçamento entre linhas aumentado para melhor legibilidade */
+        color: azure;
+
+        /* From https://css.glass */
+        background: rgba(10, 10, 10, 0.46);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5.4px);
+        -webkit-backdrop-filter: blur(5.4px);
+        border: 1px solid rgba(12, 6, 98, 0.596);
+    }
+
+
+
+    /* Estilo para a div de gatilho do clique */
+    #popup-content {
+        display: none;
+        /* Por padrão, o pop-up está oculto */
+    }
+
+    /* Estilo para o texto dentro do pop-up */
+    .popup p {
+        margin-bottom: 10px;
+        /* Adicionando margem inferior para separar os parágrafos */
+        text-align: left;
+        font-size: 1.2em;
+    }
+
+    /* Estilo para o pop-up ao passar o mouse sobre o gatilho */
+    #trigger-paragraph:hover+#popup-content {
+        display: block;
+    }
+
+    /* Estilo para o ícone de fechar */
+    .close-icon {
+        display: none;
+    }
+
+}

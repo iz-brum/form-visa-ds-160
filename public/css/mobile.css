@@ -1,0 +1,498 @@
+/* Importações de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+/* Adicione esta linha para usar os ícones do Font Awesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* Estilos para dispositivos móveis (até 575.98px de largura) */
+@media (max-width: 575.98px) {
+
+    /* Estilos base */
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .logo-top {
+        width: 100vw;
+        height: auto;
+    }
+
+    /* Estilo para seção inicial */
+    .section-initial {
+        padding: 20px 3vw;
+        text-align: center;
+    }
+
+    .section-initial h1 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    /* Estilo para a seção consulado */
+    .section-center {
+        padding: 20px 3vw;
+        /* Adicionando preenchimento */
+        text-align: center;
+        /* Centralizar texto */
+        display: flex;
+        /* Usar flexbox para alinhar itens verticalmente */
+        flex-direction: column;
+        /* Alinhar itens verticalmente */
+        justify-content: center;
+        /* Centralizar verticalmente */
+        align-items: center;
+        /* Centralizar horizontalmente */
+        min-height: calc(100vh - 40px);
+        /* Altura mínima para ocupar toda a tela menos o cabeçalho */
+    }
+
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .custom-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        font-size: 1em;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .custom-btn span {
+        margin: 0 5px;
+    }
+
+    .custom-btn i {
+        margin: 0 5px;
+    }
+
+    .custom-btn:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    .custom-btn:active {
+        background-color: #003f7f;
+    }
+
+
+    /* Estilo para o container do formulário */
+    .consulado-container {
+        margin-bottom: 50%;
+        margin-top: 20%;
+    }
+
+    /* Estilo para o seletor do formulário */
+    .select-consulado {
+        width: 100%;
+        /* Utilizar toda a largura disponível */
+        padding: 10px;
+        /* Adicionar preenchimento interno */
+        margin-bottom: 10px;
+        /* Adicionar espaço abaixo do seletor */
+        border-radius: 5px;
+        /* Arredondar bordas */
+        border: 1px solid #ccc;
+        /* Adicionar borda */
+        text-align: center;
+        font-size: 0.9em;
+    }
+
+
+    /* Estilo para a caixa de observação */
+    .observation-box {
+        font-size: smaller;
+        /* Reduzir tamanho da fonte */
+    }
+
+
+
+    .default-title-section {
+        margin-bottom: 20px;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .default-title-section h2 {
+        font-weight: 900 !important
+    }
+
+    .fieldset-g1 {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .fieldset-g2 {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .default-legend-01 {
+        font-size: 0.7em;
+        font-weight: bolder;
+        margin-bottom: 5%;
+    }
+
+    .legend-1em {
+        font-size: 1em;
+    }
+
+    .default-select-01 {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        text-align: center;
+        font-size: 0.9em;
+    }
+
+    .rotulo {
+        font-size: 0.9em;
+        font-weight: bolder;
+        margin: 5% 0 3% 0;
+    }
+
+    .h-10pc {
+        height: 10%;
+    }
+
+    /* Estilo para o alerta */
+    .custom-alert {
+        backdrop-filter: blur(9.7px);
+        border: 2px outset lightyellow;
+        width: fit-content;
+        margin: 4% auto;
+        font-size: smaller;
+        font-weight: bold;
+        border-radius: 15px;
+        text-align: center;
+        transform: scale(0.85);
+    }
+
+    .alert-header {
+        background-color: #000;
+        color: yellow;
+        padding: 10px;
+        border-radius: 15px 15px 0 0;
+        font-size: 5.5vw;
+    }
+
+    .exclamation-circle {
+        position: absolute;
+        height: 15%;
+        width: auto;
+        right: 3%;
+    }
+
+    .alert-body {
+        background-color: yellow;
+        color: #000;
+        padding: 20px;
+        border-radius: 0 0 13px 13px;
+        font-size: 4.5vw;
+    }
+
+    /* Estilo para o pop-up */
+    .popup {
+        display: none;
+        position: fixed;
+        padding: 20px;
+        width: 90%;
+        max-width: calc(100% - 10px);
+        height: max-content;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 10%;
+        bottom: 20px;
+        z-index: 9999;
+        font-size: 0.8rem;
+        color: azure;
+        background: rgba(10, 10, 10, 0.68);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5.4px);
+        -webkit-backdrop-filter: blur(5.4px);
+        border: 1px solid rgba(12, 6, 98, 0.596);
+        text-align: left;
+    }
+
+    /* Estilo para o texto dentro do pop-up */
+    .popup p {
+        margin-bottom: 10px;
+    }
+
+    /* Estilo para o ícone de fechar */
+    .close-icon {
+        position: absolute;
+        top: -5px;
+        right: 8px;
+        cursor: pointer;
+        font-size: 23px;
+        color: #ffffff;
+        z-index: 1;
+    }
+
+    /* Estilo para a caixa de observação */
+    .observation-box {
+        font-size: smaller;
+        /* Reduzir tamanho da fonte */
+        padding-top: 3%;
+    }
+
+    .input-wrapper {
+        position: relative;
+        margin-bottom: 10px;
+        /* Ajuste conforme necessário */
+    }
+
+    .custom-input {
+        width: 100%;
+        padding: 13px 10px 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+    }
+
+    .custom-input:focus {
+        border-color: #007bff;
+        /* Cor do foco */
+    }
+
+    .custom-label {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        /* Espaçamento entre a borda do input e o label */
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #999;
+        /* Cor do texto inicial */
+        transition: all 0.3s ease;
+        font-size: 0.7em;
+    }
+
+    .custom-input:focus+.custom-label,
+    .custom-input:not(:placeholder-shown)+.custom-label {
+        top: 10px;
+        /* Nova posição do label quando o input está em foco ou contém valor */
+        font-size: 0.6em;
+        /* Tamanho do texto quando o label está no topo */
+        color: #007bff;
+        /* Cor do texto quando o label está no topo */
+    }
+
+
+    .calendario {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 2rem;
+        /* Ajustado para padding em unidades rem */
+        margin: 1rem auto;
+        /* Centralizado com margem automática */
+        max-width: 600px;
+        /* Limita a largura máxima do calendário */
+    }
+
+    .date-selector {
+        margin: 0.5rem 0;
+        /* Ajuste de margem entre os seletores para telas menores */
+    }
+
+    .date-select {
+        padding: 0.5rem;
+        /* Ajuste do padding interno */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 1rem;
+        /* Tamanho de fonte ajustado */
+        text-align: center;
+        width: 100%;
+        /* Ocupa a largura total do container */
+        min-width: 80px;
+        /* Largura mínima para garantir legibilidade */
+    }
+
+
+    .aviso-01 {
+        padding: 0 4%;
+        text-align: center;
+        font-size: small;
+    }
+
+    .ml-4 {
+        margin-left: 4px;
+    }
+
+
+    /* ************************************************************************************  */
+
+
+    .custom-div-radio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 5%;
+        width: 100%;
+        font-size: 0.8em;
+        flex-wrap: wrap;
+        /* Permite que os itens se movam para a próxima linha se necessário */
+    }
+
+    .label-radio {
+        font-weight: bold;
+        color: #333;
+        /* Cor do texto */
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .input-radio {
+        display: none;
+        /* Esconde o botão de rádio padrão */
+    }
+
+    /* Estilo do botão de rádio personalizado */
+    .input-radio+.span-radio {
+        display: inline-block;
+        padding: 8px 12px;
+        /* Espaçamento interno */
+        border: 2px solid #ccc;
+        /* Cor da borda do botão */
+        border-radius: 5px;
+        /* Borda arredondada */
+        transition: border-color 0.3s ease;
+        /* Transição suave para a mudança de cor da borda */
+    }
+
+    /* Quando o botão de rádio está marcado, altera a cor da borda */
+    .input-radio:checked+.span-radio {
+        border-color: #007bff;
+        /* Cor da borda quando marcado */
+        color: #007bff;
+    }
+
+    .span-radio {
+        /* Adicione estilos adicionais conforme necessário */
+        font-size: 1em;
+    }
+
+    /* Estilo para quando o rótulo é clicado */
+    .label-radio:hover {
+        color: #007bff;
+        /* Altera a cor do texto quando o rótulo é hover */
+    }
+
+
+    /* ************************************************************************************  */
+
+
+    .btn-nacionalidade,
+    .btn-visitas-anteriores {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 4px;
+        width: 2.8em;
+        height: 2.7em;
+        padding: 5px;
+        border-radius: 15%;
+        box-sizing: border-box;
+        /* Certifique-se de que o box-sizing inclua bordas e padding */
+    }
+
+    .img-btn-adicionar,
+    .img-btn-excluir {
+        width: 20px;
+        height: 20px;
+        /* Certifique-se de que a altura da imagem seja igual à largura */
+    }
+
+    /* Estilo para os contêineres */
+    .date-input-container {
+        margin-bottom: 20px;
+    }
+
+    /* Estilo para os rótulos */
+    .date-input-container label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    /* Estilo para os inputs */
+    .date-input-container input[type="date"] {
+        width: 60%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+
+    .status-container {
+        margin: 10px 0;
+    }
+
+    .status-container label {
+        font-weight: bold;
+        color: #333;
+        margin-right: 5px;
+    }
+
+    #spouseStatusValue {
+        display: block;
+        font-style: italic;
+        color: #555;
+        font-size: 1em;
+    }
+
+    .pd-1 {
+        padding: 10px !important;
+    }
+
+    /* Container para os alertas */
+    .alert-container {
+        padding: 15px;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        color: #721c24;
+    }
+
+    /* Item de alerta */
+    .alert-item {
+        margin-bottom: 10px;
+    }
+
+    /* Título do alerta */
+    .alert-title {
+        font-weight: bold;
+        color: red;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+}

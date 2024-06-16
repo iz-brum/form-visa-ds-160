@@ -1,0 +1,52 @@
+/* Importações de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+
+section:not(:first-child) {
+    display: none;
+}
+
+/* Estilos base */
+body {
+    overflow-x: hidden;
+}
+
+/* Adicionar margem superior para container-fluid */
+.container-fluid {
+    margin-top: 40px;
+}
+
+.black-text {
+    color: rgba(0, 0, 0, 0.762);
+}
+
+.custom-btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #0066CC;
+    padding: 3% 6%;
+    border: 2px solid #0066cc;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 30px;
+    transition: 424ms;
+    transform: translateY(0);
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-transform: lowercase;
+    margin: 2%;
+    width: 35%;
+}
+
+.custom-btn:hover {
+    transition: 424ms;
+    padding: 10px 27px;
+    transform: translateY(-0px);
+    background-color: #fff;
+    color: #0066cc;
+    border: solid 2px #0066cc;
+}

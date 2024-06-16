@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/imgs/happy.ico" type="image/x-icon">
+    <title>Resumo dos Dados do Formulário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #007bff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        .btn {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resumo dos Dados do Formulário</h1>
+
+        <% const fieldNames = {
+            consuladoEntrevista: 'Consulado p/ entrevista',
+            nome: 'Nome',
+            sobrenome: 'Sobrenome',
+            outros_nomes: 'Outros nomes',
+            genero: 'Gênero',
+            estado_civil: 'Estado civil',
+            estado_civil_especificacao: 'Especificação do estado civil',
+            data_nascimento: 'Data de nascimento',
+            pais_nascimento: 'País de nascimento',
+            estado_nascimento: 'Estado de nascimento',
+            cidade_nascimento: 'Local de nascimento',
+            nacionalidade: 'Nacionalidade',
+            outra_nacionalidade: 'Dupla nacionalidade',
+            numero_passaporte: 'Número do passaporte',
+            data_expiracao_passaporte: 'Data de expiração do passaporte',
+            numero_rg: 'Número do RG',
+            numero_cpf: 'Número do CPF',
+            numero_tin: 'Número de identificação fiscal',
+            numero_ssn: 'Número de seguro social',
+
+            aplicante: 'Tipo de aplicante',
+            motivo_viagem: 'Motivo da viagem',
+            nome_aplicante_principal: 'Nome do aplicante principal',
+            sobrenome_aplicante_principal: 'Sobrenome do aplicante principal',
+            categoria_visto: 'Categoria do visto',
+
+            viajando_com_pessoas: 'Viajando com acompanhante?',
+            tipo_relacao: 'Tipo de relação',
+            nome_companheiro: 'Nome do companheiro',
+            sobrenome_companheiro: 'Sobrenome do companheiro',
+            relacao_companheiro: 'Tipo de relação',
+            
+            visitedUSA: 'Visitou os EUA',
+            americanLicense: 'Possui licença americana',
+            hasUSVisa: 'Possui visto dos EUA',
+            sameVisaType: 'Mesmo tipo de visto'
+        } %>
+
+        <% const formatValue = (value) => {
+            if (typeof value === 'string') {
+                return value.charAt(0).toUpperCase() + value.slice(1);
+            }
+            return value;
+        } %>
+
+        <h2>Informações Pessoais</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% const personalInfoFields = ['nome', 'sobrenome', 'outros_nomes', 'genero', 'estado_civil', 'estado_civil_especificacao', 'data_nascimento', 'pais_nascimento', 'estado_nascimento', 'cidade_nascimento', 'nacionalidade', 'outra_nacionalidade', 'numero_rg', 'numero_cpf', 'numero_tin', 'numero_ssn']; %>
+                <% personalInfoFields.forEach(key => { %>
+                    <% if (processedData[key]) { %>
+                        <tr>
+                            <td><%= fieldNames[key] || key %></td>
+                            <td><%= formatValue(processedData[key]) %></td>
+                        </tr>
+                    <% } %>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <h2>Informações do Aplicante</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% const applicantInfoFields = ['aplicante', 'motivo_viagem', 'sobrenome_aplicante_principal', 'nome_aplicante_principal', 'categoria_visto']; %>
+                <% applicantInfoFields.forEach(key => { %>
+                    <% if (processedData[key]) { %>
+                        <tr>
+                            <td><%= fieldNames[key] || key %></td>
+                            <td><%= formatValue(processedData[key]) %></td>
+                        </tr>
+                    <% } %>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <h2>Informações de Viagem</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% const travelInfoFields = ['viajando_com_pessoas', 'tipo_relacao', 'nome_companheiro', 'sobrenome_companheiro', 'relacao_companheiro']; %>
+                <% travelInfoFields.forEach(key => { %>
+                    <% if (processedData[key]) { %>
+                        <tr>
+                            <td><%= fieldNames[key] || key %></td>
+                            <td><%= formatValue(processedData[key]) %></td>
+                        </tr>
+                    <% } %>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <h2>Informações de Viagem Anterior</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% const previousTravelInfoFields = ['visitedUSA', 'americanLicense', 'hasUSVisa', 'sameVisaType']; %>
+                <% previousTravelInfoFields.forEach(key => { %>
+                    <% if (processedData[key]) { %>
+                        <tr>
+                            <td><%= fieldNames[key] || key %></td>
+                            <td><%= formatValue(processedData[key]) %></td>
+                        </tr>
+                    <% } %>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <a href="/" class="btn">Voltar</a>
+    </div>
+</body>
+</html>

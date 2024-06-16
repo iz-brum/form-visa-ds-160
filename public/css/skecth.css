@@ -1,0 +1,154 @@
+/*
+
+
+
+class="section-center"
+
+class="viagem-eua-div"
+
+class="default-title-section"
+
+class="fieldset-g1"
+
+class="fieldset-g2"
+
+class="default-legend-01 legend-1em"
+
+class="custom-div-radio"
+
+class="label-radio"
+
+class="input-radio"
+
+class="span-radio"
+
+class="button-container"
+
+<div class="date-input-container"> -> input: class="w-100"
+
+
+
+
+INPUT-WRAPPER:
+<div class="input-wrapper">
+    <input type="text" class="custom-input" placeholder="">
+    
+    <label for="" class="custom-label"> </label>
+</div>
+
+
+CUSTOM-RADIO:
+<div class="custom-div-radio">
+    <label class="label-radio" >
+        <input type="radio" class="input-radio" value="Sim">
+        <span class="span-radio">Sim, é este</span>
+    </label>
+
+    <label class="label-radio">
+        <input type="radio" class="input-radio" value="Não">
+        <span class="span-radio">Não, não é este</span>
+    </label>
+</div>
+
+
+CUSTOM-BTN:
+<div class="mb-3 mactions d-flex justify-content-center align-items-center">
+    <button type="button" class="btn-nacionalidade" aria-label="Adicionar">
+        <img src="/svg/plus-svgrepo-com.svg" alt="Adicionar" class="img-btn-adicionar">
+    </button>
+
+    <button type="button" class="btn-nacionalidade" aria-label="Excluir">
+        <img src="/svg/trash-svgrepo-com.svg" alt="Excluir" class="img-btn-excluir">
+    </button>
+</div>
+
+
+DATE-INPUT-CONTAINER
+<div class="date-input-container">
+    <label for="">Data de 
+        <input type="date" class="w-100" id="" name="">
+    </label>
+</div>
+
+
+
+ESTILO TAG SELECT
+<div>
+    <select id="spouseNationality" name="spouseNationality"
+        style="width: 100%; margin: 2% 0; text-align: center; border-radius: 4px;">
+        <option value="" selected disabled hidden>Selecione a nacionalidade</option>
+
+
+
+
+
+Modelo Fieldset Custom Radio
+<fieldset class="fieldset-g1">
+    <legend class="default-legend-01 legend-1em">perguntas....</legend>
+
+    <div class="custom-div-radio">
+        <label class="label-radio">
+            <input type="radio" id="id-aqui" name="name-aqui"
+                class="input-radio"
+                onchange="toggle-especifico-aqui('field-oculto-aqui', true)">
+            <span class="span-radio">Sim, possuo</span>
+        </label>
+
+        <label class="label-radio">
+            <input type="radio" id="id-aqui" name="name-aqui"
+                class="input-radio"
+                onchange="toggle-especifico-aqui('field-oculto-aqui', false)">
+            <span class="span-radio">Não, não possuo</span>
+        </label>
+    </div>
+
+    <div id="field-oculto-aqui" style="display: none;" class="input-wrapper">
+        <textarea id="id-aqui" name="name-aqui" rows="3"
+            class="custom-input" placeholder=""></textarea>
+        <label for="for-aqui" class="custom-label">Explicação</label>
+    </div>
+</fieldset>
+
+
+
+
+.alert-body {
+        padding: 1.6em;
+        text-align: center;
+        border-radius: 0em 0em 1.5vw 1.5vw;
+    }
+
+    .bg-dark {
+        background-color: #000 !important;
+    }
+
+    .bg-yellow {
+        background-color: yellow !important;
+    }
+
+    .text-yellow {
+        color: yellow !important;
+    }
+
+    .text-black {
+        color: #000 !important;
+    }
+
+    .exclamation-circle {
+        position: absolute;
+        width: 10%;
+        height: 55%;
+        left: 2%;
+        top: 25%;
+    }
+
+*/
+
+
+/* 
+
+
+altere para o modelo custom-radio
+
+
+*/

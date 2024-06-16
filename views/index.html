@@ -1,0 +1,2799 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Formulário de Solicitação de Visto</title>
+    <link rel="shortcut icon" href="/imgs/happy.ico" type="image/x-icon">
+
+    <!-- Importando CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/mobile.css" rel="stylesheet" media="screen and (max-width: 575.98px)">
+    <link href="css/tablet.css" rel="stylesheet" media="screen and (min-width: 576px) and (max-width: 991.98px)">
+    <link href="css/laptop.css" rel="stylesheet" media="screen and (min-width: 992px) and (max-width: 1199.98px)">
+    <link href="css/desktop.css" rel="stylesheet" media="screen and (min-width: 1200px)">
+
+    <!-- Link para a fonte do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link para importar o CSS da fonte Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link para importar o CSS da fonte Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link para importar o CSS da fonte Lato -->
+
+    <!-- Adicionado CSS do Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- Adicionado CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Adicionado jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Adicione o CSS do Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+    <!-- Adicione o JavaScript do Flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/confetti.css">
+
+</head>
+
+<body class="custom-bg-info">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="">
+            <a class="navbar-brand" href="#">
+                <img src="/imgs/mv-logo.png" alt="logo da multivistos" height="35" class="logo-top">
+            </a>
+        </div>
+    </nav>
+
+    <div class="">
+
+        <form id="formulario" action="/submit" method="POST">
+
+            <!-- Tela inicial -->
+            <section class="section-initial">
+
+                <div class="">
+                    <h1 class="">Formulário modelo DS-160 para pedido de visto EUA</h1>
+                </div>
+
+                <div class="">
+                    <!-- Para dispositivos móveis -->
+                    <div class="d-md-none">
+
+                        <div class="custom-alert trigger-paragraph-mobile">
+                            <div class="alert-header bg-dark text-yellow">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="exclamation-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                                    <path
+                                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                                </svg> ATENÇÃO
+                            </div>
+
+                            <div class="alert-body bg-yellow text-black">
+                                Para informações importantes antes de começar o processo de visto americano, clique
+                                aqui!
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="d-none d-md-block">
+                        <div class="d-flex align-items-center trigger-paragraph-desktop">
+                            <p class="m-2 text-center clickable">Para informações importantes antes de começar o
+                                processo de visto americano, passe o mouse aqui!</p>
+                        </div>
+                    </div>
+
+                    <div class="popup" id="popup-content"> <!-- Div de pop-up -->
+                        <span class="close-icon">&times;</span>
+                        <p class="m-0">&raquo; As taxas de serviço e consular NÃO são reembolsáveis!</p>
+                        <p class="m-0">&raquo; A aprovação do visto depende exclusivamente da decisão do oficial
+                            consular
+                            americano.
+                        </p>
+                        <p class="m-0">&raquo; Mesmo em casos isentos de entrevista é possível que durante a análise o
+                            aplicante
+                            seja
+                            chamado para comparecer a embaixada.</p>
+                        <p class="m-0">&raquo; Os agendamentos podem ser cancelados pela embaixada sem aviso prévio!</p>
+                        <p class="m-0">&raquo; A taxa consular é reajustada de acordo com a cotação do dólar e tem um
+                            ano de
+                            validade a
+                            partir da data do pagamento.</p>
+                        <p class="m-0">&raquo; Não podemos garantir datas de agendamento pois o sistema americano é
+                            atualizado
+                            constantemente!</p>
+                        <p class="m-0">&raquo; Caso seja necessário o preenchimento de um novo formulário por:
+                            alterações de
+                            informações ou
+                            mudança na cidade do agendamento, valores adicionais serão cobrados!</p>
+                    </div>
+                </div>
+
+                <div class="col-12 px-1">
+                    <p style="font-size: 1.2em;">
+                        A <strong>MULTIVISTOS</strong> não se responsabiliza por informações
+                        <strong>incorretas</strong>, <strong>falsas</strong> ou <strong>incompletas</strong>, as
+                        quais podem causar recusa do pedido de visto ou quaisquer problemas decorrentes.
+                    </p>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="next-section custom-btn">Iniciar</button>
+                </div>
+            </section>
+
+            <section class="section-center">
+                <div class="my-4 text-center">
+                    <label for="consulado" class="mb-2"><strong>Consulado onde deseja a entrevista:</strong></label>
+
+                    <select class="select-consulado" id="consuladoEntrevista" name="consuladoEntrevista">
+                        <option value="null" selected disabled hidden>Selecione um consulado</option>
+                        <option value="Sao Paulo">São Paulo</option>
+                        <option value="Rio De Janeiro">Rio de Janeiro</option>
+                        <option value="Brasília">Brasília</option>
+                        <option value="Recife">Recife</option>
+                        <option value="Porto Alegre">Porto Alegre</option>
+                    </select>
+
+                    <div class="observation-box">
+                        <span><strong>Obs</strong>.: Caso haja alteração posterior na cidade escolhida, será necessário
+                            o preenchimento de um novo formulário. Nesse caso, valores adicionais serão cobrados.</span>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+
+
+            <!-- INICIO DA SEÇÃO SOBRE DADOS PESSOAIS -->
+            <section class="section-center">
+                <div class="text-center">
+                    <div class="default-title-section">
+                        <h2>INFORMAÇÕES PESSOAIS</h2>
+                    </div>
+
+                    <fieldset class="fieldset-g1 border-0 mb-0">
+
+                        <div class="input-wrapper">
+                            <input type="text" id="nome" name="nome" class="custom-input" placeholder="">
+                            <label for="nome" name="nome" class="custom-label">Nome (exatamente conforme o
+                                passaporte)</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="text" id="sobrenome" name="sobrenome" class="custom-input" placeholder="">
+                            <label for="sobrenome" name="sobrenome" class="custom-label">Sobrenome (exatamente conforme
+                                o
+                                passaporte)</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="text" id="nome_alfabeto_nativo" name="nome_alfabeto_nativo"
+                                class="custom-input" placeholder="" disabled>
+                            <label for="nome_alfabeto_nativo" class="custom-label">Nome completo no alfabeto nativo
+                                (opcional)</label>
+                        </div>
+
+                        <fieldset class="fieldset-g2">
+                            <legend class="default-legend-01">
+                                Você já usou outros nomes? (exemplo: solteiro, religioso, profissional, pseudônimo,
+                                etc)
+                            </legend>
+
+                            <div class="custom-div-radio">
+                                <label class="label-radio" for="outros_nomes_sim">
+                                    <input type="radio" class="input-radio" id="outros_nomes_sim" name="outros_nomes"
+                                        value="Sim" onchange="toggleOtherNamesFields()">
+                                    <span class="span-radio">Sim</span>
+                                </label>
+
+                                <label class="label-radio" for="outros_nomes_nao">
+                                    <input type="radio" class="input-radio" id="outros_nomes_nao" name="outros_nomes"
+                                        value="Não" onchange="toggleOtherNamesFields()">
+                                    <span class="span-radio">Não</span>
+                                </label>
+                            </div>
+
+                            <div class="mb-3" id="other-names-div" style="display: none;">
+                                <div class="input-wrapper">
+                                    <input type="text" id="outro_nome" name="outro_nome" class="custom-input"
+                                        placeholder="">
+                                    <label for="outro_nome" name="outro_nome" class="custom-label">Nome</label>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="text" id="outro_sobrenome" name="outro_sobrenome" class="custom-input"
+                                        placeholder="">
+                                    <label for="outro_sobrenome" name="outro_sobrenome"
+                                        class="custom-label">Sobrenome</label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+
+                        <fieldset class="fieldset-g2">
+                            <legend class="default-legend-01 legend-1em">Gênero</legend>
+
+                            <div class="custom-div-radio">
+                                <label class="label-radio" for="genero_masculino">
+                                    <input type="radio" class="input-radio" id="genero_masculino" name="genero"
+                                        value="Masculino">
+                                    <span class="span-radio">Masculino</span>
+                                </label>
+
+                                <label class="label-radio" for="genero_feminino">
+                                    <input type="radio" class="input-radio" id="genero_feminino" name="genero"
+                                        value="Feminino">
+                                    <span class="span-radio">Feminino</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <div class="">
+                            <select class="default-select-01" id="estado_civil" name="estado_civil"
+                                onchange="toggleMaritalStatusFields()">
+                                <option value="null" selected disabled hidden>Selecione seu estado civil atual</option>
+                                <option value="Casado">Casado</option>
+                                <option value="Solteiro">Solteiro</option>
+                                <option value="Viúvo">Viúvo</option>
+                                <option value="Divorciado">Divorciado</option>
+                                <option value="Separado Legalmente">Separado Legalmente</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+
+                            <div style="display:none;" class="input-wrapper" id="outros-estados-civis">
+                                <fieldset class="fieldset-g1">
+                                    <!-- <legend>Expecificação do Estado Civil:</legend> -->
+                                    <input type="text" id="estado_civil_especificacao" name="estado_civil_especificacao"
+                                        class="custom-input" placeholder="" oninput="toggleMaritalStatusFields()">
+                                    <label for="estado_civil_especificacao" class="custom-label">Estado civil
+                                        atual</label>
+                                </fieldset>
+                            </div>
+
+                        </div>
+
+                        <fieldset class="fieldset-g2">
+                            <legend class="default-legend-01 legend-1em">Data de nascimento</legend>
+
+                            <div class="calendario container p-4 my-4">
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="date-selector col-12 col-md-auto mb-2">
+                                        <select id="dia_nascimento" class="date-select form-select"></select>
+                                    </div>
+                                    <div class="date-selector col-12 col-md-auto mb-2">
+                                        <select id="mes_nascimento" class="date-select form-select"></select>
+                                    </div>
+                                    <div class="date-selector col-12 col-md-auto mb-2">
+                                        <select id="ano_nascimento" class="date-select form-select"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="data_nascimento" name="data_nascimento">
+                        </fieldset>
+
+                        <fieldset class="fieldset-g2">
+                            <legend class="default-legend-01 legend-1em">Local de nascimento</legend>
+                            <div class="mb-2">
+                                <select id="pais_nascimento" name="pais_nascimento"
+                                    onchange="updateStatePlaceholder(this.value, 'estado_nascimento'); getStatesByCountry(this.value, 'estado_nascimento')"
+                                    style="width: 100%;  margin: 2% 0; text-align: center;">
+                                    <option value="" disabled selected>Selecione seu país
+                                        de
+                                        nascimento</option>
+                                    <!-- Adicione outras opções de país aqui -->
+                                </select>
+                            </div>
+
+                            <div class="mb-2">
+                                <!-- <label for="estado_nascimento">Estado:</label> -->
+                                <select id="estado_nascimento" name="estado_nascimento"
+                                    onchange="updateCityPlaceholder(this.value, 'cidade_nascimento'); getCitiesByState(this.value, 'cidade_nascimento')"
+                                    style="width: 100%;  padding: 1vw; text-align: center;" disabled>
+                                    <option value="" selected disabled>Selecione um país antes</option>
+                                    <!-- Opções de estado serão preenchidas dinamicamente -->
+                                </select>
+                            </div>
+
+                            <div class="mb-2">
+                                <!-- <label for="cidade_nascimento">Cidade:</label> -->
+                                <select id="cidade_nascimento" name="cidade_nascimento"
+                                    style="width: 100%;  padding: 1vw; text-align: center;" disabled>
+                                    <option value="" selected disabled>Selecione um estado antes</option>
+                                    <!-- Opções de cidade serão preenchidas dinamicamente -->
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset-g2">
+                            <legend class="default-legend-01 legend-1em">Nacionalidade</legend>
+
+                            <select id="nacionalidade" name="nacionalidade" class="text-center"
+                                style="width: 100%; padding: 1vw;">
+                                <option value="" selected disabled>Selecione sua nacionalidade</option>
+                                <!-- Opções de nacionalidade serão preenchidas dinamicamente -->
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="fieldset-g2">
+                            <legend class="default-legend-01">Você possui outra nacionalidade além da indicada acima?
+                            </legend>
+
+                            <div class="custom-div-radio">
+                                <label class="label-radio" for="outra_nacionalidade_sim">
+                                    <input type="radio" class="input-radio" id="outra_nacionalidade_sim"
+                                        name="outra_nacionalidade" value="Sim" onchange="toggleNationalitySecond()">
+                                    <span class="span-radio">Sim</span>
+                                </label>
+
+                                <label class="label-radio" for="outra_nacionalidade_nao">
+                                    <input type="radio" class="input-radio" id="outra_nacionalidade_nao"
+                                        name="outra_nacionalidade" value="Não" onchange="toggleNationalitySecond()">
+                                    <span class="span-radio">Não</span>
+                                </label>
+                            </div>
+
+                            <div id="nationality-second-div" style="display: none;">
+                                <p class="p-3 pb-0 mb-2">Informe todas as nacionalidades que você possuir!</p>
+
+                                <div class="nationality-container" id="additional-nationalities">
+                                    <!-- Adicione dinamicamente os campos de entrada aqui -->
+                                </div>
+
+                                <div id="nationalityMessages"></div>
+
+                                <div class="mb-3 mactions d-flex justify-content-center align-items-center">
+                                    <button type="button" class="btn-nacionalidade" aria-label="Adicionar"
+                                        onclick="addNationality(); checkHorizontalScroll()">
+                                        <img src="/svg/plus-svgrepo-com.svg" alt="Adicionar" class="img-btn-adicionar">
+                                    </button>
+
+                                    <button type="button" class="btn-nacionalidade" aria-label="Excluir"
+                                        onclick="removeLastNationality(); checkHorizontalScroll()">
+                                        <img src="/svg/trash-svgrepo-com.svg" alt="Excluir" class="img-btn-excluir">
+                                    </button>
+                                </div>
+                            </div>
+                        </fieldset>
+
+
+                        <fieldset class="fieldset-g2">
+                            <legend class="default-legend-01 legend-1em">Documentos de identificação</legend>
+                            <div class="input-wrapper">
+                                <input type="text" class="custom-input" id="numero_rg" name="numero_rg"
+                                    oninput="formatar_numero_rg(this)" placeholder="">
+                                <label for="numero_rg" class="custom-label">Nº do RG (opcional)</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" class="custom-input" id="numero_cpf" name="numero_cpf"
+                                    oninput="formatar_numero_cpf(this)" placeholder="">
+                                <label for="numero_cpf" class="custom-label">Nº do CPF (opcional)</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" class="custom-input" id="numero_tin" name="numero_tin"
+                                    oninput="formatar_numero_tin(this)" placeholder="">
+                                <label for="numero_tin" class="custom-label">Nº do TIN U.S.A
+                                    (opcional)</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" class="custom-input" id="numero_ssn" name="numero_ssn"
+                                    oninput="formatar_numero_ssn(this)" placeholder="">
+                                <label for="numero_ssn" class="custom-label">Nº do SSN U.S.A
+                                    (opcional)</label>
+                            </div>
+                        </fieldset>
+
+                    </fieldset>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section><!-- FIM DA SEÇÃO SOBRE DADOS PESSOAIS -->
+
+            <!-- INICIO DA SEÇÃO SOBRE VIAGEM AOS EUA -->
+            <section class="section-center">
+                <div class="text-center">
+
+                    <div class="default-title-section">
+                        <h2>INFORMAÇÕES SOBRE A VIAGEM AOS EUA</h2>
+                    </div>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você é o aplicante principal?
+                            <i class="fas fa-question-circle ml-4" id="question_icon"></i>
+                        </legend>
+
+                        <!-- Pop-up -->
+                        <div id="popup" class="popup">
+                            <p>
+                                Atenção, pois todos os requerentes de visto de Turismo (B2) ou Negócios (B1) são
+                                aplicantes principais, mesmo viajando com sua família. Você não é o aplicante principal
+                                se estiver viajando aos EUA para acompanhar seu cônjuge ou parente que irá trabalhar (H1
+                                ou L1) ou estudar (J, P, F) nos EUA (visto de acompanhante).
+                            </p>
+                            <span class="close-icon" id="close_icon">&times;</span>
+                        </div>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio" for="aplicante_principal_sim">
+                                <input type="radio" class="input-radio" id="aplicante_principal_sim" name="aplicante"
+                                    value="principal" onchange="toggleApplicantTypeQuestions()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+                            <label class="label-radio" for="aplicante_principal_nao">
+                                <input type="radio" class="input-radio" id="aplicante_principal_nao" name="aplicante"
+                                    value="nao_principal" onchange="toggleApplicantTypeQuestions()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div class="mx-3 my-0 " id="aplicante_principal_questoes" style="display: none;">
+                            <div class="text-center">
+                                <label for="motivo_viagem" class="mt-1 mb-1">Motivo da Viagem/Classificação:</label>
+                                <select class="default-select-01" id="motivo_viagem" name="motivo_viagem"
+                                    onchange="showReasonForTravel()">
+                                    <option value="Negócios, conferência (B1)">Negócios, conferência (B1)</option>
+                                    <option value="Turismo, Visita Familiar (B2)">Turismo, Visita Familiar (B2)
+                                    </option>
+                                    <option value="Negócios e Turismo (B1, B2)">Negócios e Turismo (B1, B2)</option>
+                                    <option value="Visto de Fronteira (BCC)">Visto de Fronteira (BCC)</option>
+                                    <option value="Estudante (F, J M, Q)">Estudante (F, J M, Q)</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                            <div class="input-wrapper" id="outros_especificacao_motivo" style="display: none;">
+                                <input type="text" class="custom-input" id="motivo_especificacao"
+                                    name="motivo_especificacao" placeholder="">
+                                <label for="motivo_especificacao" class="custom-label">Categoria/classificação</label>
+                            </div>
+
+                        </div>
+                        <div class="text-start" id="aplicante_nao_principal_questoes" style="display: none;">
+                            <p class="aviso-01">Preencha estes campos apenas se você for um acompanhante de um portador
+                                de visto de
+                                <strong>TRABALHO</strong> ou <strong>ESTUDOS</strong>.
+                            </p>
+
+                            <div class="input-wrapper">
+                                <input type="text" class="custom-input" placeholder="" id="nome_aplicante_principal"
+                                    name="nome_aplicante_principal">
+                                <label for="nome_aplicante_principal" class="custom-label">Nome do aplicante
+                                    principal</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" class="custom-input" placeholder=""
+                                    id="sobrenome_aplicante_principal" name="sobrenome_aplicante_principal">
+                                <label for="sobrenome_aplicante_principal" class="custom-label">Sobrenome do aplicante
+                                    principal</label>
+                            </div>
+
+                            <div class="mt-3">
+                                <!-- <label for="visaCategory">:</label> -->
+                                <select id="categoria_visto" name="categoria_visto" class="default-select-01"
+                                    onchange="showAdditionalFieldsVisaCategory()">
+                                    <option value="" selected disabled hidden>Selecione a categoria do visto
+                                        requerido</option>
+                                    <option value="Turista">Turista (B1/B2)</option>
+                                    <option value="Estudante">Estudante (F/M)</option>
+                                    <option value="Trabalho">Trabalho (H, L, O, P, Q)</option>
+                                    <option value="Intercambio">Intercâmbio (J)</option>
+                                    <option value="Imigrante">Imigrante (diversas categorias)</option>
+                                </select>
+
+                                <div id="sevis_id_container" class="input-wrapper" style="display: none;">
+                                    <input type="text" class="custom-input" placeholder="" id="sevis_id"
+                                        name="sevis_id">
+                                    <label for="sevis_id" class="custom-label">Nº da Sevis ID</label>
+                                </div>
+
+                                <div id="numero_peticao_container" class="input-wrapper" style="display: none;">
+                                    <input type="text" class="custom-input" placeholder="" id="numero_peticao"
+                                        name="numero_peticao">
+                                    <label for="numero_peticao" class="custom-label">Nº da petição
+                                        (opcional)</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section><!-- FIM DA SEÇÃO SOBRE VIAGEM AOS EUA -->
+
+            <!-- INICIO DA SEÇÃO SOBRE COMPANHEIROS DE VIAGEM -->
+            <section class="section-center">
+                <div class="text-center">
+                    <div class="default-title-section">
+                        <h2>INFORMAÇÕES SOBRE COMPANHEIROS DE VIAGEM</h2>
+                    </div>
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Existem outras pessoas viajando com você?</legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio" for="viajando_com_pessoas_sim">
+                                <input type="radio" class="input-radio" id="viajando_com_pessoas_sim"
+                                    name="viajando_com_pessoas" value="sim" onchange="handleTravelingAlone()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+                            <label class="label-radio" for="viajando_com_pessoas_nao">
+                                <input type="radio" class="input-radio" id="viajando_com_pessoas_nao"
+                                    name="viajando_com_pessoas" value="nao" onchange="handleTravelingAlone()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="companheiros_questoes" class="mx-3 my-0 text-center mt-2" style="display: none;">
+                            <div class="">
+                                <select class="default-select-01 p-fs" id="tipo_relacao" name="tipo_relacao"
+                                    onchange="handleRelationshipType()">
+                                    <option value="" selected disabled hidden>Selecione o tipo de relação</option>
+                                    <option value="familiar">Familiar</option>
+                                    <option value="grupo">Grupo/Organização</option>
+                                </select>
+                            </div>
+
+                            <div id="questoes_familiares" style="display: none;">
+                                <div class="input-wrapper">
+                                    <input type="text" id="nome_companheiro" class="custom-input"
+                                        name="nome_companheiro" placeholder="">
+                                    <label for="nome_companheiro" class="custom-label">Nome</label>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="text" class="custom-input" id="sobrenome_companheiro"
+                                        name="sobrenome_companheiro" placeholder="">
+                                    <label for="sobrenome_companheiro" class="custom-label">Sobrenome</label>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="text" class="custom-input" id="relacao_companheiro"
+                                        name="relacao_companheiro" placeholder="">
+                                    <label for="relacao_companheiro" class="custom-label">Parentesco</label>
+                                </div>
+                            </div>
+
+                            <div id="questoes_grupo" style="display: none;">
+                                <div class="input-wrapper">
+                                    <input type="text" id="nome_grupo" class="custom-input" name="nome_grupo"
+                                        placeholder="">
+                                    <label for="nome_grupo" class="custom-label">Nome do grupo/organização</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section><!-- FIM DA SEÇÃO SOBRE COMPANHEIROS DE VIAGEM -->
+
+            <!-- INICIO DA SEÇÃO SOBRE VIAGENS ANTERIORES AOS EUA -->
+            <section class="section-center">
+                <div class="text-center">
+                    <div class="default-title-section">
+                        <h2>INFORMAÇÕES SOBRE VIAGENS ANTERIORES AOS EUA</h2>
+                    </div>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você já esteve nos Estados Unidos?</legend>
+                        <div class="custom-div-radio">
+                            <label class="label-radio" for="visitou_eua_sim">
+                                <input type="radio" class="input-radio" id="visitou_eua_sim" name="visitou_eua"
+                                    value="Sim" onchange="toggleVisitFields()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+                            <label class="label-radio" for="visitou_eua_nao">
+                                <input type="radio" class="input-radio" id="visitou_eua_nao" name="visitou_eua"
+                                    value="Não" onchange="toggleVisitFields()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+                        <div id="campos_visita" style="display: none;">
+                            <p>Informe suas últimas visitas aos Estados Unidos.</p>
+                            <p class="mt-0"><strong>(MÁXIMO 5)</strong></p>
+                            <div id="conta_visitas"></div>
+                            <div class="mb-3 mactions d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn-visitas-anteriores" onclick="addVisit()"
+                                    aria-label="Adicionar">
+                                    <img src="/svg/plus-svgrepo-com.svg" class="img-btn-adicionar" alt="Adicionar">
+                                </button>
+                                <button type="button" class="btn-visitas-anteriores" onclick="removeLastVisit()"
+                                    aria-label="Excluir">
+                                    <img src="/svg/trash-svgrepo-com.svg" class="img-btn-excluir" alt="Excluir">
+                                </button>
+                            </div>
+                            <div id="mensagens_visita"></div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você possui/mantém uma carteira de habilitação
+                            americana?</legend>
+                        <div class="custom-div-radio">
+                            <label class="label-radio" for="possui_carteira_americana_sim">
+                                <input type="radio" class="input-radio" id="possui_carteira_americana_sim"
+                                    name="possui_carteira_americana" value="Sim"
+                                    onchange="toggleAmericanLicenseFields()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+                            <label class="label-radio" for="possui_carteira_americana_nao">
+                                <input type="radio" class="input-radio" id="possui_carteira_americana_nao"
+                                    name="possui_carteira_americana" value="Não"
+                                    onchange="toggleAmericanLicenseFields()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+                        <div id="campos_carteira_americana" style="display: none;">
+                            <p>Informações sobre sua(s) carteira(s) de habilitação americana, inclusive se possuir mais
+                                de uma.</p>
+                            <div id="lista_carteiras_americanas"></div>
+                            <div class="mb-3 mactions d-flex justify-content-center alinhamento-centro">
+                                <button type="button" class="btn-visitas-anteriores" onclick="addAmericanLicense()"
+                                    aria-label="Adicionar">
+                                    <img src="/svg/plus-svgrepo-com.svg" class="img-btn-adicionar" alt="Adicionar">
+                                </button>
+                                <button type="button" class="btn-visitas-anteriores" onclick="removeAmericanLicense()"
+                                    aria-label="Excluir">
+                                    <img src="/svg/trash-svgrepo-com.svg" class="img-btn-excluir" alt="Excluir">
+                                </button>
+                            </div>
+                            <div id="mensagens_carteira"></div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você já teve um visto dos EUA emitido?</legend>
+                        <div class="custom-div-radio">
+                            <label class="label-radio" for="tem_visto_americano_sim">
+                                <input type="radio" class="input-radio" id="tem_visto_americano_sim"
+                                    name="tem_visto_americano" value="Sim" onchange="showVisaInfoFields()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+                            <label class="label-radio" for="tem_visto_americano_nao">
+                                <input type="radio" class="input-radio" id="tem_visto_americano_nao"
+                                    name="tem_visto_americano" value="Não" onchange="showVisaInfoFields()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+                        <div id="campos_informacao_visto" style="display: none;">
+                            <div class="input-wrapper mb-2">
+                                <input type="text" id="numero_ultimo_visto_americano"
+                                    name="numero_ultimo_visto_americano" class="custom-input" placeholder="">
+                                <label for="numero_ultimo_visto_americano" class="custom-label">Número do visto
+                                    emitido:</label>
+                            </div>
+                            <div class="date-input-container">
+                                <label for="data_ultimo_visto_americano" class="text-center">Data do último visto
+                                    emitido:</label>
+                                <input type="date" id="data_ultimo_visto_americano" name="data_ultimo_visto_americano"
+                                    class="text-center w-100">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você está aplicando para o mesmo tipo de visto
+                            (conforme o anterior)?</legend>
+                        <div class="custom-div-radio">
+                            <label class="label-radio" for="mesmo_tipo_visto_sim">
+                                <input type="radio" class="input-radio" id="mesmo_tipo_visto_sim"
+                                    name="mesmo_tipo_visto" value="Sim">
+                                <span class="span-radio">Sim</span>
+                            </label>
+                            <label class="label-radio" for="mesmo_tipo_visto_nao">
+                                <input type="radio" class="input-radio" id="mesmo_tipo_visto_nao"
+                                    name="mesmo_tipo_visto" value="Não">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você está aplicando no mesmo país onde seu visto
+                            anterior foi emitido e este país é a sua principal residência?</legend>
+                        <div class="custom-div-radio">
+                            <label class="label-radio" for="mesmo_pais_residencia_sim">
+                                <input type="radio" class="input-radio" id="mesmo_pais_residencia_sim"
+                                    name="mesmo_pais_residencia" value="Sim">
+                                <span class="span-radio">Sim</span>
+                            </label>
+                            <label class="label-radio" for="mesmo_pais_residencia_nao">
+                                <input type="radio" class="input-radio" id="mesmo_pais_residencia_nao"
+                                    name="mesmo_pais_residencia" value="Não">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você já forneceu as digitais de todos os seus dedos
+                            quando obteve seu último visto dos EUA?</legend>
+                        <div class="custom-div-radio">
+                            <label class="label-radio" for="forneceu_digitais_sim">
+                                <input type="radio" class="input-radio" id="forneceu_digitais_sim"
+                                    name="forneceu_digitais" value="Sim">
+                                <span class="span-radio">Sim</span>
+                            </label>
+                            <label class="label-radio" for="forneceu_digitais_nao">
+                                <input type="radio" class="input-radio" id="forneceu_digitais_nao"
+                                    name="forneceu_digitais" value="Não">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você já teve algum visto dos EUA roubado ou
+                            perdido/extraviado?</legend>
+                        <div class="custom-div-radio">
+                            <label class="label-radio" for="visto_anterior_perdido_sim">
+                                <input type="radio" class="input-radio" id="visto_anterior_perdido_sim"
+                                    name="visto_anterior_perdido" value="Sim"
+                                    onchange="toggleYearInputForLostOrStolenVisa()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+                            <label class="label-radio" for="visto_anterior_perdido_nao">
+                                <input type="radio" class="input-radio" id="visto_anterior_perdido_nao"
+                                    name="visto_anterior_perdido" value="Não"
+                                    onchange="toggleYearInputForLostOrStolenVisa()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+                        <div class="col-8 input-wrapper" id="ano_perda_visto_container"
+                            style="display: none; margin: 0 auto;">
+                            <input type="text" class="custom-input" id="ano_perda_visto" name="ano_perda_visto"
+                                placeholder="">
+                            <label for="ano_perda_visto" class="custom-label">Data do ocorrido (apenas o ANO)</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você já teve algum visto dos EUA cancelado ou
+                            revogado?</legend>
+                        <div class="custom-div-radio">
+                            <label class="label-radio" for="visto_cancelado_sim">
+                                <input type="radio" class="input-radio" id="visto_cancelado_sim" name="visto_cancelado"
+                                    value="Sim" onchange="toggleVisaCanceledDetails()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+                            <label class="label-radio" for="visto_cancelado_nao">
+                                <input type="radio" class="input-radio" id="visto_cancelado_nao" name="visto_cancelado"
+                                    value="Não" onchange="toggleVisaCanceledDetails()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+                        <div id="detalhes_visto_cancelado" style="display: none; margin-top: 10px;">
+                            <div class="input-wrapper">
+                                <input type="text" class="custom-input" id="local_cancelamento_visto"
+                                    name="local_cancelamento_visto" placeholder="">
+                                <label for="local_cancelamento_visto" class="custom-label">País onde ocorreu</label>
+                            </div>
+                            <div>
+                                <select class="default-select-01" id="tipo_visto_cancelado" name="tipo_visto_cancelado"
+                                    onchange="toggleFieldForOtherOption(this, 'outro_tipo_visto_container', 'block')">
+                                    <option value="" selected disabled hidden>Selecione o tipo do visto cancelado
+                                    </option>
+                                    <option value="Visto de Turismo">Visto de Turismo</option>
+                                    <option value="Visto de Negócios">Visto de Negócios</option>
+                                    <option value="Visto de Estudo">Visto de Estudo</option>
+                                    <option value="Visto de Trabalho">Visto de Trabalho</option>
+                                    <option value="Visto de Residência">Visto de Residência</option>
+                                    <option value="Visto de Trânsito">Visto de Trânsito</option>
+                                    <option value="Visto de Jornalista">Visto de Jornalista</option>
+                                    <option value="Visto de Visitante">Visto de Visitante</option>
+                                    <option value="Visto de Cônjuges ou Parceiros">Visto de Cônjuges ou Parceiros
+                                    </option>
+                                    <option value="Visto de Trânsito Aéreo">Visto de Trânsito Aéreo</option>
+                                    <option value="Outros/Especifique">Outro</option>
+                                </select>
+                                <div class="input-wrapper" id="outro_tipo_visto_container" style="display: none;">
+                                    <input type="text" class="custom-input" id="outro_tipo_visto"
+                                        name="outro_tipo_visto" placeholder="">
+                                    <label for="outro_tipo_visto" class="custom-label">Tipo do visto cancelado</label>
+                                </div>
+                            </div>
+                            <div class="date-input-container">
+                                <label for="data_cancelamento_visto">Data do ocorrido</label>
+                                <input class="w-100" type="date" id="data_cancelamento_visto"
+                                    name="data_cancelamento_visto">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section><!-- FIM DA SEÇÃO SOBRE VIAGENS ANTERIORES AOS EUA -->
+
+            <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE ENDEREÇO/CONTATOS -->
+            <section class="section-center">
+                <div class="text-center">
+                    <div class="default-title-section">
+                        <h2>ENDEREÇO E CONTATOS</h2>
+                    </div>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Seu endereço completo</legend>
+
+                        <div class="address-form" id="pessoal-address-form">
+                            <!-- ESTRUTURA INSERIDA COM JAVASCRIPT -->
+                        </div>
+
+                        <!-- <legend class="default-legend-01">Endereço de Envio do Passaporte</legend> -->
+                        <p class="rotulo"
+                            style="display: block; font-size: small; padding: 0px 10px; margin:-5px -15px 10px -15px;">
+                            Este é o endereço para onde seu passaporte será enviado após a conclusão do processo?</p>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio" for="passportAddressYes">
+                                <input type="radio" class="input-radio" id="passportAddressYes"
+                                    name="passportAddressOption" value="Sim" onchange="togglePassportAddressFields()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio" for="passportAddressNo">
+                                <input type="radio" class="input-radio" id="passportAddressNo"
+                                    name="passportAddressOption" value="Não" onchange="togglePassportAddressFields()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+
+                        <div class="input-wrapper" id="passportCareOf" style="display: none;">
+                            <input type="text" class="custom-input" id="passportCareOfInput" name="passportCareOfInput"
+                                placeholder="">
+                            <label for="passportCareOfInput" class="custom-label">Nome do responsável</label>
+                        </div>
+
+                        <div id="passportAddressFields" style="display: none;">
+                            <p class="text-center mb-2">Endereço de entrega</p>
+                            <div class="address-form" id="passport-destination-address-form">
+                                <!-- ESTRUTURA INSERIDA COM JAVASCRIPT -->
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Informações de Contato</legend>
+
+                        <div class="contact-details">
+                            <div class="input-wrapper">
+                                <input type="tel" class="custom-input" id="cellPhone" name="cellPhone" placeholder="">
+                                <label for="cellPhone" class="custom-label">Celular</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="tel" class="custom-input" id="homePhone" name="homePhone" placeholder="">
+                                <label for="homePhone" class="custom-label">Residencial</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="tel" class="custom-input" id="workPhone" name="workPhone" placeholder="">
+                                <label for="workPhone" class="custom-label">Trabalho/Escola</label>
+                            </div>
+                        </div>
+
+                        <div class="additional-phones">
+                            <p
+                                style="display: block; font-size: small; padding: 0px 10px; margin:-5px -15px 10px -15px;">
+                                Você usou outro(s) telefone(s) nos últimos 5 anos?</p>
+
+                            <div class="custom-div-radio">
+                                <label for="usedOtherPhonesYes" class="label-radio">
+                                    <input type="radio" class="input-radio" id="usedOtherPhonesYes"
+                                        name="usedOtherPhonesOption" value="Sim" onchange="toggleAdditionalPhones()">
+                                    <span class="span-radio">Sim</span>
+                                </label>
+
+                                <label class="label-radio" for="usedOtherPhonesNo">
+                                    <input type="radio" class="input-radio" id="usedOtherPhonesNo"
+                                        name="usedOtherPhonesOption" value="Não" onchange="toggleAdditionalPhones()">
+                                    <span class="span-radio">Não</span>
+                                </label>
+                            </div>
+
+                            <div id="additionalPhones" style="display: none;">
+
+                                <!-- Container para adicionar números de telefone -->
+                                <div id="additionalPhonesContainer"></div>
+
+                                <div class="mb-3 mactions d-flex justify-content-center align-items-center">
+                                    <button type="button" class="btn-nacionalidade" aria-label="Adicionar"
+                                        onclick="addAdditionalPhone()">
+                                        <img src="/svg/plus-svgrepo-com.svg" alt="Adicionar" class="img-btn-adicionar">
+                                    </button>
+
+                                    <button type="button" class="btn-nacionalidade" aria-label="Excluir"
+                                        onclick="removeLastAdditionalPhone()">
+                                        <img src="/svg/trash-svgrepo-com.svg" alt="Excluir" class="img-btn-excluir">
+                                    </button>
+                                </div>
+
+                                <div id="error-tel-message"><!-- mensagem de erro --></div>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Informações de E-mail</legend>
+
+                        <div class="input-wrapper">
+                            <input type="email" id="email" name="email" class="custom-input" placeholder="">
+
+                            <label for="email" class="custom-label">E-mail</label>
+                        </div>
+
+                        <div class="email-item">
+                            <p
+                                style="display: block; font-size: small; padding: 0px 10px; margin:-5px -15px 10px -15px;">
+                                Você usou outro(s) e-mail(s) nos últimos 5 anos?
+                            </p>
+
+                            <div class="custom-div-radio">
+                                <label class="label-radio" for="usedOtherEmailsYes">
+                                    <input type="radio" class="input-radio" id="usedOtherEmailsYes"
+                                        name="usedOtherEmailsOption" value="Sim" onchange="toggleAdditionalEmails()">
+                                    <span class="span-radio">Sim</span>
+                                </label>
+
+                                <label class="label-radio" for="usedOtherEmailsNo">
+                                    <input type="radio" class="input-radio" id="usedOtherEmailsNo"
+                                        name="usedOtherEmailsOption" value="Não" onchange="toggleAdditionalEmails()">
+                                    <span class="span-radio">Não</span>
+                                </label>
+                            </div>
+
+
+                            <div id="additionalEmails" style="display: none;">
+                                <div class="additional-email-container"></div>
+
+                                <div class="mb-3 mactions d-flex justify-content-center align-items-center">
+                                    <button type="button" class="btn-nacionalidade" aria-label="Adicionar"
+                                        onclick="addAdditionalEmail()">
+                                        <img src="/svg/plus-svgrepo-com.svg" alt="Adicionar" class="img-btn-adicionar">
+                                    </button>
+
+                                    <button type="button" class="btn-nacionalidade" aria-label="Excluir"
+                                        onclick="removeLastAdditionalEmail()">
+                                        <img src="/svg/trash-svgrepo-com.svg" alt="Excluir" class="img-btn-excluir">
+                                    </button>
+                                </div>
+
+                                <div class="error-email"></div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section><!-- FIM DA SEÇÃO INFORMAÇÕES SOBRE ENDEREÇO/CONTATOS -->
+
+
+            <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE PASSAPORTE -->
+            <section class="section-center">
+                <div class="text-center">
+
+                    <div class="default-title-section">
+                        <h2>INFORMAÇÕES SOBRE SEU PASSAPORTE</h2>
+                    </div>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Detalhes do Passaporte</legend>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input" placeholder="" id="passportNumber"
+                                name="passportNumber">
+                            <label for="passportNumber" class="custom-label">Número/Série</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input" placeholder="" id="passportControlNumber"
+                                name="passportControlNumber">
+                            <label for="passportControlNumber" class="custom-label">Número de controle</label>
+                        </div>
+
+                        <div class="mb-2">
+                            <select id="passportIssuingCountryEmissor" name="passportIssuingCountryEmissor"
+                                style="width: 100%;  margin: 2% 0; text-align: center;">
+                                <option value="">País emissor</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-1">
+                            <select id="passportIssuingCountry" name="passportIssuingCountry"
+                                onchange="updateStatePlaceholder(this.value, 'passportIssuingState'); getStatesByCountry(this.value, 'passportIssuingState')"
+                                style="width: 100%;  margin: 2% 0; text-align: center;">
+                                <option value="" selected disabled>País onde foi emitido</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-1">
+                            <select id="passportIssuingState" name="passportIssuingState"
+                                onchange="updateCityPlaceholder(this.value, 'passportIssuingCity'); getCitiesByState(this.value, 'passportIssuingCity')"
+                                style="width: 100%;  margin: 2% 0; text-align: center;" disabled>
+                                <option value="">Estado onde foi emitido</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-1">
+                            <select id="passportIssuingCity" name="passportIssuingCity"
+                                style="width: 100%;  margin: 2% 0; text-align: center;" disabled>
+                                <option value="">Cidade onde foi emitido</option>
+                            </select>
+                        </div>
+
+                        <div class="mt-2 mb-0 date-input-container">
+                            <label for="passportIssueDate">Data de emissão</label>
+                            <input type="date" class="w-100" id="passportIssueDate" name="passportIssueDate">
+                        </div>
+
+                        <div class="mt-2 mb-0 date-input-container">
+                            <label for="passportExpirationDate">Data de vencimento</label>
+                            <input type="date" class="w-100" id="passportExpirationDate" name="passportExpirationDate">
+                        </div>
+
+
+                        <fieldset class="fieldset-g2 mt-2">
+                            <legend class="default-legend-01">Você já teve algum passaporte roubado ou
+                                perdido?</legend>
+
+                            <div class="custom-div-radio">
+                                <label for="stolenOrLostPassportYes" class="label-radio">
+                                    <input type="radio" class="input-radio" id="stolenOrLostPassportYes"
+                                        name="stolenOrLostPassport" value="Sim" onclick="togglePassportQuestions(true)">
+                                    <span class="span-radio">Sim</span>
+                                </label>
+
+                                <label for="stolenOrLostPassportNo" class="label-radio">
+                                    <input type="radio" class="input-radio" id="stolenOrLostPassportNo"
+                                        name="stolenOrLostPassport" value="Não"
+                                        onclick="togglePassportQuestions(false)">
+                                    <span class="span-radio">Não</span>
+                                </label>
+                            </div>
+
+
+                            <div class="input-wrapper" id="passportNumberQuestion" style="display: none;">
+                                <input type="text" class="custom-input" placeholder="" id="passportNumberLost"
+                                    name="passportNumberLost">
+                                <label for="passportNumberLost" class="custom-label">Número do passaporte (opcional)
+                                </label>
+                            </div>
+
+                            <div class="mb-1" id="passportIssuingCountryQuestion" style="display: none;">
+                                <select id="passportIssuingCountryLost" name="passportIssuingCountryLost"
+                                    style="width: 100%;  margin: 2% 0; text-align: center;">
+                                    <option value="">Selecione o país que emitiu</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                    </fieldset>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section><!-- FIM DA SEÇÃO INFORMAÇÕES SOBRE PASSAPORTE -->
+
+
+            <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE REDES SOCIAIS -->
+            <section class="section-center">
+                <div class="text center">
+                    <div class="default-title-section">
+                        <h2>INFORMAÇÕES SOBRE REDES SOCIAIS</h2>
+                    </div>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você possui conta em alguma rede social?</legend>
+
+                        <div class="custom-div-radio">
+                            <label for="socialMediaYes" class="label-radio">
+                                <input type="radio" class="input-radio" id="socialMediaYes" name="socialMediaOption"
+                                    onchange="toggleSocialMediaInput()" value="Sim">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label for="socialMediaNo" class="label-radio">
+                                <input type="radio" class="input-radio" id="socialMediaNo" name="socialMediaOption"
+                                    onchange="toggleSocialMediaInput()" value="Não">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="socialMediaInput" style="display: none;">
+                            <p> Então informe o Website ou plataforma ao lado e seu nome de usuário. (Informar a maior
+                                quantidade possível!)</p>
+
+                            <div class="additional-socialMedia-container"></div>
+
+                            <div class="mb-3 mactions d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn-nacionalidade" aria-label="Adicionar"
+                                    onclick="addSocialMediaField()">
+                                    <img src="/svg/plus-svgrepo-com.svg" alt="Adicionar" class="img-btn-adicionar">
+                                </button>
+
+                                <button type="button" class="btn-nacionalidade" aria-label="Excluir"
+                                    onclick="removeLastSocialMediaField()">
+                                    <img src="/svg/trash-svgrepo-com.svg" alt="Excluir" class="img-btn-excluir">
+                                </button>
+                            </div>
+
+                            <div class="error-socialMedia"></div>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section><!-- FIM DA SEÇÃO INFORMAÇÕES SOBRE PASSAPORTE -->
+
+            <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE CONTATOS NOS EUA -->
+            <section class="section-center">
+                <div class="text-center">
+                    <div class="default-title-section">
+                        <h2>INFORMAÇÕES SOBRE CONTATOS NOS EUA</h2>
+                    </div>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Detalhes</legend>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input" id="firstNameUS" name="firstNameUS" placeholder="">
+                            <label for="firstNameUS" class="custom-label">Nome completo</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input" id="relationship" name="relationship"
+                                placeholder="">
+                            <label for="relationship" class="custom-label">Relação</label>
+                        </div>
+
+                        <p class="rotulo">Endereço completo</p>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input " id="zip" name="zip" placeholder="">
+                            <label for="zip" class="custom-label">ZIP Code</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input" id="street" name="street" placeholder="">
+                            <label for="street" class="custom-label">Rua/Av</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input" id="neighborhood2" name="neighborhood"
+                                placeholder="">
+                            <label for="neighborhood2" class="custom-label">Bairro</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input" id="city2" name="city" placeholder="">
+                            <label for="city2" class="custom-label">Cidade</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input" id="state2" name="state" placeholder="">
+                            <label for="state2" class="custom-label">Estado</label>
+                        </div>
+
+                        <p class="rotulo">Informações para contato</p>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input" id="phoneUS" name="phoneUS" placeholder="">
+                            <label for="phoneUS" class="custom-label">Fone com DDD</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="email" class="custom-input" id="emailUS" name="emailUS" placeholder=""
+                                autocomplete="email">
+                            <label for="emailUS" class="custom-label">Email</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section><!-- FIM DA SEÇÃO INFORMAÇÕES SOBRE CONTATOS NOS EUA -->
+
+
+            <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE FAMILIARES -->
+            <section class="section-center">
+                <div class="text-center">
+                    <div class="default-title-section">
+                        <h2>INFORMAÇÕES SOBRE SEUS FAMILIARES</h2>
+                    </div>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">DADOS DO PAI</legend>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input" id="fatherFullName" name="fatherFullName"
+                                placeholder="">
+                            <label for="fatherFullName" class="custom-label">Nome completo</label>
+                        </div>
+
+                        <div class="date-input-container">
+                            <label for="fatherBirthDate">Data de nascimento
+                                <input type="date" class="w-100" id="fatherBirthDate" name="fatherBirthDate"></label>
+                        </div>
+
+                        <div>
+                            <p class="rotulo">Seu pai está nos EUA?</p>
+
+                            <div class="custom-div-radio">
+                                <label for="fatherInUSAYes" class="label-radio">
+                                    <input type="radio" class="input-radio" id="fatherInUSAYes" name="fatherInUSA"
+                                        value="yes" onchange="toggleFatherStatusInUSA()">
+                                    <span class="span-radio">Sim</span>
+                                </label>
+
+                                <label for="fatherInUSANo" class="label-radio">
+                                    <input type="radio" class="input-radio" id="fatherInUSANo" name="fatherInUSA"
+                                        value="no" onchange="toggleFatherStatusInUSA()">
+                                    <span class="span-radio">Não</span>
+                                </label>
+                            </div>
+
+                            <div id="fatherStatusInUSA" style="display: none;">
+                                <select style="width: 100%;  margin: 2% 0; text-align: center; border-radius: 4px;"
+                                    id="fatherStatus" name="fatherStatus">
+                                    <option value="null" selected disabled hidden>Situação dele no EUA:</option>
+                                    <option value="US Citizen">U.S Citizen</option>
+                                    <option value="US Legal Permanent Resident">U.S Legal Permanent Resident
+                                    </option>
+                                    <option value="Nonimmigrant">NONIMMIGRANT</option>
+                                    <option value="Outros/Não sei">Outros/Não Sei</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">DADOS DA MÃE</legend>
+
+                        <div class="input-wrapper">
+                            <input type="text" class="custom-input" id="motherFullName" name="motherFullName"
+                                placeholder="">
+                            <label for="motherFullName" class="custom-label">Nome completo</label>
+                        </div>
+
+                        <div class="date-input-container">
+                            <label for="motherBirthDate">Data de nascimento
+                                <input type="date" class="w-100" id="motherBirthDate" name="motherBirthDate"></label>
+                        </div>
+
+                        <div>
+                            <p class="rotulo">Sua mãe está nos EUA?</p>
+
+                            <div class="custom-div-radio">
+                                <label for="motherInUSAYes" class="label-radio">
+                                    <input type="radio" class="input-radio" id="motherInUSAYes" name="motherInUSA"
+                                        value="yes" onchange="toggleMotherStatusInUSA()">
+                                    <span class="span-radio">Sim</span>
+                                </label>
+
+                                <label for="motherInUSANo" class="label-radio">
+                                    <input type="radio" class="input-radio" id="motherInUSANo" name="motherInUSA"
+                                        value="no" onchange="toggleMotherStatusInUSA()">
+                                    <span class="span-radio">Não</span>
+                                </label>
+                            </div>
+
+                            <div id="motherStatusInUSA" style="display: none;">
+                                <select style="width: 100%; margin: 2% 0; text-align: center; border-radius: 4px;"
+                                    id="motherStatus" name="motherStatus">
+                                    <option value="null" selected disabled hidden>Situação dela no EUA:</option>
+                                    <option value="US Citizen">U.S Citizen</option>
+                                    <option value="US Legal Permanent Resident">U.S Legal Permanent Resident</option>
+                                    <option value="Nonimmigrant">NONIMMIGRANT</option>
+                                    <option value="Outros/Não sei">Outros/Não Sei</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">DADOS DO CONJUGE OU EX-CONJUGE</legend>
+
+                        <div class="status-container">
+                            <label for="spouseStatus">Situação civil informada</label>
+                            <span id="spouseStatusValue">Não informada</span>
+                        </div>
+
+                        <div id="spouseFields" style="display: none;">
+                            <div class="input-wrapper">
+                                <input type="text" class="custom-input" id="spouseName" name="spouseName"
+                                    placeholder="">
+                                <label for="spouseName" class="custom-label">Nome completo</label>
+                            </div>
+
+                            <div class="date-input-container">
+                                <label for="spouseBirthDate">Data de nascimento
+                                    <input type="date" class="w-100" id="spouseBirthDate"
+                                        name="spouseBirthDate"></label>
+                            </div>
+
+                            <div>
+                                <select id="spouseNationality" name="spouseNationality"
+                                    style="width: 100%; margin: 2% 0; text-align: center; border-radius: 4px;">
+                                    <option value="" selected disabled hidden>Selecione a nacionalidade</option>
+                                    <!-- Opções de nacionalidade serão preenchidas dinamicamente -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="divorceFields" style="display: none;">
+                            <div class="date-input-container">
+                                <label for="marriageDate">Data do casamento
+                                    <input type="date" class="w-100" id="marriageDate" name="marriageDate"></label>
+                            </div>
+
+                            <div class="date-input-container">
+                                <label for="separationDate">Data da separação
+                                    <input type="date" class="w-100" id="separationDate" name="separationDate"></label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section><!-- FIM DA SEÇÃO INFORMAÇÕES SOBRE FAMILIARES -->
+
+            <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE OCUPAÇÃO ATUAL -->
+            <section class="section-center">
+                <div class="text-center">
+                    <div class="default-title-section">
+                        <h2>INFORMAÇÕES SOBRE OCUPAÇÃO ATUAL</h2>
+                    </div>
+
+
+                    <fieldset class="mb-4">
+                        <div class="border rounded pd-1">
+                            <label for="occupation">Ocupação atual (se desempregado, explique, e se aposentado colocar
+                                em
+                                empregos anteriores):</label>
+                            <select id="occupation" name="occupation" onchange="showAdditionalOccupationQuestions()"
+                                style="width: 100%; margin: 2% 0; text-align: center; border-radius: 4px;">
+                                <option value="null" selected disabled hidden>Selecione sua ocupação atual</option>
+                                <option value="empregado">Empregado</option>
+                                <option value="empregado e estudante">Empregado e Estudante</option>
+                                <option value="desempregado">Desempregado</option>
+                                <option value="desempregado e estudante">Desempregado e Estudante</option>
+                                <option value="aposentado">Aposentado</option>
+                            </select>
+                        </div>
+
+                        <!-- Perguntas adicionais -->
+                        <div id="additionalQuestions" style="display: none;">
+
+                            <!-- Seção de Trabalho -->
+                            <fieldset class="border rounded pd-1 mt-3" id="workSection" style="display: none;">
+                                <legend class="default-legend-01 legend-1em text-uppercase">Detalhes do Emprego</legend>
+
+                                <div class="input-wrapper">
+                                    <input type="text" id="companyName" name="companyName" class="custom-input"
+                                        placeholder="">
+                                    <label for="companyName" class="custom-label">Nome da Empresa</label>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="text" id="monthlySalary" name="monthlySalary" class="custom-input"
+                                        placeholder="">
+                                    <label for="monthlySalary" class="custom-label">Salário Mensal (Moeda Local)</label>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="text" id="telefoneComercial" name="telefoneComercial"
+                                        class="custom-input" placeholder="">
+                                    <label for="telefoneComercial" class="custom-label">Telefone Comercial (com
+                                        DDD)</label>
+                                </div>
+
+                                <div class="input-wrapper mt-3">
+                                    <input type="date" class="custom-input" id="dataInicioEmprego"
+                                        name="dataInicioEmprego" placeholder="">
+                                    <label for="dataInicioEmprego" class="custom-label">Data de Início no Emprego
+                                        Atual</label>
+                                </div>
+
+
+                                <div class="input-wrapper">
+                                    <textarea id="cargo" name="cargo" rows="4" class="custom-input"
+                                        placeholder=""></textarea>
+                                    <label for="cargo" class="custom-label">Descrição das Funções Diárias</label>
+                                </div>
+
+                                <label for="workAddressFields" class="mt-0 mb-1 fs-6"
+                                    style="text-align: left; display: block;">Endereço
+                                    completo</label>
+                                <div id="workAddressFields">
+                                    <div class="input-wrapper">
+                                        <input type="text" id="workCep" name="workCep" class="custom-input"
+                                            placeholder="">
+                                        <label for="workCep" class="custom-label">CEP</label>
+                                    </div>
+
+                                    <div class="input-wrapper">
+                                        <input type="text" id="workStreet" name="workStreet" class="custom-input"
+                                            placeholder="">
+                                        <label for="workStreet" class="custom-label">Rua/Av</label>
+                                    </div>
+
+                                    <div class="input-wrapper">
+                                        <input type="text" id="workComplement" name="workComplement"
+                                            class="custom-input" placeholder="">
+                                        <label for="workComplement" class="custom-label">Complemento</label>
+                                    </div>
+
+                                    <div class="input-wrapper">
+                                        <input type="text" id="workNeighborhood" name="workNeighborhood"
+                                            class="custom-input" placeholder="">
+                                        <label for="workNeighborhood" class="custom-label">Bairro</label>
+                                    </div>
+
+                                    <div class="input-wrapper">
+                                        <input type="text" id="workCity" name="workCity" class="custom-input"
+                                            placeholder="">
+                                        <label for="workCity" class="custom-label">Cidade</label>
+                                    </div>
+
+                                    <div class="input-wrapper">
+                                        <input type="text" id="workState" name="workState" class="custom-input"
+                                            placeholder="">
+                                        <label for="workState" class="custom-label">Estado</label>
+                                    </div>
+
+                                    <div class="input-wrapper">
+                                        <input type="text" id="workCountry" name="workCountry" class="custom-input"
+                                            placeholder="">
+                                        <label for="workCountry" class="custom-label">País</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="border rounded pd-1 mt-3" id="unemployedDescription"
+                                style="display: none;">
+                                <legend class="default-legend-01 legend-1em text-uppercase">Desempregado</legend>
+                                <!-- Descrição para desempregados -->
+                                <div class="input-wrapper">
+                                    <textarea id="desempregado" name="desempregado" rows="4" class="custom-input"
+                                        style="resize: vertical;" placeholder=""></textarea>
+                                    <label for="desempregado" class="custom-label">Descreva brevemente sobre sua
+                                        situação</label>
+                                </div>
+                            </fieldset>
+
+                            <!-- Seção de Escola -->
+                            <fieldset class="border rounded pd-1 mt-3" id="schoolSection" style="display: none;">
+                                <legend class="default-legend-01 legend-1em text-uppercase">Detalhes da Escola</legend>
+
+                                <div class="input-wrapper">
+                                    <input type="text" id="schoolFullName" name="schoolFullName" class="custom-input"
+                                        placeholder="">
+                                    <label for="schoolFullName" class="custom-label">Nome Completo da Escola</label>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="text" id="telefoneEscola" name="telefoneEscola" class="custom-input"
+                                        placeholder="">
+                                    <label for="telefoneEscola" class="custom-label">Telefone (com DDD)</label>
+                                </div>
+
+                                <div class="input-wrapper">
+                                    <input type="date" id="dataInicioEscola" name="dataInicioEscola"
+                                        class="custom-input" placeholder="">
+                                    <label for="dataInicioEscola" class="custom-label">Data de Início na Escola</label>
+                                </div>
+
+
+                                <label for="schoolAddressFields" class="mt-0 mb-1 fs-6"
+                                    style="text-align: left; display: block;">Endereço completo</label>
+                                <div id="schoolAddressFields">
+                                    <div class="input-wrapper">
+                                        <input type="text" id="schoolCep" name="schoolCep" class="custom-input"
+                                            placeholder="">
+                                        <label for="schoolCep" class="custom-label">CEP</label>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="schoolStreet" name="schoolStreet" class="custom-input"
+                                            placeholder="">
+                                        <label for="schoolStreet" class="custom-label">Rua/Av</label>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="schoolComplement" name="schoolComplement"
+                                            class="custom-input" placeholder="">
+                                        <label for="schoolComplement" class="custom-label">Complemento</label>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="schoolNeighborhood" name="schoolNeighborhood"
+                                            class="custom-input" placeholder="">
+                                        <label for="schoolNeighborhood" class="custom-label">Bairro</label>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="schoolCity" name="schoolCity" class="custom-input"
+                                            placeholder="">
+                                        <label for="schoolCity" class="custom-label">Cidade</label>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="schoolState" name="schoolState" class="custom-input"
+                                            placeholder="">
+                                        <label for="schoolState" class="custom-label">Estado</label>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <input type="text" id="schoolCountry" name="schoolCountry" class="custom-input"
+                                            placeholder="">
+                                        <label for="schoolCountry" class="custom-label">País</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="border rounded pd-1 mt-3" id="aposentado" style="display: none;">
+                                <legend class="default-legend-01 legend-1em text-uppercase">Aposentado</legend>
+                                <!-- Descrição para aposentado -->
+                                <div class="input-wrapper">
+                                    <p style="font-size: small;">Insira as informções no próximo slide!</p>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </fieldset>
+
+                    <div class="button-container">
+                        <button type="button" class="prev-section custom-btn">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>voltar</span>
+                        </button>
+                        <button type="button" class="next-section custom-btn">
+                            <span>próximo</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section><!-- FIM DA SEÇÃO INFORMAÇÕES SOBRE OCUPAÇÃO ATUAL -->
+
+            <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE OCUPAÇÕES ANTERIORES -->
+            <section class="section-center">
+                <div class="text-center">
+                    <div class="default-title-section">
+                        <h2>INFORMAÇÕES SOBRE OCUPAÇÕES ANTERIORES</h2>
+                    </div>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em text-uppercase">Trabalhos anteriores</legend>
+                        <span>Informar os <strong>2 últimos</strong> locais de trabalho, como
+                            empregado ou
+                            empregador, sem contar o atual.</span>
+                        <div class="fieldset-g2">
+                            <div class="index"
+                                style="position: relative; margin: 0 auto; bottom:9px; width: 25px; height: 25px; text-align: center; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
+                                1
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" id="nomeEmpresaAnterior1" name="nomeEmpresaAnterior1"
+                                    class="custom-input" placeholder="">
+                                <label for="nomeEmpresaAnterior1" class="custom-label">Nome completo da empresa</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" id="telefoneEmpresaAnterior1" name="telefoneEmpresaAnterior1"
+                                    class="custom-input" placeholder="">
+                                <label for="telefoneEmpresaAnterior1" class="custom-label">Telefone com DDD</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" id="cargoAnterior1" name="cargoAnterior1" class="custom-input"
+                                    placeholder="">
+                                <label for="cargoAnterior1" class="custom-label">Último cargo</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" id="supervisorAnterior1" name="supervisorAnterior1"
+                                    class="custom-input" placeholder="">
+                                <label for="supervisorAnterior1" class="custom-label">Nome completo do
+                                    supervisor/gerente</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="date" id="dataAdmissaoAnterior1" name="dataAdmissaoAnterior1"
+                                    class="custom-input" placeholder="">
+                                <label for="dataAdmissaoAnterior1" class="custom-label">Data de admissão</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="date" id="dataDemissaoAnterior1" name="dataDemissaoAnterior1"
+                                    class="custom-input" placeholder="">
+                                <label for="dataDemissaoAnterior1" class="custom-label">Data de demissão</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <textarea id="funcoesAnteriores1" name="funcoesAnteriores1" rows="4"
+                                    class="custom-input" placeholder=""></textarea>
+                                <label for="funcoesAnteriores1" class="custom-label">Descreva brevemente suas
+                                    funções</label>
+                            </div>
+                        </div>
+
+                        <div class="fieldset-g2">
+                            <div class="index"
+                                style="position: relative; margin: 0 auto; bottom:9px; width: 25px; height: 25px; text-align: center; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
+                                2
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" id="nomeEmpresaAnterior2" name="nomeEmpresaAnterior2"
+                                    class="custom-input" placeholder="">
+                                <label for="nomeEmpresaAnterior2" class="custom-label">Nome completo da empresa</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" id="telefoneEmpresaAnterior2" name="telefoneEmpresaAnterior2"
+                                    class="custom-input" placeholder="">
+                                <label for="telefoneEmpresaAnterior2" class="custom-label">Telefone com DDD</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" id="cargoAnterior2" name="cargoAnterior2" class="custom-input"
+                                    placeholder="">
+                                <label for="cargoAnterior2" class="custom-label">Último cargo</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" id="supervisorAnterior2" name="supervisorAnterior2"
+                                    class="custom-input" placeholder="">
+                                <label for="supervisorAnterior2" class="custom-label">Nome completo do
+                                    supervisor/gerente</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="date" id="dataAdmissaoAnterior2" name="dataAdmissaoAnterior2"
+                                    class="custom-input" placeholder="">
+                                <label for="dataAdmissaoAnterior2" class="custom-label">Data de admissão</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="date" id="dataDemissaoAnterior2" name="dataDemissaoAnterior2"
+                                    class="custom-input" placeholder="">
+                                <label for="dataDemissaoAnterior2" class="custom-label">Data de demissão</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <textarea id="funcoesAnteriores2" name="funcoesAnteriores2" rows="4"
+                                    class="custom-input" placeholder=""></textarea>
+                                <label for="funcoesAnteriores2" class="custom-label">Descreva brevemente suas
+                                    funções</label>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em text-uppercase">Formação Escolar</legend>
+                        <span>Ensino <strong>Superior</strong> ou Ensino <strong>Médio</strong>.</span>
+                        <span>Caso tenha estudado apenas a <strong>Escola Primária</strong> anotar: “Somente escola
+                            primária”</span>
+
+                        <div class="my-2">
+                            <!-- <label for="instituicaoSelecao" class="text-center" style="display: block;">Instituição</label> -->
+                            <select id="instituicaoSelecao" name="instituicaoSelecao" onchange="toggleManual()"
+                                style="width: 100%; margin: 2% 0; text-align: center; border-radius: 4px;">
+                                <option selected disabled hidden value="">Selecione a instituição</option>
+                            </select>
+
+                            <div id="enter-institution-manually" style="display: none;" class="input-wrapper mt-2">
+                                <input type="text" id="manual-entry-input" class="custom-input" placeholder="">
+                                <label for="manual-entry-input" class="custom-label">Instituição</label>
+                            </div>
+
+                        </div>
+
+                        <!-- Endereço completo da instituição -->
+                        <div class="address-form" id="institution-address-form">
+                            <!-- ESTRUTURA INSERIDA COM JAVASCRIPT -->
+                        </div>
+
+                        <div class="my-2">
+                            <!-- <label for="cursoEstudo">Curso de estudo:</label> -->
+                            <select id="cursoEstudoInstituicao" name="cursoEstudoInstituicao" onchange="toggleManual()"
+                                style="width: 100%; margin: 2% 0; text-align: center; border-radius: 4px;">
+                                <option selected disabled hidden value="">Selecione o curso</option>
+                            </select>
+
+                            <div id="enter-course-manually" style="display: none;" class="input-wrapper mt-2">
+                                <input type="text" id="manual-entry-input-course" class="custom-input" placeholder="">
+                                <label for="manual-entry-input-course" class="custom-label">Curso</label>
+                            </div>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="date" id="dataInicio" name="dataInicio" class="custom-input" placeholder="">
+                            <label for="dataInicio" class="custom-label">Data de início:</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="date" id="dataTermino" name="dataTermino" class="custom-input" placeholder="">
+                            <label for="dataTermino" class="custom-label">Data de término:</label>
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você viajou para outros países nos últimos 5 anos?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="viagemSim" name="viagemOutrosPaises" value="sim"
+                                    class="input-radio" onchange="togglePaisesVisitados()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="viagemNao" name="viagemOutrosPaises" value="nao"
+                                    class="input-radio" onchange="togglePaisesVisitados()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="paisesVisitados" style="display: none;">
+
+                            <p><strong style="color: red;">Atenção:</strong> Por favor, informe todos os
+                                países que você visitou.</p>
+
+                            <div id="visitList">
+                                <!-- Espaço para inserir dinamicamente países visitados -->
+                            </div>
+
+                            <div class="mb-3 mactions d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn-nacionalidade" aria-label="Adicionar"
+                                    onclick="addVisit2()">
+                                    <img src="/svg/plus-svgrepo-com.svg" alt="Adicionar" class="img-btn-adicionar">
+                                </button>
+
+                                <button type="button" class="btn-nacionalidade" aria-label="Remover"
+                                    onclick="removeLastVisit2()">
+                                    <img src="/svg/trash-svgrepo-com.svg" alt="Remover" class="img-btn-excluir">
+                                </button>
+                            </div>
+
+                            <div id="visitMessages2">
+                                <!-- Espaço para inserir dinamicamente mensagens de erro -->
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você já pertenceu, contribuiu ou trabalhou para uma
+                            organização profissional, social ou de caridade?</legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="participacaoSim" name="participacaoOrganizacoes" value="sim"
+                                    class="input-radio" onchange="toggleOrganizacoes()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="participacaoNao" name="participacaoOrganizacoes" value="nao"
+                                    class="input-radio" onchange="toggleOrganizacoes()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+
+                        <div id="organizacoes" style="display: none;">
+                            <p><strong style="color: red;">Atenção:</strong> Por favor, liste todas as organizações.</p>
+                            <div id="organizacoesList">
+                                <!-- Espaço para inserir organizações dinamicamente -->
+                            </div>
+                            <div class="mb-3 mactions d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn-nacionalidade" aria-label="Adicionar"
+                                    title="Clique para adicionar uma nova organização" onclick="addOrganizacao()">
+                                    <img src="/svg/plus-svgrepo-com.svg" alt="Adicionar" class="img-btn-adicionar">
+                                </button>
+                                <button type="button" class="btn-nacionalidade" aria-label="Remover"
+                                    title="Clique para remover a última organização adicionada"
+                                    onclick="removeLastOrganizacao()">
+                                    <img src="/svg/trash-svgrepo-com.svg" alt="Remover" class="img-btn-excluir">
+                                </button>
+                            </div>
+                            <div id="orgMessages">
+                                <!-- Espaço para inserir dinamicamente mensagens de erro -->
+                            </div>
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você tem alguma habilidade especializada ou de
+                            formação, em armas de fogo, explosivos,
+                            armas
+                            nucleares, biológicas ou experiência química?</legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="habilidadesSim" name="habilidadesEspeciais" value="Sim"
+                                    class="input-radio" onchange="toggleExplicacaoHabilidades()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="habilidadesNao" name="habilidadesEspeciais" value="Não"
+                                    class="input-radio" onchange="toggleExplicacaoHabilidades()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="explicacaoHabilidades" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoHabilidades" name="explicacaoHabilidades" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoHabilidades" class="custom-label">Explicação breve</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você prestou serviço militar?</legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="simServicoMilitar" name="servicoMilitar" value="sim"
+                                    class="input-radio" onchange="toggleServicoMilitarFields()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="naoServicoMilitar" name="servicoMilitar" value="nao"
+                                    class="input-radio" onchange="toggleServicoMilitarFields()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="servicoMilitarFields" style="display: none;">
+                            <div class="input-wrapper">
+                                <input type="text" id="paisServicoMilitar" name="paisServicoMilitar"
+                                    class="custom-input" placeholder="">
+                                <label for="paisServicoMilitar" class="custom-label">País</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" id="batalhaoServicoMilitar" name="batalhaoServicoMilitar"
+                                    class="custom-input" placeholder="">
+                                <label for="batalhaoServicoMilitar" class="custom-label">Batalhão/Serviço</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" id="patenteServicoMilitar" name="patenteServicoMilitar"
+                                    class="custom-input" placeholder="">
+                                <label for="patenteServicoMilitar" class="custom-label">Patente</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="text" id="especialidadeServicoMilitar" name="especialidadeServicoMilitar"
+                                    class="custom-input" placeholder="">
+                                <label for="especialidadeServicoMilitar" class="custom-label">Especialidade</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="date" id="inicioServicoMilitar" name="inicioServicoMilitar"
+                                    class="custom-input" placeholder="">
+                                <label for="inicioServicoMilitar" class="custom-label">Início</label>
+                            </div>
+
+                            <div class="input-wrapper">
+                                <input type="date" id="terminoServicoMilitar" name="terminoServicoMilitar"
+                                    class="custom-input" placeholder="">
+                                <label for="terminoServicoMilitar" class="custom-label">Término</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você já serviu, foi um membro, ou esteve envolvido
+                            com uma unidade paramilitar, unidade de vigilante, grupo rebelde, o grupo de guerrilha, ou a
+                            organização insurgente?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="simServicoParamilitar" name="servicoParamilitar" value="sim"
+                                    class="input-radio" onchange="toggleServicoParamilitarFields()">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="naoServicoParamilitar" name="servicoParamilitar" value="nao"
+                                    class="input-radio" onchange="toggleServicoParamilitarFields()">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <!-- Campos relacionados ao serviço militar paramilitar -->
+                        <div id="servicoParamilitarFields" style="display: none;">
+                            <div class="input-wrapper">
+                                <textarea id="explicacaoServicoParamilitar" name="explicacaoServicoParamilitar" rows="3"
+                                    class="custom-input" placeholder=""></textarea>
+                                <label for="explicacaoServicoParamilitar" class="custom-label">Explicação breve</label>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section><!-- FIM DA SEÇÃO INFORMAÇÕES SOBRE OCUPAÇÕES ANTERIORES -->
+
+            <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE MÉDICAS, CRIMINAIS E DE SEGURANÇA -->
+            <section class="section-center">
+                <div class="text-center">
+                    <div class="default-title-section">
+                        <h2>INFORMAÇÕES MÉDICAS, CRIMINAIS E DE SEGURANÇA</h2>
+                    </div>
+
+                    <!-- Texto inicial mais curto com link para abrir o pop-up -->
+                    <span class="d-block p-3 mb-3 bg-light text-dark border rounded">
+                        <strong>NOTA:</strong> Forneça com segurança as informações a seguir. <a href="#"
+                            onclick="openPopup()">Leia mais</a>
+                    </span>
+
+                    <!-- Pop-up com o texto completo -->
+                    <div id="infoPopup" class="popup">
+                        <span class="close-icon" onclick="closePopup()">&times;</span>
+                        <p>Forneça com segurança e as informações a seguir. Fornecer informações completas e precisas a
+                            todas as perguntas que exigem uma explicação. O visto não pode ser concedido a pessoas que
+                            estão dentro das categorias específicas definidas por lei como inadmissíveis para os Estados
+                            Unidos (exceto quando a renúncia é obtida com antecedência). São aplicáveis a qualquer um
+                            dos seguintes para você? Quando uma resposta é SIM não significa automaticamente
+                            inelegibilidade para um visto, se você responder SIM você pode ser obrigado a comparecer
+                            pessoalmente perante um oficial consular.</p>
+                    </div>
+
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">Você tem alguma doença transmissível que possa
+                            representar um risco à saúde pública,
+                            como a tuberculose?</legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="simDoencaTransmissivel" name="doencaTransmissivel"
+                                    class="input-radio"
+                                    onchange="toggleDoencaTransmissivel('doencaTransmissivelField', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="naoDoencaTransmissivel" name="doencaTransmissivel"
+                                    class="input-radio"
+                                    onchange="toggleDoencaTransmissivel('doencaTransmissivelField', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="doencaTransmissivelField" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoDoencaTransmissivel" name="explicacaoDoencaTransmissivel" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoDoencaTransmissivel" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Você possui algum distúrbio mental ou físico que possa representar uma ameaça para a
+                            segurança ou bem-estar de si mesmo ou outros?</legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="simDisturbioMental" name="disturbioMental" class="input-radio"
+                                    onchange="toggleDisturbioMentalFields('disturbioMentalField', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="naoDisturbioMental" name="disturbioMental" class="input-radio"
+                                    onchange="toggleDisturbioMentalFields('disturbioMentalField', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="disturbioMentalField" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoDisturbioMental" name="explicacaoDisturbioMental" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoDisturbioMental" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Você é ou já foi um viciado em drogas?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="simViciadoDrogas" name="viciadoDrogas" class="input-radio"
+                                    onchange="toggleViciadoDrogasFields('viciadoDrogasField', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="naoViciadoDrogas" name="viciadoDrogas" class="input-radio"
+                                    onchange="toggleViciadoDrogasFields('viciadoDrogasField', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="viciadoDrogasField" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoViciadoDrogas" name="explicacaoViciadoDrogas" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoViciadoDrogas" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Alguma vez você já foi preso ou condenado por qualquer ofensa ou crime, ainda que objeto de
+                            um indulto, anistia ou ação similar?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="presoCondenadoSim" name="presoCondenado" class="input-radio"
+                                    onchange="togglePresoCondenadoFields('presoCondenado', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="presoCondenadoNao" name="presoCondenado" class="input-radio"
+                                    onchange="togglePresoCondenadoFields('presoCondenado', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="presoCondenado" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoPresoCondenado" name="explicacaoPresoCondenado" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoPresoCondenado" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Alguma vez você violou, ou foi envolvido em uma conspiração para violar qualquer lei
+                            relativa às substâncias controladas?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="violacaoLeiSim" name="violacaoLei" value="sim"
+                                    class="input-radio" onchange="toggleViolacaoLeiFields(true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="violacaoLeiNao" name="violacaoLei" value="nao"
+                                    class="input-radio" onchange="toggleViolacaoLeiFields(false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="violacaoLeiFields" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoViolacaoLei" name="explicacaoViolacaoLei" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoViolacaoLei" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Você planeja exercer a prostituição nos Estados Unidos ou já esteve envolvido com
+                            prostituição nos últimos 10 anos?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="exercicioProstituicaoSim" name="exercicioProstituicao"
+                                    value="sim" class="input-radio"
+                                    onchange="toggleExercicioProstituicaoFields('exercicioProstituicao', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="exercicioProstituicaoNao" name="exercicioProstituicao"
+                                    value="nao" class="input-radio"
+                                    onchange="toggleExercicioProstituicaoFields('exercicioProstituicao', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="exercicioProstituicao" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoExercicioProstituicao" name="explicacaoExercicioProstituicao"
+                                rows="3" class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoExercicioProstituicao" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Já esteve envolvido ou procurou se envolver em lavagem de dinheiro?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="lavagemDinheiroSim" name="lavagemDinheiro" value="sim"
+                                    class="input-radio" onchange="toggleLavagemDinheiroFields('lavagemDinheiro', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="lavagemDinheiroNao" name="lavagemDinheiro" value="nao"
+                                    class="input-radio"
+                                    onchange="toggleLavagemDinheiroFields('lavagemDinheiro', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="lavagemDinheiro" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoLavagemDinheiro" name="explicacaoLavagemDinheiro" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoLavagemDinheiro" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Procurará envolvimento em atividades ilegais enquanto nos Estados Unidos?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="atividadeIlegalSim" name="atividadeIlegal" value="sim"
+                                    class="input-radio" onchange="toggleAtividadeIlegalFields(true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="atividadeIlegalNao" name="atividadeIlegal" value="nao"
+                                    class="input-radio" onchange="toggleAtividadeIlegalFields(false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="atividadeIlegal" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoAtividadeIlegal" name="explicacaoAtividadeIlegal" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoAtividadeIlegal" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Você procurará o envolvimento em atividades terroristas, enquanto nos Estados Unidos ou já
+                            está envolvido em atividades terroristas?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="atividadesTerroristasSim" name="atividadesTerroristas"
+                                    value="sim" class="input-radio"
+                                    onchange="toggleAtividadesTerroristasFields('atividadesTerroristas', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="atividadesTerroristasNao" name="atividadesTerroristas"
+                                    value="nao" class="input-radio"
+                                    onchange="toggleAtividadesTerroristasFields('atividadesTerroristas', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="atividadesTerroristas" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoAtividadesTerroristas" name="explicacaoAtividadesTerroristas"
+                                rows="3" class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoAtividadesTerroristas" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Alguma vez você já prestou ou teve a intenção de prestar assistência financeira ou outro
+                            apoio a terroristas ou organizações terroristas?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="apoioTerroristaSim" name="apoioTerrorista" value="sim"
+                                    class="input-radio"
+                                    onchange="toggleAssistenciaTerroristaFields('apoioTerrorista', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="apoioTerroristaNao" name="apoioTerrorista" value="nao"
+                                    class="input-radio"
+                                    onchange="toggleAssistenciaTerroristaFields('apoioTerrorista', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="apoioTerrorista" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoApoioTerrorista" name="explicacaoApoioTerrorista" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoApoioTerrorista" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Você é um membro ou representante de uma organização terrorista?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="membroOrganizacaoTerroristaSim"
+                                    name="membroOrganizacaoTerrorista" value="sim" class="input-radio"
+                                    onchange="toggleMembroOrganizacaoTerroristaFields('membroOrganizacaoTerrorista', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="membroOrganizacaoTerroristaNao"
+                                    name="membroOrganizacaoTerrorista" value="nao" class="input-radio"
+                                    onchange="toggleMembroOrganizacaoTerroristaFields('membroOrganizacaoTerrorista', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="membroOrganizacaoTerrorista" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoMembroOrganizacaoTerrorista"
+                                name="explicacaoMembroOrganizacaoTerrorista" rows="3" class="custom-input"
+                                placeholder=""></textarea>
+                            <label for="explicacaoMembroOrganizacaoTerrorista" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Alguma vez você já ordenou, incitou, esteve comprometido, assistido ou participou no
+                            genocídio?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="genocidioSim" name="genocidio" value="sim" class="input-radio"
+                                    onchange="toggleGenocidioFields('genocidio', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="genocidioNao" name="genocidio" value="nao" class="input-radio"
+                                    onchange="toggleGenocidioFields('genocidio', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="genocidio" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoGenocidio" name="explicacaoGenocidio" rows="3" class="custom-input"
+                                placeholder=""></textarea>
+                            <label for="explicacaoGenocidio" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Alguma vez você já cometeu, ordenou, incitou, assistido, ou participou de atos de tortura?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="torturaSim" name="tortura" value="sim" class="input-radio"
+                                    onchange="toggleTorturaFields('tortura', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="torturaNao" name="tortura" value="nao" class="input-radio"
+                                    onchange="toggleTorturaFields('tortura', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="tortura" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoTortura" name="explicacaoTortura" rows="3" class="custom-input"
+                                placeholder=""></textarea>
+                            <label for="explicacaoTortura" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Você já cometeu, ordenou, incitou, ou participou de execuções extrajudiciais, assassinatos
+                            políticos, ou outros atos de violência?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="violenciaSim" name="violencia" value="sim" class="input-radio"
+                                    onchange="toggleViolenciaFields('violencia', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="violenciaNao" name="violencia" value="nao" class="input-radio"
+                                    onchange="toggleViolenciaFields('violencia', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="violencia" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoViolencia" name="explicacaoViolencia" rows="3" class="custom-input"
+                                placeholder=""></textarea>
+                            <label for="explicacaoViolencia" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Alguma vez foi responsável diretamente ou indiretamente de graves violações da liberdade
+                            religiosa?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="violacaoReligiosaSim" name="violacaoReligiosa" value="sim"
+                                    class="input-radio"
+                                    onchange="toggleViolacaoReligiosaFields('violacaoReligiosa', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="violacaoReligiosaNao" name="violacaoReligiosa" value="nao"
+                                    class="input-radio"
+                                    onchange="toggleViolacaoReligiosaFields('violacaoReligiosa', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="violacaoReligiosa" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoViolacaoReligiosa" name="explicacaoViolacaoReligiosa" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoViolacaoReligiosa" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Alguma vez foi objeto de uma audiência de deportação ou remoção?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="audienciaDeportacaoSim" name="audienciaDeportacao" value="sim"
+                                    class="input-radio"
+                                    onchange="toggleAudienciaDeportacaoFields('audienciaDeportacao', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="audienciaDeportacaoNao" name="audienciaDeportacao" value="nao"
+                                    class="input-radio"
+                                    onchange="toggleAudienciaDeportacaoFields('audienciaDeportacao', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="audienciaDeportacao" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoAudienciaDeportacao" name="explicacaoAudienciaDeportacao" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoAudienciaDeportacao" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Alguma vez procurou obter ou ajudar outros a obter um visto de entrada nos Estados Unidos,
+                            ou qualquer outro benefício de imigração dos Estados Unidos por fraude ou deturpação
+                            deliberada ou outros meios ilícitos?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="fraudeImigracaoSim" name="fraudeImigracao" value="sim"
+                                    class="input-radio" onchange="toggleFraudeImigracaoFields('fraudeImigracao', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="fraudeImigracaoNao" name="fraudeImigracao" value="nao"
+                                    class="input-radio"
+                                    onchange="toggleFraudeImigracaoFields('fraudeImigracao', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="fraudeImigracao" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoFraudeImigracao" name="explicacaoFraudeImigracao" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoFraudeImigracao" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Você ultrapassou ilegalmente o período de tempo concedido por um funcionário da imigração
+                            violando os termos de um visto E.U.A?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="ultrapassouTempoVistoSim" name="ultrapassouTempoVisto"
+                                    value="sim" class="input-radio"
+                                    onchange="toggleUltrapassouTempoVistoFields('ultrapassouTempoVisto', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="ultrapassouTempoVistoNao" name="ultrapassouTempoVisto"
+                                    value="nao" class="input-radio"
+                                    onchange="toggleUltrapassouTempoVistoFields('ultrapassouTempoVisto', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="ultrapassouTempoVisto" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoUltrapassouTempoVisto" name="explicacaoUltrapassouTempoVisto"
+                                rows="3" class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoUltrapassouTempoVisto" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Alguma vez manteve a custódia de uma criança cidadã E.U.A fora dos Estados Unidos a partir
+                            de uma pessoa que tiver a guarda legal de um tribunal E.U.A?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="custodiaCriancaSim" name="custodiaCrianca" value="sim"
+                                    class="input-radio" onchange="toggleCustodiaCriancaFields('custodiaCrianca', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="custodiaCriancaNao" name="custodiaCrianca" value="nao"
+                                    class="input-radio"
+                                    onchange="toggleCustodiaCriancaFields('custodiaCrianca', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="custodiaCrianca" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoCustodiaCrianca" name="explicacaoCustodiaCrianca" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoCustodiaCrianca" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Alguma vez você já votou nos Estados Unidos em violação de qualquer lei ou regulamento?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="votouViolacaoSim" name="votouViolacao" value="sim"
+                                    class="input-radio" onchange="toggleVotouViolacaoFields('votouViolacao', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="votouViolacaoNao" name="votouViolacao" value="nao"
+                                    class="input-radio" onchange="toggleVotouViolacaoFields('votouViolacao', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="votouViolacao" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoVotouViolacao" name="explicacaoVotouViolacao" rows="1"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoVotouViolacao" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1">
+                        <legend class="default-legend-01 legend-1em">
+                            Alguma vez você já renunciou à cidadania norte-americana com a finalidade de evitar o
+                            imposto?
+                        </legend>
+
+                        <div class="custom-div-radio">
+                            <label class="label-radio">
+                                <input type="radio" id="renunciouCidadaniaSim" name="renunciouCidadania" value="sim"
+                                    class="input-radio"
+                                    onchange="toggleRenunciouCidadaniaFields('renunciouCidadania', true)">
+                                <span class="span-radio">Sim</span>
+                            </label>
+
+                            <label class="label-radio">
+                                <input type="radio" id="renunciouCidadaniaNao" name="renunciouCidadania" value="nao"
+                                    class="input-radio"
+                                    onchange="toggleRenunciouCidadaniaFields('renunciouCidadania', false)">
+                                <span class="span-radio">Não</span>
+                            </label>
+                        </div>
+
+                        <div id="renunciouCidadania" style="display: none;" class="input-wrapper">
+                            <textarea id="explicacaoRenunciouCidadania" name="explicacaoRenunciouCidadania" rows="3"
+                                class="custom-input" placeholder=""></textarea>
+                            <label for="explicacaoRenunciouCidadania" class="custom-label">Explicação</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="button-container">
+                    <button type="button" class="prev-section custom-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>voltar</span>
+                    </button>
+                    <button type="button" class="next-section custom-btn">
+                        <span>próximo</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section><!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE MÉDICAS, CRIMINAIS E DE SEGURANÇA -->
+
+            <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE VISTO DE ESTUDANTE -->
+            <section class="section-center">
+                <div class="text-center">
+                    <div class="default-title-section">
+                        <h2>AS PERGUNTAS ABAIXO SÃO APENAS PARA O VISTO DE ESTUDANTE</h2>
+                    </div>
+
+                    <p>FORNEÇA DOIS CONTATOS AQUI NO BRASIL QUE NÃO SEJAM DE PARENTESCO DIRETO</p>
+
+                    <fieldset class="fieldset-g1 contact-br01">
+                        <legend>Contato 1</legend>
+
+                        <div class="input-wrapper">
+                            <input type="text" id="contatoBrasil1NomeCompleto" name="contatoBrasil1NomeCompleto"
+                                class="custom-input" placeholder="">
+                            <label for="contatoBrasil1NomeCompleto" class="custom-label">Nome Completo</label>
+                        </div>
+
+                        <!--  Endereço completo do contato 1 -->
+                        <div class="address-form" id="contact-br01-address-form">
+                            <!-- ESTRUTURA INSERIDA COM JAVASCRIPT -->
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="text" id="contatoBrasil1Telefone" name="contatoBrasil1Telefone"
+                                class="custom-input" placeholder="">
+                            <label for="contatoBrasil1Telefone" class="custom-label">Telefone</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="email" id="contatoBrasil1Email" name="contatoBrasil1Email" class="custom-input"
+                                placeholder="">
+                            <label for="contatoBrasil1Email" class="custom-label">Email</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset-g1 contact-br02">
+                        <legend>Contato 2</legend>
+
+                        <div class="input-wrapper">
+                            <input type="text" id="contatoBrasil2NomeCompleto" name="contatoBrasil2NomeCompleto"
+                                class="custom-input" placeholder="">
+                            <label for="contatoBrasil2NomeCompleto" class="custom-label">Nome Completo</label>
+                        </div>
+
+                        <!--  Endereço completo do contato 2 -->
+                        <div class="address-form" id="contact-br02-address-form">
+                            <!-- ESTRUTURA INSERIDA COM JAVASCRIPT -->
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="text" id="contatoBrasil2Telefone" name="contatoBrasil2Telefone"
+                                class="custom-input" placeholder="">
+                            <label for="contatoBrasil2Telefone" class="custom-label">Telefone</label>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <input type="email" id="contatoBrasil2Email" name="contatoBrasil2Email" class="custom-input"
+                                placeholder="">
+                            <label for="contatoBrasil2Email" class="custom-label">Email</label>
+                        </div>
+                    </fieldset>
+
+                    <p class="">Dados do documento I20 E SEVIS ID<br>(Todas essas informações encontram-se no documento
+                        I20 fornecido pela sua instituição de ensino)
+                    </p>
+
+                    <div class="input-wrapper">
+                        <input type="text" id="sevisIdI20" name="sevisIdI20" class="custom-input" placeholder="">
+                        <label for="sevisIdI20" class="custom-label">SEVIS ID (Começa com a letra N e mais 10
+                            números)</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <input type="text" id="nomeEscola" name="nomeEscola" class="custom-input" placeholder="">
+                        <label for="nomeEscola" class="custom-label">Nome da instituição</label>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <input type="text" id="cursoEstudo" name="cursoEstudo" class="custom-input" placeholder="">
+                        <label for="cursoEstudo" class="custom-label">Curso de estudo</label>
+                    </div>
+
+                    <!--  Endereço completo da escola -->
+                    <div class="address-form" id="escola02-address-form">
+                        <!-- ESTRUTURA INSERIDA COM JAVASCRIPT -->
+                    </div>
+
+                    <div class="alert-container">
+                        <div class="alert-item">
+                            <span class="alert-title">Atenção:</span>
+                            <span>Após o preenchimento, o aplicante deverá conferir todas as respostas e verificar se o
+                                questionário está completo e correto.</span>
+                            <br>
+                            <span>Caso seja necessário o preenchimento de um novo formulário para alteração de
+                                informações, valores adicionais serão cobrados.</span>
+                        </div>
+                    </div>
+
+
+                    <div class="button-container">
+                        <button type="button" class="prev-section custom-btn">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>voltar</span>
+                        </button>
+                        <button type="submit" class="next-section custom-btn" value="Enviar">
+                            <span>próximo</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section><!-- FIM DA SEÇÃO INFORMAÇÕES SOBRE VISTO DE ESTUDANTE -->
+        </form>
+    </div>
+
+    <script src="js/informacoesPessoais.js"></script>
+    <script src="js/viagemEUA.js"></script>
+    <script src="js/companheirosViagem.js"></script>
+    <script src="js/viagensAnterioresEUA.js"></script>
+    <script src="js/enderecoContatos.js"></script>
+    <script src="js/passaporte.js"></script>
+    <script src="js/redesSociais.js"></script>
+    <script src="js/contatosEUA.js"></script>
+    <script src="js/informacoesFamiliares.js"></script>
+    <script src="js/ocupacao.js"></script>
+    <script src="js/informacoesMedicasCriminais.js"></script>
+    <script src="js/vistoEstudante.js"></script>
+    <script src="js/consulado.js"></script>
+
+    <script src="js/form.js"></script>
+    <script src="js/geonames.js"></script>
+    <script src="js/formatacao_documentos.js"></script>
+    <script src="js/form-handler.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <!-- Adicionado JS do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

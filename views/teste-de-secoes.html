@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .form-section:not(:first-child) {
+            display: none;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".form-section");
+            let currentSection = 0;
+
+            function showSection(index) {
+                sections.forEach(section => section.style.display = "none");
+                sections[index].style.display = "block";
+            }
+
+            function nextSection() {
+                if (currentSection < sections.length - 1) {
+                    currentSection++;
+                    showSection(currentSection);
+                }
+            }
+
+            function prevSection() {
+                if (currentSection > 0) {
+                    currentSection--;
+                    showSection(currentSection);
+                }
+            }
+
+            const nextButtons = document.querySelectorAll(".next-section");
+            nextButtons.forEach(button => {
+                button.addEventListener("click", nextSection);
+            });
+
+            const prevButtons = document.querySelectorAll(".prev-section");
+            prevButtons.forEach(button => {
+                button.addEventListener("click", prevSection);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div style="background-color: rgba(187, 124, 124, 0.845);" id="form-container">
+        <div class="form-section" id="section1">
+            <!-- Seção 1: Dados Pessoais -->
+            <h2>Dados Pessoais</h2>
+            <input type="text" placeholder="Nome">
+            <input type="text" placeholder="Email">
+            <button class="next-section">Próxima Seção</button>
+        </div>
+
+        <div class="form-section" id="section2">
+            <!-- Seção 2: Endereço -->
+            <h2>Endereço</h2>
+            <input type="text" placeholder="Rua">
+            <input type="text" placeholder="Cidade">
+            <button class="prev-section">Seção Anterior</button>
+            <button class="next-section">Próxima Seção</button>
+        </div>
+
+        <div class="form-section" id="section3">
+            <!-- Seção 3: Informações de Contato -->
+            <h2>Informações de Contato</h2>
+            <input type="text" placeholder="Telefone">
+            <input type="text" placeholder="Celular">
+            <button class="prev-section">Seção Anterior</button>
+            <button class="submit">Enviar</button>
+        </div>
+    </div>
+</body>
+
+</html>
