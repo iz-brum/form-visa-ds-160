@@ -26,7 +26,7 @@ app.use(express.static(publicDirectoryPath, {
 }));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/index.html'));
+  res.sendFile(path.join(__dirname, '../docs/index.html'));
 });
 
 app.post('/submit', async (req, res) => {
