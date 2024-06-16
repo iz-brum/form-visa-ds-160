@@ -11,7 +11,7 @@ function populateCountrySelect(countrySelectId) {
         .then(response => response.json())
         .then(countryTranslations => {
             console.log('Traduzindo nomes de países...');
-            fetch("http://api.geonames.org/countryInfoJSON?username=izann_brum")
+            fetch("https://api.geonames.org/countryInfoJSON?username=izann_brum")
                 .then(response => response.json())
                 .then(data => {
                     console.log('Recebendo dados da API de países:', data);
