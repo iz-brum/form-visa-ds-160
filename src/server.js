@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 // Defina o caminho absoluto para o diretório public
-const publicDirectoryPath = path.join(__dirname, '../public');
+const publicDirectoryPath = path.join(__dirname, '../docs/public');
 
 // Use o diretório public
 app.use(express.static(publicDirectoryPath, {
