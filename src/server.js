@@ -8,7 +8,7 @@ import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3000;
-const geonamesUsername = process.env.GEONAMES_USERNAME;
+const geonamesUsername = 'izann_brum';
 
 // Middleware CORS
 const corsOptions = {
