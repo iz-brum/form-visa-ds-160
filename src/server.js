@@ -1,32 +1,32 @@
-require('dotenv').config();
-const express = require('express');
-const path = require('path');
-const { getNameFromGeonameId, processFormData } = require('./formUtils');
+import 'dotenv/config';
+import express from 'express';
+import path from 'path';
+import fetch from 'node-fetch';
+import { fileURLToPath } from 'url';
+import { getNameFromGeonameId, processFormData } from './formUtils.js';
+import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3000;
 const geonamesUsername = process.env.GEONAMES_USERNAME;
 
-// Middlewares para analisar o corpo da requisição
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.set('view engine', 'ejs');
+// Middleware CORS
+const corsOptions = {
+  origin: '*',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
+};
+app.use(cors(corsOptions));
 
 // Defina o caminho absoluto para o diretório public
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const publicDirectoryPath = path.join(__dirname, '../docs/public');
 
-// Use o diretório public
-app.use(express.static(publicDirectoryPath, {
-  setHeaders: (res, path, stat) => {
-    if (path.endsWith('.css')) {
-      res.set('Content-Type', 'text/css');
-    } else if (path.endsWith('.js')) {
-      res.set('Content-Type', 'text/javascript');
-    }
-  }
-}));
+// Use o diretório public com o prefixo /public
+app.use('/public', express.static(publicDirectoryPath));
 
+// Rota para servir o arquivo index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../docs/index.html'));
 });
@@ -34,16 +34,24 @@ app.get('/', (req, res) => {
 // Nova rota para buscar dados da API Geonames
 app.get('/api/countries', async (req, res) => {
   try {
+    console.log('Rota /api/countries acessada');
     const response = await fetch(`https://secure.geonames.org/countryInfoJSON?username=${geonamesUsername}`);
+    console.log('Resposta da API Geonames:', response);
     if (!response.ok) {
       throw new Error(`Erro ao acessar API: ${response.statusText}`);
     }
     const data = await response.json();
+    console.log('Dados recebidos da API Geonames:', data);
     res.json(data);
   } catch (error) {
     console.error('Erro ao buscar dados da API de países:', error);
     res.status(500).json({ error: 'Erro ao buscar dados da API de países' });
   }
+});
+
+// Nova rota authorize (exemplo de implementação)
+app.get('/authorize', (req, res) => {
+  res.json({ message: 'Authorize endpoint' });
 });
 
 app.post('/submit', async (req, res) => {
