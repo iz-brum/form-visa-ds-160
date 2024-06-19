@@ -3,15 +3,14 @@
 // Funções Relacionadas Aos Dados Pessoais 
 
 // Função para preencher o dropdown de países com o Select2 e traduzir os nomes para o português
-function populateCountrySelect(countrySelectId, username) {
+function populateCountrySelect(countrySelectId) {
     console.log('Populando dropdown de países...');
     var countrySelect = document.getElementById(countrySelectId);
-    fetch('public/json/countryTranslations.json')
+    fetch('/public/json/countryTranslations.json')
         .then(response => response.json())
         .then(countryTranslations => {
             console.log('Traduzindo nomes de países...');
-            const geonamesUrl = `https://secure.geonames.org/countryInfoJSON?username=izann_brum`;
-            fetch(geonamesUrl)
+            fetch("/api/countries")
                 .then(response => response.json())
                 .then(data => {
                     console.log('Recebendo dados da API de países:', data);
@@ -38,75 +37,71 @@ function populateCountrySelect(countrySelectId, username) {
 }
 
 
+// Função para preencher o dropdown de estados
 function getStatesByCountry(countryCode, stateSelectId) {
-    // Obtém o seletor de estados usando jQuery
-    var stateSelect = $('#' + stateSelectId);
-
-    // Limpa o seletor de estados e adiciona uma opção padrão
-    stateSelect.empty().append($('<option>', {
-        value: '',
-        text: 'Selecione o estado'
-    }));
-
-    // Faz uma requisição para obter os estados do país especificado
-    fetch(`http://secure.geonames.org/childrenJSON?geonameId=${countryCode}&username=izann_brum`)
+    fetch('/api/username')
         .then(response => response.json())
-        .then(data => {
-            // Verifica se há estados retornados
-            if (data.totalResultsCount > 0) {
-                // Preenche o dropdown de estados com os estados obtidos
-                var states = data.geonames;
-                states.forEach(state => {
-                    stateSelect.append($('<option>', {
-                        value: state.geonameId,
-                        text: state.name
-                    }));
+        .then(config => {
+            var stateSelect = $('#' + stateSelectId);
+            stateSelect.empty().append($('<option>', {
+                value: '',
+                text: 'Selecione o estado'
+            }));
+            fetch(`https://secure.geonames.org/childrenJSON?geonameId=${countryCode}&username=${config.username}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.totalResultsCount > 0) {
+                        var states = data.geonames;
+                        states.forEach(state => {
+                            stateSelect.append($('<option>', {
+                                value: state.geonameId,
+                                text: state.name
+                            }));
+                        });
+                        stateSelect.select2();
+                    } else {
+                        stateSelect.append($('<option>', {
+                            text: 'Nenhum estado disponível'
+                        }));
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar estados:', error);
                 });
-
-                // Inicializa o seletor de estados com o Select2
-                stateSelect.select2();
-            } else {
-                // Se não houver estados válidos, exibe uma mensagem de aviso
-                stateSelect.append($('<option>', {
-                    text: 'Nenhum estado disponível'
-                }));
-            }
         });
 }
 
+// Função para preencher o dropdown de cidades
 function getCitiesByState(stateCode, citySelectId) {
-    // Obtém o seletor de cidades usando jQuery
-    var citySelect = $('#' + citySelectId);
-
-    // Limpa o seletor de cidades e adiciona uma opção padrão
-    citySelect.empty().append($('<option>', {
-        value: '',
-        text: 'Selecione a cidade'
-    }));
-
-    // Faz uma requisição para obter as cidades do estado especificado
-    fetch(`http://secure.geonames.org/childrenJSON?geonameId=${stateCode}&username=izann_brum`)
+    fetch('/api/username')
         .then(response => response.json())
-        .then(data => {
-            // Verifica se há cidades disponíveis
-            if (data.totalResultsCount > 0) {
-                // Preenche o dropdown de cidades com as cidades obtidas
-                var cities = data.geonames;
-                cities.forEach(city => {
-                    citySelect.append($('<option>', {
-                        value: city.geonameId,
-                        text: city.name
-                    }));
+        .then(config => {
+            var citySelect = $('#' + citySelectId);
+            citySelect.empty().append($('<option>', {
+                value: '',
+                text: 'Selecione a cidade'
+            }));
+            fetch(`https://secure.geonames.org/childrenJSON?geonameId=${stateCode}&username=${config.username}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.totalResultsCount > 0) {
+                        var cities = data.geonames;
+                        cities.forEach(city => {
+                            citySelect.append($('<option>', {
+                                value: city.geonameId,
+                                text: city.name
+                            }));
+                        });
+                        citySelect.select2();
+                    } else {
+                        citySelect.append($('<option>', {
+                            text: 'Nenhuma cidade disponível'
+                        }));
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar cidades:', error);
                 });
-
-                // Inicializa o seletor de cidades com o Select2
-                citySelect.select2();
-            } else {
-                // Se não houver cidades disponíveis, exibe uma mensagem de aviso
-                citySelect.append($('<option>', {
-                    text: 'Nenhuma cidade disponível'
-                }));
-            }
         });
 }
 
