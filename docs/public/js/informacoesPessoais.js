@@ -4,14 +4,15 @@
 
 
 // Função para preencher o dropdown de países com o Select2 e traduzir os nomes para o português
-function populateCountrySelect(countrySelectId) {
+function populateCountrySelect(countrySelectId, username) {
     console.log('Populando dropdown de países...');
     var countrySelect = document.getElementById(countrySelectId);
     fetch('public/json/countryTranslations.json')
         .then(response => response.json())
         .then(countryTranslations => {
             console.log('Traduzindo nomes de países...');
-            fetch("/api/countries")
+            const geonamesUrl = `https://secure.geonames.org/countryInfoJSON?username=izann_brum`;
+            fetch(geonamesUrl)
                 .then(response => response.json())
                 .then(data => {
                     console.log('Recebendo dados da API de países:', data);
