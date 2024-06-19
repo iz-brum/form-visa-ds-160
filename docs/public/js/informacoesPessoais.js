@@ -2,7 +2,6 @@
 
 // Funções Relacionadas Aos Dados Pessoais 
 
-
 // Função para preencher o dropdown de países com o Select2 e traduzir os nomes para o português
 function populateCountrySelect(countrySelectId, username) {
     console.log('Populando dropdown de países...');
@@ -50,7 +49,7 @@ function getStatesByCountry(countryCode, stateSelectId) {
     }));
 
     // Faz uma requisição para obter os estados do país especificado
-    fetch(`http://api.geonames.org/childrenJSON?geonameId=${countryCode}&username=izann_brum`)
+    fetch(`http://secure.geonames.org/childrenJSON?geonameId=${countryCode}&username=izann_brum`)
         .then(response => response.json())
         .then(data => {
             // Verifica se há estados retornados
@@ -86,7 +85,7 @@ function getCitiesByState(stateCode, citySelectId) {
     }));
 
     // Faz uma requisição para obter as cidades do estado especificado
-    fetch(`http://api.geonames.org/childrenJSON?geonameId=${stateCode}&username=izann_brum`)
+    fetch(`http://secure.geonames.org/childrenJSON?geonameId=${stateCode}&username=izann_brum`)
         .then(response => response.json())
         .then(data => {
             // Verifica se há cidades disponíveis
