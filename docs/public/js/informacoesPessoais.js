@@ -4,44 +4,30 @@
 
 // Função para preencher o dropdown de países com o Select2 e traduzir os nomes para o português
 function populateCountrySelect(countrySelectId) {
-    console.log('Populating country dropdown...');
+    console.log('Populando dropdown de países...');
     var countrySelect = document.getElementById(countrySelectId);
 
-    fetch('/public/json/countryTranslations.json')
+    fetch("/api/countries")
         .then(response => {
             if (!response.ok) {
-                throw new Error('Failed to load country translations');
+                throw new Error(`Erro ao buscar dados de países: ${response.statusText}`);
             }
             return response.json();
         })
-        .then(countryTranslations => {
-            console.log('Translating country names...');
-            return fetch("/api/countries")
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch country data');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Country data received from API:', data);
-                    var countries = data.geonames;
-                    console.log('Countries received:', countries);
-                    countries.sort((a, b) => a.countryName.localeCompare(b.countryName));
-                    countries.forEach(country => {
-                        var translatedName = countryTranslations[country.countryCode] || country.countryName;
-                        var option = new Option(translatedName, country.geonameId);
-                        countrySelect.add(option);
-                    });
-                    console.log('Initializing Select2...');
-                    $(countrySelect).select2();
-                })
-                .catch(error => {
-                    console.error('Error fetching country data:', error);
-                });
+        .then(data => {
+            console.log('Dados de países recebidos da API:', data);
+            var countries = data.geonames;
+            console.log('Países recebidos:', countries);
+            countries.sort((a, b) => a.countryName.localeCompare(b.countryName));
+            countries.forEach(country => {
+                var option = new Option(country.countryName, country.geonameId);
+                countrySelect.add(option);
+            });
+            console.log('Inicializando Select2...');
+            $(countrySelect).select2();
         })
         .catch(error => {
-            console.error('Error translating country names:', error);
+            console.error('Erro ao buscar dados de países:', error);
         });
 }
 
