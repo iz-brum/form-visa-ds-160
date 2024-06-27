@@ -7,7 +7,7 @@ function populateCountrySelects(paisSelectIds) {
     console.log('Populando dropdowns de países...');
 
     // Ajustar o caminho para o JSON de traduções
-    fetch('./json/countryTranslations.json')
+    fetch('./docs/public/json/countryTranslations.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro ao carregar traduções de países');
@@ -35,7 +35,7 @@ function populateCountrySelects(paisSelectIds) {
                                 paisSelect.innerHTML = ''; // Limpar as opções existentes
                                 var firstOptionText;
 
-                                switch (paisSelectId) {
+                                switch(paisSelectId) {
                                     case 'pais_nascimento':
                                         firstOptionText = 'Selecione seu país de nascimento';
                                         break;
@@ -76,7 +76,6 @@ function populateCountrySelects(paisSelectIds) {
             console.error('Erro ao carregar traduções de países:', error);
         });
 }
-
 
 // Função para preencher o dropdown de estados
 function getStatesByCountry(paisCode, estadoSelectId) {
