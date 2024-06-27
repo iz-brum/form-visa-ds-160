@@ -8,7 +8,7 @@ function populateCountrySelect(countrySelectId) {
     var countrySelect = document.getElementById(countrySelectId);
 
     // Ajustar o caminho para o JSON de traduções
-    fetch('/form-visa-ds-160/public/json/countryTranslations.json')
+    fetch('../public/json/countryTranslations.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Erro ao carregar traduções de países: ${response.statusText}`);
