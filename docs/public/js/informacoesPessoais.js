@@ -7,6 +7,11 @@ function populateCountrySelect(countrySelectId) {
     console.log('Populando dropdown de países...');
     var countrySelect = document.getElementById(countrySelectId);
 
+    if (!countrySelect) {
+        console.error(`Elemento com ID ${countrySelectId} não encontrado.`);
+        return;
+    }
+
     // Ajustar o caminho para o JSON de traduções
     fetch('./public/json/countryTranslations.json')
         .then(response => {
@@ -44,6 +49,7 @@ function populateCountrySelect(countrySelectId) {
             console.error('Erro ao carregar traduções de países:', error);
         });
 }
+
 
 
 // Função para preencher o dropdown de estados
