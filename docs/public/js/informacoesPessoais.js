@@ -8,7 +8,7 @@ function populateCountrySelects(paisSelectIds) {
     console.log('Populando dropdowns de países...');
 
     // Ajustar o caminho para o JSON de traduções
-    fetch('../json/countryTranslations.json')
+    fetch('docs/public/json/countryTranslations.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro ao carregar traduções de países');
