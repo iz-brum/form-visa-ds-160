@@ -3,11 +3,12 @@
 // Funções Relacionadas Aos Dados Pessoais 
 
 // Função para preencher o dropdown de países com o Select2 e traduzir os nomes para o português
+// Função para preencher o dropdown de países com o Select2 e traduzir os nomes para o português
 function populateCountrySelects(paisSelectIds) {
     console.log('Populando dropdowns de países...');
 
     // Ajustar o caminho para o JSON de traduções
-    fetch('./docs/public/json/countryTranslations.json')
+    fetch('../json/countryTranslations.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro ao carregar traduções de países');
@@ -35,7 +36,7 @@ function populateCountrySelects(paisSelectIds) {
                                 paisSelect.innerHTML = ''; // Limpar as opções existentes
                                 var firstOptionText;
 
-                                switch(paisSelectId) {
+                                switch (paisSelectId) {
                                     case 'pais_nascimento':
                                         firstOptionText = 'Selecione seu país de nascimento';
                                         break;
