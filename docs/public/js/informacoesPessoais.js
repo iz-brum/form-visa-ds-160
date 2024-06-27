@@ -3,78 +3,66 @@
 // Funções Relacionadas Aos Dados Pessoais 
 
 // Função para preencher o dropdown de países com o Select2 e traduzir os nomes para o português
-// Função para preencher o dropdown de países com o Select2 e traduzir os nomes para o português
-function populateCountrySelects(paisSelectIds) {
-    console.log('Populando dropdowns de países...');
+function populateCountrySelect(countrySelectId) {
+    console.log('Populando dropdown de países...');
+    var countrySelect = document.getElementById(countrySelectId);
 
-    // Ajustar o caminho para o JSON de traduções
-    fetch('./docs/public/json/countryTranslations.json')
+    fetch("/api/countries")
         .then(response => {
             if (!response.ok) {
-                throw new Error('Erro ao carregar traduções de países');
+                throw new Error(`Erro ao buscar dados de países: ${response.statusText}`);
             }
             return response.json();
         })
-        .then(countryTranslations => {
-            console.log('Traduzindo nomes de países...');
-            fetch("/api/countries")
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Erro ao buscar dados de países');
-                    }
-                    return response.json();
-                })
+        .then(data => {
+            console.log('Dados de países recebidos da API:', data);
+            var countries = data.geonames;
+            console.log('Países recebidos:', countries);
+            countries.sort((a, b) => a.countryName.localeCompare(b.countryName));
+            countries.forEach(country => {
+                var option = new Option(country.countryName, country.geonameId);
+                countrySelect.add(option);
+            });
+            console.log('Inicializando Select2...');
+            $(countrySelect).select2();
+        })
+        .catch(error => {
+            console.error('Erro ao buscar dados de países:', error);
+        });
+}
+
+
+// Função para preencher o dropdown de estados
+function getStatesByCountry(countryCode, stateSelectId) {
+    fetch('/api/username')
+        .then(response => response.json())
+        .then(config => {
+            var stateSelect = $('#' + stateSelectId);
+            stateSelect.empty().append($('<option>', {
+                value: '',
+                text: 'Selecione o estado'
+            }));
+            fetch(`https://secure.geonames.org/childrenJSON?geonameId=${countryCode}&username=${config.username}`)
+                .then(response => response.json())
                 .then(data => {
-                    console.log('Dados de países recebidos da API:', data);
-                    if (data && data.geonames) {
-                        var countries = data.geonames;
-                        countries.sort((a, b) => a.countryName.localeCompare(b.countryName));
-
-                        paisSelectIds.forEach(paisSelectId => {
-                            var paisSelect = document.getElementById(paisSelectId);
-                            if (paisSelect) { // Verifica se o elemento existe
-                                paisSelect.innerHTML = ''; // Limpar as opções existentes
-                                var firstOptionText;
-
-                                switch (paisSelectId) {
-                                    case 'pais_nascimento':
-                                        firstOptionText = 'Selecione seu país de nascimento';
-                                        break;
-                                    case 'pais_emissao_passaporte':
-                                    case 'pais_emissao_passaporteEmissor':
-                                    case 'pais_emissao_passaporte_perdido':
-                                        firstOptionText = 'Selecione o país de emissão';
-                                        break;
-                                    default:
-                                        firstOptionText = 'Selecione o país';
-                                }
-
-                                // Adiciona a primeira opção
-                                var firstOption = new Option(firstOptionText, "", true, true);
-                                firstOption.disabled = true;
-                                paisSelect.add(firstOption);
-
-                                countries.forEach(country => {
-                                    var translatedName = countryTranslations[country.countryCode] || country.countryName;
-                                    var option = new Option(translatedName, country.geonameId);
-                                    paisSelect.add(option);
-                                });
-                                console.log(`Inicializando Select2 para ${paisSelectId}...`);
-                                $(paisSelect).select2();
-                            } else {
-                                console.error(`Elemento com ID ${paisSelectId} não encontrado.`);
-                            }
+                    if (data.totalResultsCount > 0) {
+                        var states = data.geonames;
+                        states.forEach(state => {
+                            stateSelect.append($('<option>', {
+                                value: state.geonameId,
+                                text: state.name
+                            }));
                         });
+                        stateSelect.select2();
                     } else {
-                        throw new Error('Dados de países inválidos recebidos da API');
+                        stateSelect.append($('<option>', {
+                            text: 'Nenhum estado disponível'
+                        }));
                     }
                 })
                 .catch(error => {
-                    console.error('Erro ao buscar dados de países:', error);
+                    console.error('Erro ao buscar estados:', error);
                 });
-        })
-        .catch(error => {
-            console.error('Erro ao carregar traduções de países:', error);
         });
 }
 
