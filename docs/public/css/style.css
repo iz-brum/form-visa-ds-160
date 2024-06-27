@@ -1,52 +1,542 @@
 /* Importações de fontes */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital,wght@1,700&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
-
+/* Ocultar todas as seções, exceto a primeira */
 section:not(:first-child) {
     display: none;
 }
 
+/* Variáveis para reutilização */
+/* Escolha uma das paletas sugeridas */
+:root {
+    --primary-color: #0288D1; /* Azul Escuro */
+    --secondary-color: #B3E5FC; /* Azul Claro */
+    --highlight-color: #81C784; /* Verde Claro */
+    --bg-color-light: #F5F5F5; /* Cinza Claro */
+    --border-color: #ccc; /* Cinza */
+    --text-color-dark: #333; /* Cinza Escuro */
+    --text-color-light: #FFF; /* Branco */
+    --complementary-color: #201d6dd4; /*  */
+    --font-family-primary: 'Roboto', sans-serif;
+    --font-family-secondary: 'Bebas Neue', sans-serif;
+    --button-font: 'Nunito', sans-serif;
+    --primary-color-hover: #60f00d;
+    --primary-color-active: #0288D1;
+}
+
 /* Estilos base */
 body {
-    overflow-x: hidden;
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-dark);
 }
 
-/* Adicionar margem superior para container-fluid */
-.container-fluid {
-    margin-top: 40px;
+/* Navbar */
+.navbar {
+    background-color: #F3E5F5;    /* Cinza Azul Claro */
+    border-radius: 0px 0px 0.7em 0.7em
 }
 
-.black-text {
-    color: rgba(0, 0, 0, 0.762);
+.logo_topo {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
-.custom-btn {
-    font-family: 'Nunito', sans-serif;
+.legend_long {
+    font-family: 'Lato', sans-serif;
     font-weight: 400;
-    font-size: 1.2em;
-    color: #fff;
-    background-color: #0066CC;
-    padding: 3% 6%;
-    border: 2px solid #0066cc;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-    border-radius: 30px;
-    transition: 424ms;
-    transform: translateY(0);
-    display: inline-flex;
-    flex-direction: row;
+    font-size: 1rem; /* Ajuste conforme necessário */
+    color: var(--text_color_dark);
+}
+
+.legend_short {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem; /* Ajuste conforme necessário */
+    color: var(--text_color_dark);
+}
+
+
+/* Estilos para a barra de progresso */
+.progress-container {
+    display: flex;
+    align-items: center;
+    margin: 5vw 0.56rem;
+    padding: 5px 8px;
+    background-color: #0084cd;
+    border-radius: 4px;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Garantir que fique acima de outros elementos */
+}
+
+.step-counter {
+    display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    text-transform: lowercase;
-    margin: 2%;
-    width: 35%;
+    position: relative;
+    margin-right: 20px;
 }
 
-.custom-btn:hover {
-    transition: 424ms;
-    padding: 10px 27px;
-    transform: translateY(-0px);
-    background-color: #fff;
-    color: #0066cc;
-    border: solid 2px #0066cc;
+.progress-circle {
+    width: 50px;
+    height: 50px;
+    transform: scale(1.2);
+    margin-left: 0.3rem;
+}
+
+.bg-circle {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 5;
+}
+
+.progress-circle-fill {
+    fill: none;
+    stroke: #1b26ff;
+    stroke-width: 5;
+    stroke-dasharray: 125.6; /* Circunferência do círculo */
+    stroke-dashoffset: 125.6;
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.progress-text {
+    font-size: 0.6rem;
+    fill: whitesmoke;
+    font-weight: 500;
+}
+
+.form-title {
+    flex: 1;
+}
+
+.form-title h1 {
+    font-size: 1.2rem;
+    color: white;
+    margin: 0px 0px 5px 0px;
+    text-align: end;
+}
+
+.form-title p {
+    font-size: 0.8rem;
+    color: rgba(249, 240, 223, 0.829);
+    margin: 5px 0px 0px 0px;
+    text-align: end;
+}
+
+
+/* Estilo dos grupos de campos */
+.conjunto_campos_g1,
+.conjunto_campos_g2 {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.conjunto_campos_g1 {
+    background-color: var(--primary-color);
+    padding: 1rem 0.8rem;
+    color: var(--text-color-light);
+}
+
+.conjunto_campos_g2 {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-dark);
+    padding: 10px;
+}
+
+/* Estilo da seção inicial */
+.secao_inicial {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.titulo_principal h1 {
+    font-family: var(--font-family-secondary);
+    font-size: 1.96rem;
+    margin: 2rem 0;
+    color: var(--primary-color);
+}
+
+.conteudo_flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo de alertas */
+.alerta {
+    margin-bottom: 1.5rem;
+}
+
+.alerta_personalizado {
+    position: relative;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.cabecalho_alerta {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    padding: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.corpo_alerta {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-dark);
+    padding: 0.5rem;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    background-color: var(--bg-color-light);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icone_fechar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.info p {
+    margin: 0;
+    text-align: center;
+    max-width: 812.04px;
+}
+
+/* Estilo da seção central */
+.centro_secao {
+    padding: 0;
+    max-width: 96%;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.centro_secao label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.centro_secao select {
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-bottom: 0.6rem;
+}
+
+.caixa_observacao {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-color-dark);
+}
+
+/* Estilo dos inputs */
+.envoltura_input {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input_personalizado {
+    width: 100%;
+    padding: 13px 10px 5px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.input_personalizado:focus {
+    border-color: var(--primary-color-active);
+}
+
+.input_personalizado::placeholder {
+    color: transparent;
+}
+
+.rotulo_personalizado {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #999;
+    transition: all 0.3s ease;
+    font-size: 0.7em;
+}
+
+.input_personalizado:focus+.rotulo_personalizado,
+.input_personalizado:not(:placeholder-shown)+.rotulo_personalizado {
+    top: 10px;
+    font-size: 0.6em;
+    color: var(--primary-color-active);
+}
+
+/* Estilo dos rádios personalizados */
+.div_radio_personalizado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    font-size: 0.95em;
+    flex-wrap: wrap;
+    margin-top: 45px;
+}
+
+.rotulo_radio {
+    font-weight: bold;
+    color: var(--text-color-dark);
+    cursor: pointer;
+    display: inline-block;
+}
+
+.input_radio {
+    display: none;
+}
+
+.input_radio+.span_radio {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.input_radio:checked+.span_radio {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.span_radio {
+    font-size: 1em;
+}
+
+.rotulo_radio:hover {
+    color: var(--primary-color);
+}
+
+/* Estilo das seleções */
+.selecao_padrao_01 {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.rotulo {
+    font-size: 0.9em;
+    font-weight: bolder;
+    margin: 5% 0 3% 0;
+}
+
+/* Estilo dos botões de nacionalidade e visitas anteriores */
+.btn_nacionalidade,
+.btn_visitas_anteriores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 4px;
+    width: 2.8em;
+    height: 2.7em;
+    padding: 5px;
+    border-radius: 15%;
+    box-sizing: border-box;
+}
+
+.btn_imagem_adicionar,
+.btn_imagem_excluir {
+    width: 30px;
+    height: 30px;
+}
+
+.legenda_padrao_01 {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 0.8rem;
+    font-size: calc(0.975rem + .3vw);
+    line-height: inherit;
+}
+
+.indice {
+    position: relative;
+    margin: 0.5rem auto;
+    bottom: 9px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: black;
+    color: whitesmoke;
+    line-height: 25px;
+    font-size: 1.2em;
+}
+
+/* sasasas */
+.input_container {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.selecao_data {
+    max-width: 300px; /* Ajuste conforme necessário */
+    margin: 0 auto; /* Centraliza o elemento */
+}
+
+input[type="text"] > .selecao_data {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+/* sasasas */
+
+.input-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Sobrescrever estilos do Select2 */
+.select2-container {
+    width: 100% !important;
+}
+
+.select2-container--default .select2-selection--single {
+    height: auto !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 5px !important;
+    box-sizing: border-box !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 1.6 !important;
+    padding: 0.5rem 1.5rem 0.5rem 1rem !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: auto !important;
+    right: 10px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+/* Contêiner de botões */
+.container_botoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.container_botoes button {
+    position: relative;
+    width: 90%;
+    max-width: 300px;
+    /* Ajuste conforme necessário */
+    margin: 0 auto 0.5rem auto;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 25px;
+    /* Bordas arredondadas */
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    /* Centraliza o texto */
+}
+
+.container_botoes button:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.container_botoes button:active {
+    background-color: var(--primary-color-active);
+}
+
+.container_botoes i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.secao_anterior i {
+    left: 1.2rem;
+    /* Ajuste conforme necessário */
+}
+
+.proxima_secao i {
+    right: 1.2rem;
+    /* Ajuste conforme necessário */
+}
+
+/* Estilo dos botões */
+.btn_personalizado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn_personalizado span {
+    flex-grow: 1;
+    /* Faz com que o texto ocupe o espaço restante */
+    text-align: center;
+}
+
+.bgc_continar_nacionalidade {
+    background-color: var(--complementary-color);
+}
+
+.consulado {
+    border: solid 1px darkgray;
+    border-radius: 5px;
+    padding: 0.6rem;
+    box-shadow: 2px 3px 10px #00000091;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+.secao_titulo_padrao {
+    font-family: 'Montserrat', sans-serif; /* Fonte estilosa e robusta */
+    font-weight: 700; /* Peso da fonte */
+    color: var(--primary-color); /* Cor primária */
+    text-align: center; /* Centralizado */
+    margin: 1rem 0; /* Espaçamento acima e abaixo */
+    text-transform: uppercase; /* Texto em maiúsculas para impacto */
+    letter-spacing: 0px; /* Espaçamento entre letras */
+}
+
+.secao_titulo_padrao > h2 {
+    font-size: 1.2rem; /* Tamanho grande para destaque */
 }

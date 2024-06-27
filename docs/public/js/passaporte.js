@@ -1,12 +1,12 @@
 function togglePassportQuestions(hasLostOrStolen) {
-    var passportNumberQuestion = document.getElementById('passportNumberQuestion');
-    var passportIssuingCountryQuestion = document.getElementById('passportIssuingCountryQuestion');
+    var numero_passaporteQuestion = document.getElementById('numero_passaporteQuestion');
+    var pais_emissao_passaporteQuestion = document.getElementById('pais_emissao_passaporteQuestion');
     
     if (hasLostOrStolen) {
-        passportNumberQuestion.style.display = 'block';
-        passportIssuingCountryQuestion.style.display = 'block';
+        numero_passaporteQuestion.style.display = 'block';
+        pais_emissao_passaporteQuestion.style.display = 'block';
     } else {
-        passportNumberQuestion.style.display = 'none';
-        passportIssuingCountryQuestion.style.display = 'none';
+        numero_passaporteQuestion.style.display = 'none';
+        pais_emissao_passaporteQuestion.style.display = 'none';
     }
 }

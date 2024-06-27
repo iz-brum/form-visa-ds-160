@@ -5,10 +5,11 @@ import fetch from 'node-fetch';
 import { fileURLToPath } from 'url';
 import { getNameFromGeonameId, processFormData } from './formUtils.js';
 import cors from 'cors';
+import { logRequest } from './logger.js'; // Importando o middleware de logging
 
 const app = express();
 const port = process.env.PORT || 3000;
-const geonamesUsername = 'izann_brum';
+const geonamesUsername = process.env.GEONAMES_USERNAME || 'izann_brum';
 
 const corsOptions = {
     origin: '*',
@@ -23,6 +24,9 @@ const publicDirectoryPath = path.join(__dirname, '../docs/public');
 
 app.use('/public', express.static(publicDirectoryPath));
 
+// Aplicando o middleware de logging em todas as rotas
+app.use(logRequest);
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../docs/index.html'));
 });
@@ -31,16 +35,26 @@ app.get('/api/countries', async (req, res) => {
     try {
         console.log('Accessing /api/countries route');
         const response = await fetch(`https://secure.geonames.org/countryInfoJSON?username=${geonamesUsername}`);
-        console.log('Geonames API response:', response);
         if (!response.ok) {
             throw new Error(`Failed to access API: ${response.statusText}`);
         }
         const data = await response.json();
-        console.log('Data received from Geonames API:', data);
         res.json(data);
     } catch (error) {
-        console.error('Error fetching country data from API:', error);
-        res.status(500).json({ error: 'Failed to fetch country data from API' });
+        console.error('Error fetching pais data from API:', error);
+        res.status(500).json({ error: 'Failed to fetch pais data from API' });
+    }
+});
+
+app.get('/api/config', (req, res) => {
+    try {
+        const config = {
+            username: geonamesUsername
+        };
+        res.json(config);
+    } catch (error) {
+        console.error('Error fetching configuration:', error);
+        res.status(500).json({ error: 'Failed to fetch configuration' });
     }
 });
 

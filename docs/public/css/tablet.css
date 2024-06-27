@@ -1,130 +1,250 @@
-/* Estilos para tablets (entre 576px e 991.98px de largura) */
-@media (min-width: 576px) and (max-width: 991.98px) {
-    /* Seus estilos para tablets aqui */
+/* dir: docs/public/css/tablet.css */
 
-    /* Centralizar o logo na barra de navegação */
-    .navbar-brand {
-        position: absolute;
-        top: 10px;
-        /* Adicionando margem superior de 10 pixels */
-        left: 0;
-        right: 0;
-        margin: auto;
+@media (min-width: 768px) {
+    .logo_topo {
+        width: 65%;
+        height: auto;
         display: block;
-        text-align: center;
+        margin: 0 auto;
     }
 
-    .title-form {
-        font-family: 'Nunito', Arial, sans-serif;
-        font-size: calc(1.1em + 5px);
-        font-weight: 700;
-        /* Regular */
-        text-align: center;
-        color: #d98014cd;
-        /* Cor azul personalizada */
-        margin: 10px 0;
+    .titulo_principal h1 {
+        font-size: 2.8rem;
     }
 
-    .custom-text {
-        font-family: 'Nunito', sans-serif;
-        font-size: 1em;
-        font-weight: normal;
-        color: #000000c7;
-        /* Cor preta */
-        text-align: center;
+    .btn_personalizado {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
     }
 
-    /* Estilo para a div de avisos importantes */
-    .trigger-paragraph-mobile,
-    .trigger-paragraph-desktop {
-        /* From https://css.glass */
-        color: azure;
-        background: #002fff;
-        border-radius: 16px;
-        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(9.7px);
-        -webkit-backdrop-filter: blur(9.7px);
-        border: 1px solid rgba(0, 0, 0, 0.41);
-        width: fit-content;
-        margin: auto;
-        font-size: smaller;
-        font-weight: 900;
-    }
-
-    /* Estilo para o pop-up */
-    .popup {
-        display: none;
-        position: fixed;
-        /* Mudado para 'fixed' para garantir que o pop-up fique visível independentemente do scroll */
-        padding: 20px;
-        /* Aumentando o preenchimento para melhor legibilidade */
-        width: 85%;
-        max-width: calc(100% - 10px);
-        /* Largura máxima ajustada */
-        height: min-content;
-        /* Define a altura como mínima necessária para o conteúdo */
-        left: 50%;
-        /* Posicionando o pop-up no centro horizontalmente */
-        transform: translateX(-50%);
-        /* Movendo o pop-up para o centro horizontalmente */
-        top: 10px;
-        /* Distância do pop-up ao topo da tela */
-        bottom: 20px;
-        /* Distância do pop-up ao fundo da tela */
-        z-index: 9999;
-        /* Garantindo que o pop-up esteja sempre acima de outros elementos */
-        font-size: 12px;
-        /* Tamanho da fonte reduzido para melhor legibilidade em dispositivos móveis */
-        line-height: 1.6;
-        /* Espaçamento entre linhas aumentado para melhor legibilidade */
-        color: azure;
-
-        /* From https://css.glass */
-        background: rgba(10, 10, 10, 0.46);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5.4px);
-        -webkit-backdrop-filter: blur(5.4px);
-        border: 1px solid rgba(12, 6, 98, 0.596);
-    }
-
-
-
-    /* Estilo para a div de gatilho do clique */
-    #popup-content {
-        display: none;
-        /* Por padrão, o pop-up está oculto */
-    }
-
-    /* Estilo para o texto dentro do pop-up */
-    .popup p {
-        margin-bottom: 10px;
-        /* Adicionando margem inferior para separar os parágrafos */
-        text-align: left;
-    }
-
-    /* Estilo para o pop-up ao passar o mouse sobre o gatilho */
-    #trigger-paragraph:hover+#popup-content {
-        display: block;
-    }
-
-    /* Estilo para o ícone de fechar */
-    .close-icon {
-        position: absolute;
-        top: -2px;
-        right: 6px;
+    /* Estilo dos botões */
+    .btn_personalizado {
+        background-color: var(--primary-color);
+        color: var(--text-color-light);
+        border: none;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
         cursor: pointer;
-        font-size: 23px;
-        color: #ffffff;
-        /* Cor do ícone */
-        z-index: 1;
-        /* Certifique-se de que o ícone esteja acima do conteúdo do pop-up */
+        border-radius: 3vh;
+        transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    /* Estilo para o ícone de fechar ao passar o mouse sobre ele */
-    .close-icon:hover {
-        color: #ff0000;
-        /* Cor do ícone ao passar o mouse */
+    .btn_personalizado:hover {
+        background-color: var(--primary-color-hover);
     }
 
+    .btn_personalizado:active {
+        background-color: var(--primary-color-active);
+    }
+
+    /* Estilo da seção central */
+    .centro_secao {
+        padding: 0.5rem;
+        background-color: var(--text-color-light);
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 90%;
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+    .centro_secao label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .centro_secao select {
+        width: 100%;
+        padding: 0.4rem;
+        font-size: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        margin-bottom: 0.6rem;
+    }
+
+    .caixa_observacao {
+        margin-top: 1rem;
+        font-size: 0.875rem;
+        color: var(--text-color-dark);
+    }
+
+    .container_botoes {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 6vw;
+        margin: 0 3rem;
+        margin-top: 1.5rem;
+    }
+
+    .container_botoes button {
+        display: flex;
+        align-items: center;
+        width: 90%;
+    }
+
+    .container_botoes i {
+        margin: 0 0.5rem;
+    }
+
+    
+    .envoltura_input {
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+    .input_personalizado {
+        width: 100%;
+        padding: 13px 10px 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+    }
+
+    .input_personalizado:focus {
+        border-color: #03458c;
+    }
+
+    .input_personalizado::placeholder {
+        color: transparent;
+        /* Para esconder o placeholder */
+    }
+
+    .rotulo_personalizado {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #999;
+        transition: all 0.3s ease;
+        font-size: 0.7em;
+    }
+
+    .input_personalizado:focus+.rotulo_personalizado,
+    .input_personalizado:not(:placeholder-shown)+.rotulo_personalizado {
+        top: 10px;
+        font-size: 0.6em;
+        color: var(--primary-color-active);
+    }
+
+    .div_radio_personalizado {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        font-size: 0.95em;
+        flex-wrap: wrap;
+        margin-top: 45px;
+        /* Permite que os itens se movam para a próxima linha se necessário */
+    }
+
+    .rotulo_radio {
+        font-weight: bold;
+        color: #333;
+        /* Cor do texto */
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .input_radio {
+        display: none;
+        /* Esconde o botão de rádio padrão */
+    }
+
+    /* Estilo do botão de rádio personalizado */
+    .input_radio+.span_radio {
+        display: inline-block;
+        padding: 8px 12px;
+        /* Espaçamento interno */
+        border: 2px solid #ccc;
+        /* Cor da borda do botão */
+        border-radius: 5px;
+        /* Borda arredondada */
+        transition: border-color 0.3s ease;
+        /* Transição suave para a mudança de cor da borda */
+    }
+
+    /* Quando o botão de rádio está marcado, altera a cor da borda */
+    .input_radio:checked+.span_radio {
+        border-color: #007bff;
+        /* Cor da borda quando marcado */
+        color: #007bff;
+    }
+
+    .span_radio {
+        /* Adicione estilos adicionais conforme necessário */
+        font-size: 1em;
+    }
+
+    /* Estilo para quando o rótulo é clicado */
+    .rotulo_radio:hover {
+        color: #007bff;
+        /* Altera a cor do texto quando o rótulo é hover */
+    }
+
+    .conjunto_campos_g1 {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .conjunto_campos_g2 {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+
+    .selecao_padrao_01 {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        text-align: center;
+        font-size: 0.9em;
+    }
+
+    .rotulo {
+        font-size: 0.9em;
+        font-weight: bolder;
+        margin: 5% 0 3% 0;
+    }
+
+    .btn_nacionalidade,
+    .btn_visitas_anteriores {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 4px;
+        width: 2.8em;
+        height: 2.7em;
+        padding: 5px;
+        border-radius: 15%;
+        box-sizing: border-box;
+        /* Certifique-se de que o box-sizing inclua bordas e padding */
+    }
+
+    .btn_imagem_adicionar,
+    .btn_imagem_excluir {
+        width: 30px;
+        height: 30px;
+    }
+
+    .legenda_padrao_01 {
+        float: left;
+        width: 100%;
+        padding: 0 10px;
+        margin-bottom: 0.8rem;
+        font-size: calc(0.975rem + .3vw);
+        line-height: inherit;
+    }
 }

@@ -1,7 +1,7 @@
 // DIR: FORMULARIO-VISTO\PUBLIC\JS\GEONAMES.JS
 
 function getAddressDetailsByCoordinates(latitude, longitude) {
-    return fetch(`http://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
+    return fetch(`http://nominatim.openruamap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
         .then(response => response.json())
         .then(data => {
             const address = data.address || {};
@@ -20,24 +20,24 @@ function getAddressDetailsByCoordinates(latitude, longitude) {
 }
 
 function getAddressDetailsByZip(zipCode) {
-    fetch(`http://api.geonames.org/postalCodeLookupJSON?postalcode=${zipCode}&country=US&username=izann_brum`)
+    fetch(`http://api.geonames.org/postalCodeLookupJSON?postalcode=${zipCode}&pais=US&username=izann_brum`)
         .then(response => response.json())
         .then(data => {
             if (data.postalcodes && data.postalcodes.length > 0) {
                 const addressData = data.postalcodes[0];
 
-                const city = addressData.placeName || '';
-                const state = addressData.adminName1 || '';
+                const cidade = addressData.placeName || '';
+                const estado = addressData.adminName1 || '';
 
                 const latitude = addressData.lat || '';
                 const longitude = addressData.lng || '';
 
-                console.log('Cidade:', city);
-                console.log('Estado:', state);
+                console.log('Cidade:', cidade);
+                console.log('Estado:', estado);
 
                 // Preenche os campos com os dados obtidos da API
-                document.getElementById("city2").value = city;
-                document.getElementById("state2").value = state;
+                document.getElementById("cidade_2").value = cidade;
+                document.getElementById("estado_2").value = estado;
             } else {
                 console.error('Endereço não encontrado.');
             }
@@ -61,7 +61,7 @@ document.getElementById("zip").addEventListener("change", function () {
 });
 
 // Dicionário de siglas de estados para nomes completos
-const stateDictionary = {
+const estadoDictionary = {
     'AC': 'Acre',
     'AL': 'Alagoas',
     'AP': 'Amapá',
@@ -94,14 +94,14 @@ const stateDictionary = {
 document.addEventListener('DOMContentLoaded', function () {
     console.log('DOM fully loaded and parsed');
     generateAddressFieldsForForms([
-        'pessoal-address-form',
-        'passport-destination-address-form',
-        'schoolCep',
-        'workCep',
-        'institution-address-form',
-        'contact-br01-address-form',
-        'contact-br02-address-form',
-        'escola02-address-form'
+        'form_endereco_pessoal',
+        'form_endereco_destino_passaporte',
+        'cep_escola',
+        'cep_trabalho',
+        'form_endereco_instituicao',
+        'form_endereco_contact_br_01',
+        'form_endereco_contact_br_02',
+        'form_endereco_escola_02'
     ]);
 });
 
@@ -112,53 +112,53 @@ function generateAddressFieldsForForms(formIds) {
     });
 }
 
-function generateAddressFields(containerId) {
-    console.log('generateAddressFields called for container ID:', containerId);
-    const container = document.getElementById(containerId);
+function generateAddressFields(container_id) {
+    console.log('generateAddressFields called for container ID:', container_id);
+    const container = document.getElementById(container_id);
     if (container) {
-        console.log('Container found:', containerId);
+        console.log('Container found:', container_id);
         const addressFields = `
             <fieldset>
                 <!-- CEP -->
-                <div class="input-wrapper">
-                    <input type="text" class="custom-input cep-input" id="cep-${containerId}" name="cep" autocomplete="postal-code" placeholder="">
-                    <label for="cep-${containerId}" class="custom-label">CEP</label>
+                <div class="envoltura_input">
+                    <input type="text" class="input_personalizado input_cep" id="cep_${container_id}" name="cep" autocomplete="postal-code" placeholder="">
+                    <label for="cep_${container_id}" class="rotulo_personalizado">CEP</label>
                 </div>
                 
                 <!-- Rua/Av -->
-                <div class="input-wrapper">
-                    <input type="text" class="custom-input street-input" id="street-${containerId}" name="street" autocomplete="street-address" placeholder="">
-                    <label for="street-${containerId}" class="custom-label">Rua/Av</label>
+                <div class="envoltura_input">
+                    <input type="text" class="input_personalizado rua-input" id="rua_${container_id}" name="rua" autocomplete="rua-address" placeholder="">
+                    <label for="rua_${container_id}" class="rotulo_personalizado">Rua/Av</label>
                 </div>
 
                 <!-- Complemento -->
-                <div class="input-wrapper">
-                    <input type="text" class="custom-input complement-input" id="complement-${containerId}" name="complement" placeholder="">
-                    <label for="complement-${containerId}" class="custom-label">Complemento</label>
+                <div class="envoltura_input">
+                    <input type="text" class="input_personalizado complemento-input" id="complementoo_${container_id}" name="complemento" placeholder="">
+                    <label for="complementoo_${container_id}" class="rotulo_personalizado">Complemento</label>
                 </div>
 
                 <!-- Bairro -->
-                <div class="input-wrapper">
-                    <input type="text" class="custom-input neighborhood-input" id="neighborhood-${containerId}" name="neighborhood" autocomplete="address-level2" placeholder="">
-                    <label for="neighborhood-${containerId}" class="custom-label">Bairro</label>
+                <div class="envoltura_input">
+                    <input type="text" class="input_personalizado bairro-input" id="bairro_${container_id}" name="bairro" autocomplete="address-level2" placeholder="">
+                    <label for="bairro_${container_id}" class="rotulo_personalizado">Bairro</label>
                 </div>
 
                 <!-- Cidade -->
-                <div class="input-wrapper">
-                    <input type="text" class="custom-input city-input" id="city-${containerId}" name="city" autocomplete="address-level2" placeholder="">
-                    <label for="city-${containerId}" class="custom-label">Cidade</label>
+                <div class="envoltura_input">
+                    <input type="text" class="input_personalizado cidade-input" id="cidade_${container_id}" name="cidade" autocomplete="address-level2" placeholder="">
+                    <label for="cidade_${container_id}" class="rotulo_personalizado">Cidade</label>
                 </div>
 
                 <!-- Estado -->
-                <div class="input-wrapper">
-                    <input type="text" class="custom-input state-input" id="state-${containerId}" name="state" autocomplete="address-level1" placeholder="">
-                    <label for="state-${containerId}" class="custom-label">Estado</label>
+                <div class="envoltura_input">
+                    <input type="text" class="input_personalizado estado-input" id="estado_${container_id}" name="estado" autocomplete="address-level1" placeholder="">
+                    <label for="estado_${container_id}" class="rotulo_personalizado">Estado</label>
                 </div>
 
                 <!-- País -->     
-           <!-- <div class="input-wrapper">
-                    <input type="text" class="custom-input country-input" id="country-${containerId}" name="country" autocomplete="country-name" placeholder="">
-                    <label for="country-${containerId}" class="custom-label">País</label>
+           <!-- <div class="envoltura_input">
+                    <input type="text" class="input_personalizado pais-input" id="pais_${container_id}" name="pais" autocomplete="pais-name" placeholder="">
+                    <label for="pais_${container_id}" class="rotulo_personalizado">País</label>
                 </div> -->
 
             </fieldset>
@@ -166,22 +166,22 @@ function generateAddressFields(containerId) {
         container.innerHTML = addressFields;
 
         // Adiciona o event listener para o campo de CEP dentro deste container
-        const cepInput = container.querySelector('.cep-input');
+        const cepInput = container.querySelector('.input_cep');
         cepInput.addEventListener('change', function (event) {
             const cepValue = event.target.value.replace(/\D/g, ''); // Remove caracteres não numéricos
             if (cepValue.length === 8) {
-                autocompleteAddressFromCEP(cepValue, containerId); // Chama a função de autocompletar
-                console.log('autocompleteAddressFromCEP chamada para o container ID: ' + containerId);
+                autocompleteAddressFromCEP(cepValue, container_id); // Chama a função de autocompletar
+                console.log('autocompleteAddressFromCEP chamada para o container ID: ' + container_id);
             }
         });
     } else {
-        console.error('Elemento com o ID ' + containerId + ' não encontrado.');
+        console.error('Elemento com o ID ' + container_id + ' não encontrado.');
     }
 }
 
 
 // Função para autocompletar os campos de endereço a partir do CEP
-function autocompleteAddressFromCEP(cepValue, containerId) {
+function autocompleteAddressFromCEP(cepValue, container_id) {
     // Constrói a URL da API ViaCEP com o CEP fornecido
     const url = `https://viacep.com.br/ws/${cepValue}/json/`;
 
@@ -195,31 +195,31 @@ function autocompleteAddressFromCEP(cepValue, containerId) {
         })
         .then(data => {
             // Preenche os campos de endereço com os dados retornados pela API
-            const container = document.getElementById(containerId);
-            container.querySelector('.street-input').value = data.logradouro || '';
-            container.querySelector('.neighborhood-input').value = data.bairro || '';
-            container.querySelector('.city-input').value = data.localidade || '';
+            const container = document.getElementById(container_id);
+            container.querySelector('.rua-input').value = data.logradouro || '';
+            container.querySelector('.bairro-input').value = data.bairro || '';
+            container.querySelector('.cidade-input').value = data.localidade || '';
 
-            // Verifica se o campo 'complemento' está presente nos dados e preenche o campo de complemento
-            if (data.complemento) {
-                container.querySelector('.complement-input').value = data.complemento || '';
+            // Verifica se o campo 'complementoo' está presente nos dados e preenche o campo de complementoo
+            if (data.complementoo) {
+                container.querySelector('.complemento-input').value = data.complementoo || '';
             } else {
-                container.querySelector('.complement-input').value = ''; // Limpa o campo de complemento se não houver valor
+                container.querySelector('.complemento-input').value = ''; // Limpa o campo de complementoo se não houver valor
             }
 
             // Substitui a sigla do estado pela nome completo do estado
-            const stateFullName = stateDictionary[data.uf] || ''; // Procura a sigla no dicionário
-            container.querySelector('.state-input').value = stateFullName;
+            const estadoFullName = estadoDictionary[data.uf] || ''; // Procura a sigla no dicionário
+            container.querySelector('.estado-input').value = estadoFullName;
         })
         .catch(error => {
             console.error('Erro ao buscar o CEP:', error);
             // Limpa os campos de endereço em caso de erro
-            const container = document.getElementById(containerId);
-            container.querySelector('.street-input').value = '';
-            container.querySelector('.neighborhood-input').value = '';
-            container.querySelector('.city-input').value = '';
-            container.querySelector('.state-input').value = '';
-            container.querySelector('.complement-input').value = ''; // Limpa o campo de complemento em caso de erro
+            const container = document.getElementById(container_id);
+            container.querySelector('.rua-input').value = '';
+            container.querySelector('.bairro-input').value = '';
+            container.querySelector('.cidade-input').value = '';
+            container.querySelector('.estado-input').value = '';
+            container.querySelector('.complemento-input').value = ''; // Limpa o campo de complementoo em caso de erro
         });
 }
 

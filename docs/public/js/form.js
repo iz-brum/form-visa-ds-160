@@ -1,6 +1,7 @@
+
 document.addEventListener('DOMContentLoaded', function () {
-    const radioButtons = document.querySelectorAll('input[name="used_other_names"]');
-    
+    const radioButtons = document.querySelectorAll('input[name="outros_nomes_usados"]');
+
     radioButtons.forEach(radio => {
         radio.addEventListener('change', toggleOtherNamesFields);
     });
@@ -17,127 +18,75 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const daySelect = document.getElementById('dia_nascimento');
-    const monthSelect = document.getElementById('mes_nascimento');
-    const yearSelect = document.getElementById('ano_nascimento');
-
-    // Obter a data atual
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1; // Os meses em JavaScript começam em zero
-    const currentDay = currentDate.getDate();
-
-    // Função para determinar se um ano é bissexto
-    function isLeapYear(year) {
-        return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
-    }
-
-    // Determinar o número de dias em um determinado mês e ano
-    function daysInMonth(month, year) {
-        if (month === 2) {
-            return isLeapYear(year) ? 29 : 28;
-        }
-        return [4, 6, 9, 11].includes(month) ? 30 : 31;
-    }
-
-    // Preencher seleção de dias
-    function fillDaySelect(keepDay) {
-        const selectedMonth = parseInt(monthSelect.value);
-        const selectedYear = parseInt(yearSelect.value);
-        const numDays = daysInMonth(selectedMonth, selectedYear);
-        const previousDay = daySelect.value;
-        daySelect.innerHTML = ''; // Limpar as opções existentes
-
-        for (let i = 1; i <= numDays; i++) {
-            const option = document.createElement('option');
-            option.text = i < 10 ? '0' + i : i;
-            option.value = i < 10 ? '0' + i : i;
-            daySelect.add(option);
-        }
-
-        // Manter o dia selecionado se possível, caso contrário, selecionar o último dia disponível
-        if (keepDay) {
-            daySelect.value = previousDay <= numDays ? previousDay : numDays;
-        }
-    }
-
-    // Preencher seleção de meses com o nome completo de cada mês
-    const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-    for (let i = 1; i <= 12; i++) {
-        const option = document.createElement('option');
-        option.text = months[i - 1];
-        option.value = i < 10 ? '0' + i : i;
-        monthSelect.add(option);
-    }
-
-    // Preencher seleção de anos (do ano atual até 100 anos atrás)
-    for (let i = currentYear; i >= currentYear - 100; i--) {
-        const option = document.createElement('option');
-        option.text = i;
-        option.value = i;
-        yearSelect.add(option);
-    }
-
-    // Definir data mínima selecionável (um dia antes da data atual)
-    const minSelectableDate = new Date(currentYear, currentMonth - 1, currentDay);
-    yearSelect.value = minSelectableDate.getFullYear();
-    monthSelect.value = (minSelectableDate.getMonth() + 1) < 10 ? '0' + (minSelectableDate.getMonth() + 1) : (minSelectableDate.getMonth() + 1);
-    fillDaySelect(true); // Preencher a seleção de dias inicialmente
-    daySelect.value = (minSelectableDate.getDate()) < 10 ? '0' + (minSelectableDate.getDate()) : (minSelectableDate.getDate());
-
-    // Desativar datas futuras
-    daySelect.addEventListener('change', () => {
-        if (yearSelect.value > minSelectableDate.getFullYear() ||
-            (yearSelect.value == minSelectableDate.getFullYear() && monthSelect.value > minSelectableDate.getMonth() + 1) ||
-            (yearSelect.value == minSelectableDate.getFullYear() && monthSelect.value == minSelectableDate.getMonth() + 1 && daySelect.value > minSelectableDate.getDate())) {
-            yearSelect.value = minSelectableDate.getFullYear();
-            monthSelect.value = (minSelectableDate.getMonth() + 1) < 10 ? '0' + (minSelectableDate.getMonth() + 1) : (minSelectableDate.getMonth() + 1);
-            fillDaySelect(true); // Atualizar a seleção de dias
-            daySelect.value = (minSelectableDate.getDate()) < 10 ? '0' + (minSelectableDate.getDate()) : (minSelectableDate.getDate());
-        }
-    });
-    monthSelect.addEventListener('change', () => {
-        fillDaySelect(true); // Atualizar a seleção de dias quando o mês mudar
-        if (yearSelect.value > minSelectableDate.getFullYear() ||
-            (yearSelect.value == minSelectableDate.getFullYear() && monthSelect.value > minSelectableDate.getMonth() + 1)) {
-            yearSelect.value = minSelectableDate.getFullYear();
-            monthSelect.value = (minSelectableDate.getMonth() + 1) < 10 ? '0' + (minSelectableDate.getMonth() + 1) : (minSelectableDate.getMonth() + 1);
-        }
-    });
-    yearSelect.addEventListener('change', () => {
-        fillDaySelect(true); // Atualizar a seleção de dias quando o ano mudar
-        if (yearSelect.value > minSelectableDate.getFullYear()) {
-            yearSelect.value = minSelectableDate.getFullYear();
-        }
-    });
+document.addEventListener('DOMContentLoaded', function () {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('data_nascimento').setAttribute('max', today);
 });
 
+// Chamando a função para preencher todos os dropdowns de países
 document.addEventListener("DOMContentLoaded", function () {
-    populateCountrySelect("pais_nascimento"); // Para o país de nascimento
-    populateCountrySelect("passportIssuingCountry"); // Para o país do passaporte
-    populateCountrySelect("passportIssuingCountryEmissor"); // Para o país emissor do passaporte
-    populateCountrySelect("passportIssuingCountryLost");  // Para o país emissor do passaporte roubado
+    const paisSelectIds = [
+        "pais_nascimento",
+        "pais_emissao_passaporte",
+        "pais_emissao_passaporteEmissor",
+        "pais_emissao_passaporte_perdido"
+    ];
+    populateCountrySelects(paisSelectIds);
 });
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log('segundo DomContentLoaded');
 
     const sections = document.querySelectorAll("section");
-    let currentSection = 0;
+    const totalSteps = sections.length;
+    let currentSection = parseInt(localStorage.getItem('currentSection')) || 0;
 
-    function showSection(index) {
+    document.querySelector('.progress-text').textContent = `${currentSection + 1} de ${totalSteps}`;
+
+    const sectionTitles = [
+        "FORMULÁRIO DS-160",
+        "ESCOLHA DO CONSULADO",
+        "DADOS PESSOAIS",
+        "VIAGEM AOS EUA",
+        "COMPANHEIROS DE VIAGEM",
+        "VIAGENS ANTERIORES AO EUA",
+        "ENDEREÇO E CONTATOS",
+        "PASSAPORTE",
+        "REDES SOCIAIS",
+        "CONTATOS NO EUA",
+        "FAMILIARES",
+        "OCUPAÇÃO ATUAL",
+        "OCUPAÇÕES ANTERIORES",
+        "DADOS MÉDICO, CRIMINAIS E DE SEGURANÇA",
+        "VISTO DE ESTUDANTE"
+    ];
+
+    function showSection(indice) {
         // Oculta todas as seções
         sections.forEach(section => section.style.display = "none");
         // Exibe a seção desejada
-        sections[index].style.display = "block";
+        sections[indice].style.display = "block";
         // Move o foco para o topo da página
         window.scrollTo(0, 0);
+
+        // Atualiza a barra de progresso e o indicador de etapa
+        document.getElementById('form-title').innerText = sectionTitles[indice];
+        document.getElementById('next-step').innerText = `Next: ${sectionTitles[indice + 1] || 'Fim'}`;
+        updateProgressCircle(indice);
+    }
+
+    function updateProgressCircle(indice) {
+        const progressCircle = document.querySelector('.progress-circle-fill');
+        const text = document.querySelector('.progress-text');
+        const progress = ((indice + 1) / totalSteps) * 125.6;
+        progressCircle.style.strokeDashoffset = 125.6 - progress;
+        text.textContent = `${indice + 1} of ${totalSteps}`;
     }
 
     function nextSection() {
         if (currentSection < sections.length - 1) {
             currentSection++;
+            localStorage.setItem('currentSection', currentSection);
             showSection(currentSection);
         }
     }
@@ -145,20 +94,25 @@ document.addEventListener("DOMContentLoaded", function () {
     function prevSection() {
         if (currentSection > 0) {
             currentSection--;
+            localStorage.setItem('currentSection', currentSection);
             showSection(currentSection);
         }
     }
 
-    const nextButtons = document.querySelectorAll(".next-section");
+    const nextButtons = document.querySelectorAll(".proxima_secao");
     nextButtons.forEach(button => {
         button.addEventListener("click", nextSection);
     });
 
-    const prevButtons = document.querySelectorAll(".prev-section");
+    const prevButtons = document.querySelectorAll(".secao_anterior");
     prevButtons.forEach(button => {
         button.addEventListener("click", prevSection);
     });
+
+    // Mostra a seção salva ou a primeira seção
+    showSection(currentSection);
 });
+
 
 // Função genérica para mostrar ou ocultar campos
 function toggleFields(inputElement, targetElementId, action) {
@@ -200,26 +154,12 @@ function setNaoSeAplica(inputId) {
     inputField.value = "Not Apply";
 }
 
-// Evento para aparelhos móveis
-const triggerParagraphMobile = document.querySelector('.trigger-paragraph-mobile');
-const popupContent = document.getElementById('popup-content');
+// Selecionar elementos
+const triggerParagraph = document.querySelector('.trigger-paragraph');
+const popupContent = document.getElementById('conteudo_popup');
 let popupVisible = false;
+let hidePopupTimeout;
 
-triggerParagraphMobile.addEventListener('touchstart', function (event) {
-    event.preventDefault();
-    togglePopupVisibility();
-});
-
-// Evento para dispositivos não móveis
-const triggerParagraphDesktop = document.querySelector('.trigger-paragraph-desktop');
-
-triggerParagraphDesktop.addEventListener('mouseenter', function (event) {
-    showPopup();
-});
-
-triggerParagraphDesktop.addEventListener('mouseleave', function (event) {
-    hidePopup();
-});
 
 // Funções auxiliares
 function togglePopupVisibility() {
@@ -240,8 +180,15 @@ function hidePopup() {
     popupVisible = false;
 }
 
+function hidePopupWithDelay() {
+    hidePopupTimeout = setTimeout(() => {
+        hidePopup();
+    }, 300); // 300ms delay
+}
+
 // Adicionar manipulador de eventos para fechar o pop-up ao clicar no ícone de fechar
-const closeIcon = document.querySelector('.close-icon');
+const closeIcon = document.querySelector('.icone_fechar');
 closeIcon.addEventListener('click', function () {
     hidePopup();
 });
+

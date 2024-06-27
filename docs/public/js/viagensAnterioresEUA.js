@@ -3,14 +3,39 @@
 
 // Função para mostrar ou ocultar os campos relacionados às informações do visto
 function showVisaInfoFields() {
-    var radioButton = document.getElementById("yesUSVisa");
-    toggleFields(radioButton, "visaInfoFields", "block");
+    var radioButtonSim = document.getElementById("tem_visto_americano_sim");
+    var radioButtonNao = document.getElementById("tem_visto_americano_nao");
+
+    // Verifique se os radio buttons existem
+    if (radioButtonSim && radioButtonNao) {
+        // Mostrar o campo se "Sim" estiver selecionado, esconder se "Não" estiver selecionado
+        if (radioButtonSim.checked) {
+            toggleFields(radioButtonSim, "campos_informacao_visto", "block");
+        } else if (radioButtonNao.checked) {
+            toggleFields(radioButtonNao, "campos_informacao_visto", "none");
+        }
+    } else {
+        console.error('Radio buttons para visto americano não encontrados.');
+    }
 }
+
 
 // Função para mostrar ou ocultar o campo de entrada do ano relacionado a vistos roubados ou perdidos
 function toggleYearInputForLostOrStolenVisa() {
-    var radioButton = document.getElementById("previousVisaYes");
-    toggleFields(radioButton, "yearContainer", "block");
+    var radioButtonSim = document.getElementById("visto_anterior_perdido_sim");
+    var radioButtonNao = document.getElementById("visto_anterior_perdido_nao");
+
+    // Verifique se os radio buttons existem
+    if (radioButtonSim && radioButtonNao) {
+        // Mostrar o campo se "Sim" estiver selecionado, esconder se "Não" estiver selecionado
+        if (radioButtonSim.checked) {
+            toggleFields(radioButtonSim, "ano_perda_visto_container", "block");
+        } else if (radioButtonNao.checked) {
+            toggleFields(radioButtonNao, "ano_perda_visto_container", "none");
+        }
+    } else {
+        console.error('Radio buttons para vistos roubados ou perdidos não encontrados.');
+    }
 }
 
 // Função para mostrar ou ocultar os detalhes relacionados a vistos cancelados ou revogados
@@ -20,68 +45,71 @@ function toggleVisaCanceledDetails() {
 }
 
 
-let visitCount = 0;
+let visitaCount = 0;
 
 function toggleVisitFields() {
-    const radioButton = document.getElementById("visitou_eua_sim");
-    const visitFields = document.getElementById("campos_visita");
-    const visitMessages = document.getElementById("visitMessages");
+    const radioButton = document.getElementById("visitaou_eua_sim");
+    const visitaFields = document.getElementById("campos_visitaa");
+    const visitaMessages = document.getElementById("mensagens_visitaa");
 
-    toggleFields(radioButton, "campos_visita", "block");
+    toggleFields(radioButton, "campos_visitaa", "block");
 
-    if (visitCount === 0 && visitFields.style.display === "block") {
+    if (visitaCount === 0 && visitaFields.style.display === "block") {
         addVisit();
     }
 
-    visitMessages.innerHTML = ''; // Limpa todas as mensagens
+    visitaMessages.innerHTML = ''; // Limpa todas as mensagens
 }
 
 
 function addVisit() {
     const MAX_VISITS = 5;
 
-    if (visitCount < MAX_VISITS) {
-        visitCount++;
-        const idSuffix = visitCount;
-        visitMessages.innerHTML = ''; // Limpa todas as mensagens
+    if (visitaCount < MAX_VISITS) {
+        visitaCount++;
+        const idSuffix = `_${visitaCount}`;
+        const visitaMessages = document.getElementById("mensagens_visitaa");
+        visitaMessages.innerHTML = ''; // Limpa todas as mensagens
 
         const newVisitHTML = `
-            <fieldset class="fieldset-g2">
-                <div class="index"
-                    style="position: relative; margin: 0 auto; bottom:9px; width: 25px; height: 25px; text-align: center; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
-                    ${visitCount}</div>
+            <fieldset class="conjunto_campos_g2">
+                <div class="indice"
+                    style="position: relative; margin: 0 auto; bottom:9px; width: 25px; height: 25px; text-align: centro; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
+                    ${visitaCount}</div>
 
-                <div class="date-input-container">
-                    <label for="visitDate${idSuffix}">Data de entrada:</label>
-                    <input type="date" id="visitDate${idSuffix}" name="visitDate${idSuffix}">
+                <div class="container_input_data">
+                    <label for="data_entrada_${id_suffix}">Data de entrada:</label>
+                    <input type="date" id="data_entrada_${id_suffix}" name="data_entrada_${id_suffix}">
                 </div>
 
-                <div class="date-input-container">
-                    <label for="leftDate${idSuffix}">Data de saída:</label>
-                    <input type="date" id="leftDate${idSuffix}" name="leftDate${idSuffix}">
+                <div class="container_input_data">
+                    <label for="data_saida_${id_suffix}">Data de saída:</label>
+                    <input type="date" id="data_saida_${id_suffix}" name="data_saida_${id_suffix}">
                 </div>
-
             </fieldset>
         `;
 
-        const visitContainer = document.getElementById('visitContainer');
-        visitContainer.insertAdjacentHTML('beforeend', newVisitHTML);
+        const visitaContainer = document.getElementById('conta_visitaas');
+        visitaContainer.insertAdjacentHTML('beforeend', newVisitHTML);
     } else {
-        const visitMessages = document.getElementById('visitMessages');
-        visitMessages.innerHTML = '<p>Você atingiu o limite máximo de visitas.</p>';
+        const visitaMessages = document.getElementById('mensagens_visitaa');
+        visitaMessages.innerHTML = '<p>Você atingiu o limite máximo de visitaas.</p>';
     }
 }
 
 function removeLastVisit() {
-    const visitContainer = document.getElementById('visitContainer');
-    const visitMessages = document.getElementById('visitMessages');
-    visitMessages.innerHTML = ''; // Limpa todas as mensagens
+    const visitaContainer = document.getElementById('conta_visitaas');
+    const visitaMessages = document.getElementById('mensagens_visitaa');
+    visitaMessages.innerHTML = ''; // Limpa todas as mensagens
 
-    if (visitCount > 1) {
-        visitContainer.removeChild(visitContainer.lastElementChild);
-        visitCount--;
+    if (visitaCount > 1) {
+        visitaContainer.removeChild(visitaContainer.lastElementChild);
+        visitaCount--;
     } else {
-        visitMessages.innerHTML = '<p>Você deve manter pelo menos uma visita.</p>';
+        const auxvisitaMessages = document.createElement('p');
+        auxvisitaMessages.innerHTML = '<strong>Você deve manter pelo menos uma visitaa.</strong>';
+        auxvisitaMessages.style.color = 'red'; // Cor vermelha
+        visitaMessages.appendChild(auxvisitaMessages);
     }
 }
 
@@ -110,26 +138,26 @@ function addAmericanLicense() {
     const licenseMessages = document.getElementById('mensagens_carteira');
     licenseMessages.innerHTML = ''; // Limpa todas as mensagens de erro
 
-    const americanLicenseList = document.getElementById('americanLicenseList');
+    const americanLicenseList = document.getElementById('lista_carteiras_americanas');
 
     const newLicenseHTML = `
-        <fieldset class="fieldset-g2">
-            <div class="index" style="position: relative; margin: 0 auto; bottom:9px; width: 25px; height: 25px; text-align: center; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
+        <fieldset class="conjunto_campos_g2">
+            <div class="indice" style="position: relative; margin: 0 auto; bottom:9px; width: 25px; height: 25px; text-align: centro; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
                 ${americanLicenseCount}
             </div>
 
-            <div class="input-wrapper">
-                <input type="text" id="americanLicenseNumber${idSuffix}" name="americanLicenseNumber${idSuffix}"
-                    class="custom-input" placeholder="">
-                <label for="americanLicenseNumber${idSuffix}" class="custom-label">${americanLicenseCount}ª
-                    Licença:
+            <div class="envoltura_input">
+                <input type="text" id="numero_carteira_${id_suffix}" name="numero_carteira_${id_suffix}"
+                    class="input_personalizado" placeholder="">
+                <label for="numero_carteira_${id_suffix}" class="rotulo_personalizado">
+                    Licença
                 </label>
             </div>
-            <div class="input-wrapper">
-                <input type="text" id="americanLicenseState${idSuffix}" name="americanLicenseState${idSuffix}"
-                    class="custom-input" placeholder="">
-                <label for="americanLicenseState${idSuffix}" class="custom-label">
-                    Estado emissor da Licença:
+            <div class="envoltura_input">
+                <input type="text" id="estado_emissor_carteira_${id_suffix}" name="estado_emissor_carteira_${id_suffix}"
+                    class="input_personalizado" placeholder="">
+                <label for="estado_emissor_carteira_${id_suffix}" class="rotulo_personalizado">
+                    Estado emissor da Licença
                 </label>
             </div>
         </fieldset>
@@ -138,8 +166,9 @@ function addAmericanLicense() {
     americanLicenseList.insertAdjacentHTML('beforeend', newLicenseHTML);
 }
 
+
 function removeAmericanLicense() {
-    const americanLicenseList = document.getElementById('americanLicenseList');
+    const americanLicenseList = document.getElementById('lista_carteiras_americanas');
     const licenseMessages = document.getElementById('mensagens_carteira');
 
     licenseMessages.innerHTML = ''; // Limpa todas as mensagens

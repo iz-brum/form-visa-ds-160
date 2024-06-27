@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     // Seleciona o ícone de interrogação
-    const questionIcon = document.getElementById('question_icon');
+    const questionIcon = document.getElementById('icone_pergunta');
     // Seleciona o pop-up
     const popup = document.getElementById('popup');
     // Adiciona um evento de clique ao ícone de interrogação
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     
     // Seleciona o ícone de fechar
-    const closeIcon = document.getElementById('close_icon');
+    const closeIcon = document.getElementById('icone_fechar');
     // Adiciona um evento de clique ao ícone de fechar
     closeIcon.addEventListener('click', function () {
         // Esconde o pop-up ao clicar no ícone de fechar
@@ -24,11 +24,11 @@ function toggleApplicantTypeQuestions() {
     const applicantType = document.querySelector('input[name="aplicante"]:checked').id;
 
     if (applicantType === 'aplicante_principal_sim') {
-        document.getElementById('aplicante_principal_questoes').style.display = 'block';
-        document.getElementById('aplicante_nao_principal_questoes').style.display = 'none';
+        document.getElementById('questoes_aplicante_principal').style.display = 'block';
+        document.getElementById('questoes_aplicante_nao_principal').style.display = 'none';
     } else if (applicantType === 'aplicante_principal_nao') {
-        document.getElementById('aplicante_principal_questoes').style.display = 'none';
-        document.getElementById('aplicante_nao_principal_questoes').style.display = 'block';
+        document.getElementById('questoes_aplicante_principal').style.display = 'none';
+        document.getElementById('questoes_aplicante_nao_principal').style.display = 'block';
     }
 }
 
@@ -54,8 +54,8 @@ function showReasonForTravel() {
 
 function showAdditionalFieldsVisaCategory() {
     var visaCategory = document.getElementById('categoria_visto').value;
-    var sevisIdContainer = document.getElementById('sevisIdContainer');
-    var petitionNumberContainer = document.getElementById('petitionNumberContainer');
+    var sevisIdContainer = document.getElementById('container_sevis_id');
+    var petitionNumberContainer = document.getElementById('container_numero_peticao');
 
     if (visaCategory === 'Estudante') {
         sevisIdContainer.style.display = 'block';

@@ -1,119 +1,119 @@
 
 function openPopup() {
-    document.getElementById('infoPopup').style.display = 'block';
+    document.getElementById('popup_informacoes').style.display = 'block';
 }
 
 function closePopup() {
-    document.getElementById('infoPopup').style.display = 'none';
+    document.getElementById('popup_informacoes').style.display = 'none';
 }
 
 function toggleDoencaTransmissivel() {
-    var radioButton = document.getElementById("simDoencaTransmissivel");
-    toggleFields(radioButton, "doencaTransmissivelField", "block");
+    var radioButton = document.getElementById("sim_doenca_transmissivel");
+    toggleFields(radioButton, "doenca_transmissivel_field", "block");
 }
 
 function toggleDisturbioMentalFields() {
-    var radioButton = document.getElementById("simDisturbioMental");
-    toggleFields(radioButton, "disturbioMentalField", "block");
+    var radioButton = document.getElementById("sim_disturbio_mental");
+    toggleFields(radioButton, "disturbio_mental_field", "block");
 }
 
 function toggleViciadoDrogasFields() {
-    var radioButton = document.getElementById("simViciadoDrogas");
-    toggleFields(radioButton, "viciadoDrogasField", "block");
+    var radioButton = document.getElementById("sim_viciado_drogas");
+    toggleFields(radioButton, "campo_viciado_drogas", "block");
 }
 
 function togglePresoCondenadoFields() {
-    var radioButton = document.getElementById("presoCondenadoSim");
-    toggleFields(radioButton, "presoCondenado", "block");
+    var radioButton = document.getElementById("preso_condenado_sim");
+    toggleFields(radioButton, "preso_condenado", "block");
 }
 
 function toggleViolacaoLeiFields() {
-    var radioButton = document.getElementById("violacaoLeiSim");
-    toggleFields(radioButton, "violacaoLeiFields", "block");
+    var radioButton = document.getElementById("violacao_lei_sim");
+    toggleFields(radioButton, "violacao_lei_fields", "block");
 }
 
 function toggleExercicioProstituicaoFields() {
-    var radioButton = document.getElementById("exercicioProstituicaoSim");
-    toggleFields(radioButton, "exercicioProstituicao", "block");
+    var radioButton = document.getElementById("exercicio_prostituicao_sim");
+    toggleFields(radioButton, "exercicio_prostituicao", "block");
 }
 
 function toggleExercicioProstituicaoFields() {
-    var radioButton = document.getElementById("exercicioProstituicaoSim");
-    toggleFields(radioButton, "exercicioProstituicao", "block");
+    var radioButton = document.getElementById("exercicio_prostituicao_sim");
+    toggleFields(radioButton, "exercicio_prostituicao", "block");
 }
 
 function toggleLavagemDinheiroFields() {
-    var radioButton = document.getElementById("lavagemDinheiroSim");
-    toggleFields(radioButton, "lavagemDinheiro", "block");
+    var radioButton = document.getElementById("lavagem_dinheiroSim");
+    toggleFields(radioButton, "lavagem_dinheiro", "block");
 }
 
 function toggleAtividadeIlegalFields() {
-    var radioButton = document.getElementById("atividadeIlegalSim");
-    toggleFields(radioButton, "atividadeIlegal", "block");
+    var radioButton = document.getElementById("atividade_ilegalSim");
+    toggleFields(radioButton, "atividade_ilegal", "block");
 }
 
 function toggleAtividadesTerroristasFields() {
-    var radioButton = document.getElementById("atividadesTerroristasSim");
-    toggleFields(radioButton, "atividadesTerroristas", "block");
+    var radioButton = document.getElementById("atividades_terroristas_sim");
+    toggleFields(radioButton, "atividades_terroristas", "block");
 }
 
 function toggleAssistenciaTerroristaFields() {
-    var radioButton = document.getElementById("apoioTerroristaSim");
-    toggleFields(radioButton, "apoioTerrorista", "block");
+    var radioButton = document.getElementById("apoio_terrorista_sim");
+    toggleFields(radioButton, "apoio_terrorista", "block");
 }
 
 function toggleMembroOrganizacaoTerroristaFields() {
-    var radioButton = document.getElementById("membroOrganizacaoTerroristaSim");
-    toggleFields(radioButton, "membroOrganizacaoTerrorista", "block");
+    var radioButton = document.getElementById("membro_organizacao_terrorista_sim");
+    toggleFields(radioButton, "membro_organizacao_terrorista", "block");
 }
 
 function toggleGenocidioFields() {
-    var radioButton = document.getElementById("genocidioSim");
+    var radioButton = document.getElementById("genocidio_sim");
     toggleFields(radioButton, "genocidio", "block");
 }
 
 function toggleTorturaFields() {
-    var radioButton = document.getElementById("torturaSim");
+    var radioButton = document.getElementById("tortura_sim");
     toggleFields(radioButton, "tortura", "block");
 }
 
 function toggleViolenciaFields() {
-    var radioButton = document.getElementById("violenciaSim");
+    var radioButton = document.getElementById("violencia_sim");
     toggleFields(radioButton, "violencia", "block");
 }
 
 function toggleViolacaoReligiosaFields() {
-    var radioButton = document.getElementById("violacaoReligiosaSim");
-    toggleFields(radioButton, "violacaoReligiosa", "block");
+    var radioButton = document.getElementById("violacao_religiosaSim");
+    toggleFields(radioButton, "violacao_religiosa", "block");
 }
 
 function toggleAudienciaDeportacaoFields() {
-    var radioButton = document.getElementById("audienciaDeportacaoSim");
-    toggleFields(radioButton, "audienciaDeportacao", "block");
+    var radioButton = document.getElementById("audiencia_deportacao_sim");
+    toggleFields(radioButton, "audiencia_deportacao", "block");
 }
 
 function toggleFraudeImigracaoFields() {
-    var radioButton = document.getElementById("fraudeImigracaoSim");
-    toggleFields(radioButton, "fraudeImigracao", "block");
+    var radioButton = document.getElementById("fraude_imigracao_sim");
+    toggleFields(radioButton, "fraude_imigracao", "block");
 }
 
 function toggleUltrapassouTempoVistoFields() {
-    var radioButton = document.getElementById("ultrapassouTempoVistoSim");
-    toggleFields(radioButton, "ultrapassouTempoVisto", "block");
+    var radioButton = document.getElementById("ultrapassou_tempo_vistoSim");
+    toggleFields(radioButton, "ultrapassou_tempo_visto", "block");
 }
 
 function toggleCustodiaCriancaFields() {
-    var radioButton = document.getElementById("custodiaCriancaSim");
-    toggleFields(radioButton, "custodiaCrianca", "block");
+    var radioButton = document.getElementById("custodia_criancaSim");
+    toggleFields(radioButton, "custodia_crianca", "block");
 }
 
 function toggleVotouViolacaoFields() {
-    var radioButton = document.getElementById("votouViolacaoSim");
-    toggleFields(radioButton, "votouViolacao", "block");
+    var radioButton = document.getElementById("votou_violacaoSim");
+    toggleFields(radioButton, "votou_violacao", "block");
 }
 
 function toggleRenunciouCidadaniaFields() {
-    var radioButton = document.getElementById("renunciouCidadaniaSim");
-    toggleFields(radioButton, "renunciouCidadania", "block");
+    var radioButton = document.getElementById("renunciou_cidadania_sim");
+    toggleFields(radioButton, "renunciou_cidadania", "block");
 }
 

@@ -4,7 +4,7 @@
 // Função para lidar com a opção de viajar sozinho ou não
 function handleTravelingAlone() {
     var radioButton = document.getElementById("viajando_com_pessoas_nao");
-    toggleFields(radioButton, "companheiros_questoes", "none");
+    toggleFields(radioButton, "questoes_companheiros", "none");
 }
 
 // Função para lidar com o tipo de relacionamento dos companheiros de viagem

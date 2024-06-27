@@ -7,19 +7,19 @@
     <title>Document</title>
 
     <style>
-        .form-section:not(:first-child) {
+        .secao_formulario:not(:first-child) {
             display: none;
         }
     </style>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const sections = document.querySelectorAll(".form-section");
+            const sections = document.querySelectorAll(".secao_formulario");
             let currentSection = 0;
 
-            function showSection(index) {
+            function showSection(indice) {
                 sections.forEach(section => section.style.display = "none");
-                sections[index].style.display = "block";
+                sections[indice].style.display = "block";
             }
 
             function nextSection() {
@@ -36,12 +36,12 @@
                 }
             }
 
-            const nextButtons = document.querySelectorAll(".next-section");
+            const nextButtons = document.querySelectorAll(".proxima_secao");
             nextButtons.forEach(button => {
                 button.addEventListener("click", nextSection);
             });
 
-            const prevButtons = document.querySelectorAll(".prev-section");
+            const prevButtons = document.querySelectorAll(".secao_anterior");
             prevButtons.forEach(button => {
                 button.addEventListener("click", prevSection);
             });
@@ -50,30 +50,30 @@
 </head>
 
 <body>
-    <div style="background-color: rgba(187, 124, 124, 0.845);" id="form-container">
-        <div class="form-section" id="section1">
+    <div style="background-color: rgba(187, 124, 124, 0.845);" id="formulario_container">
+        <div class="secao_formulario" id="secao_1">
             <!-- Seção 1: Dados Pessoais -->
             <h2>Dados Pessoais</h2>
             <input type="text" placeholder="Nome">
             <input type="text" placeholder="Email">
-            <button class="next-section">Próxima Seção</button>
+            <button class="proxima_secao">Próxima Seção</button>
         </div>
 
-        <div class="form-section" id="section2">
+        <div class="secao_formulario" id="secao_2">
             <!-- Seção 2: Endereço -->
             <h2>Endereço</h2>
             <input type="text" placeholder="Rua">
             <input type="text" placeholder="Cidade">
-            <button class="prev-section">Seção Anterior</button>
-            <button class="next-section">Próxima Seção</button>
+            <button class="secao_anterior">Seção Anterior</button>
+            <button class="proxima_secao">Próxima Seção</button>
         </div>
 
-        <div class="form-section" id="section3">
+        <div class="secao_formulario" id="secao_3">
             <!-- Seção 3: Informações de Contato -->
             <h2>Informações de Contato</h2>
             <input type="text" placeholder="Telefone">
             <input type="text" placeholder="Celular">
-            <button class="prev-section">Seção Anterior</button>
+            <button class="secao_anterior">Seção Anterior</button>
             <button class="submit">Enviar</button>
         </div>
     </div>

@@ -1,27 +1,27 @@
 // Inicializa o contador de campos de redes sociais
-var contSocialMedia = 0;
+var cont_social_media = 0;
 
 /**
  * Alterna a visibilidade dos campos de mídia social
  */
 function toggleSocialMediaInput() {
-    var radioButton = document.getElementById("socialMediaYes");
-    toggleFields(radioButton, "socialMediaInput", "block");
+    var radioButton = document.getElementById("rede_social_sim");
+    toggleFields(radioButton, "entrada_rede_social", "block");
 
-    if (contSocialMedia === 0) {
+    if (cont_social_media === 0) {
         addSocialMediaField();
     }
 
     // Limpa a mensagem de aviso, se existir
-    const errorDiv = document.querySelector('.error-socialMedia');
+    const errorDiv = document.querySelector('.erro_rede_social');
     errorDiv.textContent = "";
     errorDiv.style.display = 'none';
 }
 
 // Função para adicionar um novo campo de mídia social adicional
 function addSocialMediaField() {
-    const additionalSocialMediaContainer = document.querySelector(".additional-socialMedia-container");
-    const errorDiv = document.querySelector('.error-socialMedia');
+    const additionalSocialMediaContainer = document.querySelector(".container_rede_social_adicional");
+    const errorDiv = document.querySelector('.erro_rede_social');
 
     // Limpa a mensagem de erro, se existir
     if (errorDiv) {
@@ -30,23 +30,23 @@ function addSocialMediaField() {
     }
 
     if (additionalSocialMediaContainer) {
-        contSocialMedia++;
+        cont_social_media++;
 
         // Cria um novo campo de mídia social adicional usando template strings
         const newSocialMediaField = document.createElement("div");
         newSocialMediaField.classList.add("additional-socialMedia"); // Adiciona uma classe específica ao novo campo
         newSocialMediaField.innerHTML = `
-            <fieldset class="fieldset-g2">
-                <div class="index" style="position: relative; margin: 0 auto; bottom: 9px; width: 25px; height: 25px; text-align: center; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">${contSocialMedia}</div>
+            <fieldset class="conjunto_campos_g2">
+                <div class="indice" style="position: relative; margin: 0 auto; bottom: 9px; width: 25px; height: 25px; text-align: centro; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">${cont_social_media}</div>
                 
-                <div class="input-wrapper">
-                    <input type="text" class="custom-input" id="additionalSocialMedia_${contSocialMedia}" name="additionalSocialMedia_${contSocialMedia}" placeholder="">
-                    <label for="additionalSocialMedia_${contSocialMedia}" class="custom-label">Rede social</label>
+                <div class="envoltura_input">
+                    <input type="text" class="input_personalizado" id="rede_social_adicional_${cont_social_media}" name="rede_social_adicional_${cont_social_media}" placeholder="">
+                    <label for="rede_social_adicional_${cont_social_media}" class="rotulo_personalizado">Rede social</label>
                 </div>
 
-                <div class="input-wrapper">
-                    <input type="text" class="custom-input" id="additionalSocialMediaUser_${contSocialMedia}" name="additionalSocialMediaUser_${contSocialMedia}" placeholder="">
-                    <label for="additionalSocialMediaUser_${contSocialMedia}" class="custom-label">Nome de usuário</label>
+                <div class="envoltura_input">
+                    <input type="text" class="input_personalizado" id="usuario_adicional_rede_social_${cont_social_media}" name="usuario_adicional_rede_social_${cont_social_media}" placeholder="">
+                    <label for="usuario_adicional_rede_social_${cont_social_media}" class="rotulo_personalizado">Nome de usuário</label>
                 </div>
             </fieldset>
         `;
@@ -60,8 +60,8 @@ function addSocialMediaField() {
  * Remove o último campo de mídia social adicionado
  */
 function removeLastSocialMediaField() {
-    const additionalSocialMediaContainer = document.querySelector(".additional-socialMedia-container");
-    const errorDiv = document.querySelector('.error-socialMedia');
+    const additionalSocialMediaContainer = document.querySelector(".container_rede_social_adicional");
+    const errorDiv = document.querySelector('.erro_rede_social');
 
     if (additionalSocialMediaContainer) {
         const additionalSocialMediaFields = document.querySelectorAll(".additional-socialMedia");
@@ -69,7 +69,7 @@ function removeLastSocialMediaField() {
         if (additionalSocialMediaFields.length > 1) {
             // Remove o último campo de mídia social adicionado
             additionalSocialMediaContainer.removeChild(additionalSocialMediaFields[additionalSocialMediaFields.length - 1]);
-            contSocialMedia--; // Decrementa o contador de campos de mídias sociais
+            cont_social_media--; // Decrementa o contador de campos de mídias sociais
         } else {
             // Exibe a mensagem de erro se houver apenas um campo de mídia social
             errorDiv.textContent = "É necessário manter pelo menos uma rede social.";

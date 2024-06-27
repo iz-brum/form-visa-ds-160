@@ -4,26 +4,26 @@
 
 // Exemplo de uso para os campos de explicação de habilidades
 function toggleExplicacaoHabilidades() {
-    var radioButton = document.getElementById("habilidadesSim");
-    toggleFields(radioButton, "explicacaoHabilidades", "block");
+    var radioButton = document.getElementById("habilidades_sim");
+    toggleFields(radioButton, "explicacao_habilidades", "block");
 }
 
 // Exemplo de uso para os campos de serviço militar
 function toggleServicoMilitarFields() {
-    var radioButton = document.getElementById("simServicoMilitar");
-    toggleFields(radioButton, "servicoMilitarFields", "block");
+    var radioButton = document.getElementById("sim_servico_militar");
+    toggleFields(radioButton, "campos_servico_militar", "block");
 }
 
 // Exemplo de uso para os campos de serviço paramilitar
 function toggleServicoParamilitarFields() {
-    var radioButton = document.getElementById("simServicoParamilitar");
-    toggleFields(radioButton, "servicoParamilitarFields", "block");
+    var radioButton = document.getElementById("sim_servico_paramilitar");
+    toggleFields(radioButton, "campos_servico_paramilitar", "block");
 }
 
 function toggleOrganizacoes() {
-    var participacaoSim = document.getElementById("participacaoSim");
+    var participacao_sim = document.getElementById("participacao_sim");
     var organizacoes = document.getElementById("organizacoes");
-    if (participacaoSim.checked) {
+    if (participacao_sim.checked) {
         organizacoes.style.display = "block";
         addOrganizacao();
     } else {
@@ -33,32 +33,32 @@ function toggleOrganizacoes() {
 }
 
 function showAdditionalOccupationQuestions() {
-    var occupationSelect = document.getElementById("occupation");
-    var selectedOccupation = occupationSelect.value;
-    var additionalQuestions = document.getElementById("additionalQuestions");
-    var workSection = document.getElementById("workSection");
-    var schoolSection = document.getElementById("schoolSection");
-    var unemployedDescription = document.getElementById("unemployedDescription");
+    var ocupacaoSelect = document.getElementById("ocupacao");
+    var selectedOccupation = ocupacaoSelect.value;
+    var perguntas_adicionais = document.getElementById("perguntas_adicionais");
+    var secao_trabalho = document.getElementById("secao_trabalho");
+    var secao_escola = document.getElementById("secao_escola");
+    var descricao_desempregado = document.getElementById("descricao_desempregado");
     var aposentadoSection = document.getElementById("aposentado");
 
     // Reset display settings
-    additionalQuestions.style.display = "block";
-    workSection.style.display = "none";
-    schoolSection.style.display = "none";
-    unemployedDescription.style.display = "none";
+    perguntas_adicionais.style.display = "block";
+    secao_trabalho.style.display = "none";
+    secao_escola.style.display = "none";
+    descricao_desempregado.style.display = "none";
     aposentadoSection.style.display = "none";
 
-    // Display fields based on selected occupation
+    // Display fields based on selected ocupacao
     if (selectedOccupation === "empregado") {
-        workSection.style.display = "block";
+        secao_trabalho.style.display = "block";
     } else if (selectedOccupation === "empregado e estudante") {
-        workSection.style.display = "block";
-        schoolSection.style.display = "block";
+        secao_trabalho.style.display = "block";
+        secao_escola.style.display = "block";
     } else if (selectedOccupation === "desempregado") {
-        unemployedDescription.style.display = "block";
+        descricao_desempregado.style.display = "block";
     } else if (selectedOccupation === "desempregado e estudante") {
-        schoolSection.style.display = "block";
-        unemployedDescription.style.display = "block";
+        secao_escola.style.display = "block";
+        descricao_desempregado.style.display = "block";
     } else if (selectedOccupation === "aposentado") {
         aposentadoSection.style.display = "block";
     }
@@ -66,79 +66,79 @@ function showAdditionalOccupationQuestions() {
 
 // Função para esconder todas as perguntas adicionais
 function hideAdditionalQuestions() {
-    var occupationSelect = document.getElementById("occupation");
+    var ocupacaoSelect = document.getElementById("ocupacao");
     var fieldsToHide = ["employmentQuestions", "employment&studentQuestions", "unemploymentQuestions", "unemployment&studentQuestions"];
     fieldsToHide.forEach(function (fieldId) {
-        toggleFields(occupationSelect, fieldId, "none");
+        toggleFields(ocupacaoSelect, fieldId, "none");
     });
 }
 
-// Variável para contar o número de visitas
-var visitCount2 = 0;
+// Variável para contar o número de visitaas
+var visitaCount2 = 0;
 
-// Função para alternar a exibição do bloco de países visitados
+// Função para alternar a exibição do bloco de países visitaados
 function togglePaisesVisitados() {
-    var paisesVisitados = document.getElementById("paisesVisitados");
-    var viagemSim = document.getElementById("viagemSim");
-    if (viagemSim.checked) {
-        paisesVisitados.style.display = "block";
-        // Adiciona automaticamente o campo de entrada para o primeiro país visitado
+    var paises_visitaados = document.getElementById("paises_visitaados");
+    var viagem_sim = document.getElementById("viagem_sim");
+    if (viagem_sim.checked) {
+        paises_visitaados.style.display = "block";
+        // Adiciona automaticamente o campo de entrada para o primeiro país visitaado
         addVisit2();
     } else {
-        paisesVisitados.style.display = "none";
-        // // Remove todos os campos de entrada para os países visitados
+        paises_visitaados.style.display = "none";
+        // // Remove todos os campos de entrada para os países visitaados
         clearVisitList();
     }
 }
 
-// Função para adicionar uma nova visita
+// Função para adicionar uma nova visitaa
 function addVisit2() {
-    const visitMessages = document.getElementById('visitMessages2');
-    visitMessages.innerHTML = ''; // Limpa todas as mensagens
+    const visitaMessages = document.getElementById('mensagens_visitaa_2');
+    visitaMessages.innerHTML = ''; // Limpa todas as mensagens
 
-    const visitList = document.getElementById("visitList");
+    const lista_visitaas = document.getElementById("lista_visitaas");
     const newVisitDiv = document.createElement("div");
-    newVisitDiv.classList.add("fieldset-g2");
+    newVisitDiv.classList.add("conjunto_campos_g2");
 
-    const idSuffix = visitCount2 + 1;
+    const idSuffix = visitaCount2 + 1;
 
     const newVisitHTML = `
-        <div class="index" style="position: relative; margin: 0 auto; bottom: 9px; width: 25px; height: 25px; text-align: center; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
+        <div class="indice" style="position: relative; margin: 0 auto; bottom: 9px; width: 25px; height: 25px; text-align: centro; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
             ${idSuffix}
         </div>
-        <div class="input-wrapper">
-            <input type="text" class="custom-input" name="visit" placeholder="">
-            <label class="custom-label">Informe o país visitado</label>
+        <div class="envoltura_input">
+            <input type="text" class="input_personalizado" name="visita" placeholder="">
+            <label class="rotulo_personalizado">Informe o país visitaado</label>
         </div>
     `;
 
     newVisitDiv.innerHTML = newVisitHTML;
-    visitList.appendChild(newVisitDiv);
-    visitCount2++;
+    lista_visitaas.appendChild(newVisitDiv);
+    visitaCount2++;
 }
 
-// Função para remover a última visita adicionada
+// Função para remover a última visitaa adicionada
 function removeLastVisit2() {
-    var visitList = document.getElementById("visitList");
-    const visitMessages = document.getElementById('visitMessages2'); // Div para mensagens de aviso
+    var lista_visitaas = document.getElementById("lista_visitaas");
+    const visitaMessages = document.getElementById('mensagens_visitaa_2'); // Div para mensagens de aviso
 
     // Remove a mensagem de aviso, se existir
-    visitMessages.innerHTML = ''; // Limpa todas as mensagens
+    visitaMessages.innerHTML = ''; // Limpa todas as mensagens
 
-    if (visitList.childElementCount > 1) {
-        visitList.removeChild(visitList.lastChild);
-        visitCount2--;
+    if (lista_visitaas.childElementCount > 1) {
+        lista_visitaas.removeChild(lista_visitaas.lastChild);
+        visitaCount2--;
     } else {
         // Cria mensagem de aviso
         const minVisitMessage = document.createElement('p');
-        minVisitMessage.innerHTML = '<strong>Não é possível remover. Pelo menos uma visita deve ser mantida.</strong>';
+        minVisitMessage.innerHTML = '<strong>Não é possível remover. Pelo menos uma visitaa deve ser mantida.</strong>';
         minVisitMessage.style.color = 'red'; // Cor vermelha
-        visitMessages.appendChild(minVisitMessage);
+        visitaMessages.appendChild(minVisitMessage);
 
          // Limpar as mensagens de aviso após alguns segundos
          setTimeout(() => {
-            visitMessages.textContent = '';
-            visitMessages.style.display = 'none';
+            visitaMessages.textContent = '';
+            visitaMessages.style.display = 'none';
         }, 5000);
 
         return;
@@ -146,11 +146,11 @@ function removeLastVisit2() {
 }
 
 
-// Função para limpar a lista de países visitados
+// Função para limpar a lista de países visitaados
 function clearVisitList() {
-    var visitList = document.getElementById("visitList");
-    visitList.innerHTML = "";
-    visitCount2 = 0;
+    var lista_visitaas = document.getElementById("lista_visitaas");
+    lista_visitaas.innerHTML = "";
+    visitaCount2 = 0;
 }
 
 
@@ -159,9 +159,9 @@ var org = 0;
 
 // Função para alternar a exibição do bloco de organizações
 function toggleOrganizacoes() {
-    var participacaoSim = document.getElementById("participacaoSim");
+    var participacao_sim = document.getElementById("participacao_sim");
     var organizacoes = document.getElementById("organizacoes");
-    if (participacaoSim.checked) {
+    if (participacao_sim.checked) {
         organizacoes.style.display = "block";
         addOrganizacao();
     } else {
@@ -172,42 +172,42 @@ function toggleOrganizacoes() {
 
 // Função para adicionar uma nova organização
 function addOrganizacao() {
-    const organizacoesMessages = document.getElementById('orgMessages');
+    const organizacoesMessages = document.getElementById('mensagens_organizacao');
     // Remove a mensagem de aviso, se existir
     organizacoesMessages.innerHTML = ''; // Limpa todas as mensagens
 
-    const organizacoesList = document.getElementById("organizacoesList");
+    const lista_organizacoes = document.getElementById("lista_organizacoes");
     const newOrganizacaoDiv = document.createElement("div");
-    newOrganizacaoDiv.classList.add("fieldset-g2");
+    newOrganizacaoDiv.classList.add("conjunto_campos_g2");
 
-    const idSuffix = organizacoesList.children.length + 1;
+    const idSuffix = lista_organizacoes.children.length + 1;
 
     const newOrganizacaoHTML = `
-        <div class="index" style="position: relative; margin: 0 auto; bottom: 9px; width: 25px; height: 25px; text-align: center; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
+        <div class="indice" style="position: relative; margin: 0 auto; bottom: 9px; width: 25px; height: 25px; text-align: centro; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
             ${idSuffix}
         </div>
-        <div class="input-wrapper">
-            <input type="text" class="custom-input" name="organizacao" placeholder="">
-            <label class="custom-label">Nome completo</label>
+        <div class="envoltura_input">
+            <input type="text" class="input_personalizado" name="organizacao" placeholder="">
+            <label class="rotulo_personalizado">Nome completo</label>
         </div>
     `;
 
     newOrganizacaoDiv.innerHTML = newOrganizacaoHTML;
-    organizacoesList.appendChild(newOrganizacaoDiv);
+    lista_organizacoes.appendChild(newOrganizacaoDiv);
     org++;
 }
 
 
-// Função para remover a última visita adicionada
+// Função para remover a última visitaa adicionada
 function removeLastOrganizacao() {
-    var organizacoesList = document.getElementById("organizacoesList");
-    const organizacoesMessages = document.getElementById('orgMessages'); // Div para mensagens de aviso
+    var lista_organizacoes = document.getElementById("lista_organizacoes");
+    const organizacoesMessages = document.getElementById('mensagens_organizacao'); // Div para mensagens de aviso
 
     // Remove a mensagem de aviso, se existir
     organizacoesMessages.innerHTML = ''; // Limpa todas as mensagens
 
-    if (organizacoesList.childElementCount > 1) {
-        organizacoesList.removeChild(organizacoesList.lastChild);
+    if (lista_organizacoes.childElementCount > 1) {
+        lista_organizacoes.removeChild(lista_organizacoes.lastChild);
         org--;
     } else {
         // Cria mensagem de aviso
@@ -228,8 +228,8 @@ function removeLastOrganizacao() {
 
 // Função para remover todas as organizações
 function clearList() {
-    const organizacoesList = document.getElementById("organizacoesList");
-    organizacoesList.innerHTML = '';
+    const lista_organizacoes = document.getElementById("lista_organizacoes");
+    lista_organizacoes.innerHTML = '';
     org = 0;
 }
 
@@ -240,7 +240,7 @@ function clearList() {
 async function populateInstitutionsFromCSV(csvData) {
     try {
 
-        const selectElement = document.getElementById('instituicaoSelecao');
+        const selectElement = document.getElementById('selecao_instituicao');
         selectElement.innerHTML = '<option selected disabled hidden value="">Selecione a Instituição</option>';
 
         // Adiciona a opção "Inserir Manualmente"
@@ -251,8 +251,8 @@ async function populateInstitutionsFromCSV(csvData) {
 
         const lines = csvData.split('\n');
         lines.forEach(line => {
-            const [name, acronym, state] = line.split(',').map(field => field.trim());
-            const institutionInfo = `${name} - ${acronym} - ${state}`;
+            const [name, acronym, estado] = line.split(',').map(field => field.trim());
+            const institutionInfo = `${name} - ${acronym} - ${estado}`;
             const option = document.createElement('option');
             option.value = institutionInfo;
             option.textContent = institutionInfo;
@@ -269,11 +269,11 @@ async function populateInstitutionsFromCSV(csvData) {
 
 
 function toggleManual() {
-    const selectElement = document.getElementById('instituicaoSelecao');
-    const manualEntryDiv = document.getElementById('enter-institution-manually');
+    const selectElement = document.getElementById('selecao_instituicao');
+    const manualEntryDiv = document.getElementById('inserir_instituicao_manual');
 
-    const selectElementCourse = document.getElementById('cursoEstudoInstituicao');
-    const manualEntryDivCourse = document.getElementById('enter-course-manually');
+    const selectElementCourse = document.getElementById('curso_estudo_instituicao');
+    const manualEntryDivCourse = document.getElementById('inserir_curso_manual');
 
     if (selectElement && manualEntryDiv) {
         const selectedValue = selectElement.value;
@@ -370,7 +370,7 @@ async function populateCoursesSelectorFromJson(selectorId) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const selectorId = 'cursoEstudoInstituicao';
+    const selectorId = 'curso_estudo_instituicao';
     populateCoursesSelectorFromJson(selectorId);
 });
 
@@ -388,6 +388,6 @@ function handleSalaryInput(event) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const salaryInput = document.getElementById('monthlySalary');
+    const salaryInput = document.getElementById('salario_mensal');
     salaryInput.addEventListener('input', handleSalaryInput);
 });

@@ -1,10 +1,9 @@
-// Função para mostrar ou ocultar os campos de endereço do passaporte
+// Função para mostrar ou ocultar os campos relacionados ao endereço de envio do passaporte
 function togglePassportAddressFields() {
-    var radioButton = document.getElementById("passportAddressNo");
-    toggleFields(radioButton, "passportAddressFields", "block");
-    toggleFields(radioButton, "passportCareOf", "none");
+    var radioButton = document.getElementById("endereco_passaporte_nao");
+    toggleFields(radioButton, "campos_endereco_passaporte", "block");
+    toggleFields(radioButton, "responsavel_endereco_passaporte", "none");
 }
-
 
 
 // Função para formatar números de telefone enquanto o usuário digita
@@ -29,23 +28,23 @@ function formatPhoneNumber(input) {
 }
 
 // Adiciona um listener de evento de entrada para cada campo de número de telefone
-document.getElementById("homePhone").addEventListener("input", function () {
+document.getElementById("telefone_residencial").addEventListener("input", function () {
     formatPhoneNumber(this);
 });
 
-document.getElementById("cellPhone").addEventListener("input", function () {
+document.getElementById("telefone_celular").addEventListener("input", function () {
     formatPhoneNumber(this);
 });
 
-document.getElementById("workPhone").addEventListener("input", function () {
+document.getElementById("telefone_trabalho").addEventListener("input", function () {
     formatPhoneNumber(this);
 });
 
-document.getElementById("additionalPhones").addEventListener("input", function () {
+document.getElementById("telefones_Adicionais").addEventListener("input", function () {
     formatPhoneNumber(this);
 });
 
-document.getElementById("phoneUS").addEventListener("input", function () {
+document.getElementById("telefone_us").addEventListener("input", function () {
     formatPhoneNumber(this);
 });
 
@@ -55,15 +54,15 @@ var contPhones = 0;
 
 // Função para mostrar ou ocultar os telefones adicionais
 function toggleAdditionalPhones() {
-    var radioButton = document.getElementById("usedOtherPhonesYes");
-    toggleFields(radioButton, "additionalPhones", "block");
+    var radioButton = document.getElementById("usou_Outros_Telefones_Sim");
+    toggleFields(radioButton, "telefones_Adicionais", "block");
 
     if (contPhones === 0) {
         addAdditionalPhone();
     }
 
     // Remove a mensagem de aviso, se existir
-    const errorDiv = document.getElementById('error-tel-message');
+    const errorDiv = document.getElementById('mensagem_erro_telefone');
     errorDiv.textContent = "";
     errorDiv.style.display = 'none';
 }
@@ -73,47 +72,47 @@ function addAdditionalPhone() {
     contPhones++;
 
     // Remove a mensagem de aviso, se existir
-    const errorDiv = document.getElementById('error-tel-message');
+    const errorDiv = document.getElementById('mensagem_erro_telefone');
     errorDiv.textContent = "";
     errorDiv.style.display = 'none';
 
     // Obtém o elemento container para adicionar os telefones
-    var additionalPhonesContainer = document.getElementById("additionalPhonesContainer");
+    var telefones_adicionais_container = document.getElementById("telefones_adicionais_container");
 
     // Cria um novo campo de número de telefone
     var newPhoneField = document.createElement("div");
     newPhoneField.innerHTML = `
             
-        <fieldset class="fieldset-g2">
+        <fieldset class="conjunto_campos_g2">
 
-            <div class="index" style="position: relative; margin: 0 auto; bottom:9px; width: 25px; height: 25px; text-align: center; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">${contPhones}</div>
+            <div class="indice" style="position: relative; margin: 0 auto; bottom:9px; width: 25px; height: 25px; text-align: centro; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">${contPhones}</div>
     
-            <div class="input-wrapper">
-                <input type="tel" class="custom-input" id="cellPhone" name="cellPhone" placeholder="">
-                <label for="cellPhone" class="custom-label">Telefone/Celular</label>
+            <div class="envoltura_input">
+                <input type="tel" class="input_personalizado" id="telefone_celular" name="telefone_celular" placeholder="">
+                <label for="telefone_celular" class="rotulo_personalizado">Telefone/Celular</label>
             </div>
 
         </fieldset>
      `;
 
     // Adiciona o novo campo de telefone ao container
-    additionalPhonesContainer.appendChild(newPhoneField);
+    telefones_adicionais_container.appendChild(newPhoneField);
 }
 
 // Função para remover o último campo de número de telefone adicionado
 function removeLastAdditionalPhone() {
     // Obtém o elemento container dos telefones adicionais
-    var additionalPhonesContainer = document.getElementById("additionalPhonesContainer");
+    var telefones_adicionais_container = document.getElementById("telefones_adicionais_container");
 
     // Verifica se há mais de um campo de telefone
     if (contPhones > 1) {
         // Remove o último filho (último campo de telefone adicionado)
-        additionalPhonesContainer.removeChild(additionalPhonesContainer.lastChild);
+        telefones_adicionais_container.removeChild(telefones_adicionais_container.lastChild);
         // Decrementa o contador de telefones
         contPhones--;
     } else {
         // Exibe uma mensagem de erro informando que é necessário manter pelo menos um campo de telefone
-        var errorTelMessage = document.getElementById("error-tel-message");
+        var errorTelMessage = document.getElementById("mensagem_erro_telefone");
         errorTelMessage.textContent = "É necessário manter pelo menos um campo de número de telefone.";
         errorTelMessage.style.display = "block"; // Exibe a mensagem de erro
 
@@ -130,14 +129,14 @@ function removeLastAdditionalPhone() {
 let contEmails = 0;
 
 function toggleAdditionalEmails() {
-    var radioButton = document.getElementById("usedOtherEmailsYes");
-    toggleFields(radioButton, "additionalEmails", "block");
+    var radioButton = document.getElementById("usou_outros_emails_sim");
+    toggleFields(radioButton, "emails_adicionais", "block");
 
     if (contEmails === 0) {
         addAdditionalEmail();
     }
     // Remove a mensagem de aviso, se existir
-    const errorDiv = container.querySelector('.error-email');
+    const errorDiv = container.querySelector('.erro_email');
     errorDiv.textContent = "";
     errorDiv.style.display = 'none';
 }
@@ -145,8 +144,8 @@ function toggleAdditionalEmails() {
 // Função para adicionar um novo campo de e-mail adicional
 function addAdditionalEmail() {
     // Remove a mensagem de erro, se existir
-    const container = document.querySelector("#additionalEmails");
-    const errorDiv = container.querySelector('.error-email');
+    const container = document.querySelector("#emails_adicionais");
+    const errorDiv = container.querySelector('.erro_email');
     if (errorDiv) {
         errorDiv.textContent = "";
         errorDiv.style.display = 'none';
@@ -156,18 +155,18 @@ function addAdditionalEmail() {
     contEmails++;
 
     // Obtém o container para adicionar o novo campo de e-mail
-    const additionalEmailContainer = document.querySelector(".additional-email-container");
+    const additionalEmailContainer = document.querySelector(".container_email_adicional");
 
     // Cria um novo campo de e-mail adicional usando template strings
     const newEmailField = document.createElement("div");
     newEmailField.innerHTML = `
-        <fieldset class="fieldset-g2">
+        <fieldset class="conjunto_campos_g2">
 
-            <div class="index" style="position: relative; margin: 0 auto; bottom: 9px; width: 25px; height: 25px; text-align: center; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">${contEmails}</div>
+            <div class="indice" style="position: relative; margin: 0 auto; bottom: 9px; width: 25px; height: 25px; text-align: centro; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">${contEmails}</div>
     
-            <div class="input-wrapper">
-                <input type="email" class="custom-input" id="additionalEmail_${contEmails}" name="additionalEmail_${contEmails}" placeholder="">
-                <label for="additionalEmail_${contEmails}" class="custom-label">E-mail adicional</label>
+            <div class="envoltura_input">
+                <input type="email" class="input_personalizado" id="email_adicional_${cont_emails}" name="email_adicional_${cont_emails}" placeholder="">
+                <label for="email_adicional_${cont_emails}" class="rotulo_personalizado">E-mail adicional</label>
             </div>
 
         </fieldset>
@@ -179,7 +178,7 @@ function addAdditionalEmail() {
 
 function removeLastAdditionalEmail() {
     // Obtém o container que contém os campos de e-mail adicionais
-    var container = document.querySelector("#additionalEmails");
+    var container = document.querySelector("#emails_adicionais");
 
     // Obtém todos os campos de e-mail adicionais dentro do container
     var additionalEmailInputs = container.querySelectorAll('.additional-email');
@@ -188,11 +187,11 @@ function removeLastAdditionalEmail() {
     if (additionalEmailInputs.length > 1) {
         // Remove o último campo de e-mail adicional
         var lastEmailField = additionalEmailInputs[additionalEmailInputs.length - 1];
-        container.querySelector('.additional-email-container').removeChild(lastEmailField);
+        container.querySelector('.container_email_adicional').removeChild(lastEmailField);
         contEmails--; // Decrementa o contador de campos de e-mail
     } else {
         // Exibe a mensagem de erro se houver apenas um campo de e-mail adicional
-        const errorDiv = container.querySelector('.error-email');
+        const errorDiv = container.querySelector('.erro_email');
         errorDiv.textContent = "É necessário manter pelo menos um e-mail.";
         errorDiv.style.display = 'block';
 
