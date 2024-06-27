@@ -7,30 +7,44 @@ function populateCountrySelect(countrySelectId) {
     console.log('Populando dropdown de países...');
     var countrySelect = document.getElementById(countrySelectId);
 
-    // Verificar se a URL está correta
-    fetch("/api/countries")
+    // Ajustar o caminho para o JSON de traduções
+    fetch('/public/json/countryTranslations.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error(`Erro ao buscar dados de países: ${response.statusText}`);
+                throw new Error(`Erro ao carregar traduções de países: ${response.statusText}`);
             }
             return response.json();
         })
-        .then(data => {
-            console.log('Dados de países recebidos da API:', data);
-            var countries = data.geonames;
-            console.log('Países recebidos:', countries);
-            countries.sort((a, b) => a.countryName.localeCompare(b.countryName));
-            countries.forEach(country => {
-                var option = new Option(country.countryName, country.geonameId);
-                countrySelect.add(option);
-            });
-            console.log('Inicializando Select2...');
-            $(countrySelect).select2();
+        .then(countryTranslations => {
+            console.log('Traduzindo nomes de países...');
+            fetch('https://secure.geonames.org/countryInfoJSON?username=izann_brum')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao buscar dados de países');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Dados de países recebidos da API:', data);
+                    var countries = data.geonames;
+                    countries.sort((a, b) => a.countryName.localeCompare(b.countryName));
+                    countries.forEach(country => {
+                        var translatedName = countryTranslations[country.countryCode] || country.countryName;
+                        var option = new Option(translatedName, country.geonameId);
+                        countrySelect.add(option);
+                    });
+                    console.log('Inicializando Select2...');
+                    $(countrySelect).select2();
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar dados de países:', error);
+                });
         })
         .catch(error => {
-            console.error('Erro ao buscar dados de países:', error);
+            console.error('Erro ao carregar traduções de países:', error);
         });
 }
+
 
 // Função para preencher o dropdown de estados
 function getStatesByCountry(countryCode, stateSelectId) {
