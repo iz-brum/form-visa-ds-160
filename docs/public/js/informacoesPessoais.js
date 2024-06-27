@@ -50,8 +50,6 @@ function populateCountrySelect(countrySelectId) {
         });
 }
 
-
-
 // Função para preencher o dropdown de estados
 function getStatesByCountry(countryCode, stateSelectId) {
     fetch('/api/config')
