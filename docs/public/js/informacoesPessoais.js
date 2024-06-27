@@ -31,10 +31,9 @@ function populateCountrySelect(countrySelectId) {
         });
 }
 
-
 // Função para preencher o dropdown de estados
 function getStatesByCountry(countryCode, stateSelectId) {
-    fetch('/api/username')
+    fetch('/api/config')
         .then(response => response.json())
         .then(config => {
             var stateSelect = $('#' + stateSelectId);
@@ -65,7 +64,6 @@ function getStatesByCountry(countryCode, stateSelectId) {
                 });
         });
 }
-
 // Função para preencher o dropdown de estados
 function getStatesByCountry(paisCode, estadoSelectId) {
     fetch('/api/config')
