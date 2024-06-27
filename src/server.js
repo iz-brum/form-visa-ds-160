@@ -18,19 +18,23 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+// Configuração dos caminhos
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const publicDirectoryPath = path.join(__dirname, '../docs/public');
 
+// Servir arquivos estáticos
 app.use('/public', express.static(publicDirectoryPath));
 
 // Aplicando o middleware de logging em todas as rotas
 app.use(logRequest);
 
+// Rota principal
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../docs/index.html'));
 });
 
+// Rota para obter informações de países da API Geonames
 app.get('/api/countries', async (req, res) => {
     try {
         console.log('Accessing /api/countries route');
@@ -46,6 +50,7 @@ app.get('/api/countries', async (req, res) => {
     }
 });
 
+// Rota para obter configurações da aplicação
 app.get('/api/config', (req, res) => {
     try {
         const config = {
@@ -58,10 +63,12 @@ app.get('/api/config', (req, res) => {
     }
 });
 
+// Rota para autorizar
 app.get('/authorize', (req, res) => {
     res.json({ message: 'Authorize endpoint' });
 });
 
+// Rota para submissão de formulário
 app.post('/submit', async (req, res) => {
     const formData = req.body;
     console.log("RAW DATA:");
@@ -75,6 +82,7 @@ app.post('/submit', async (req, res) => {
     res.render('resumo', { processedData });
 });
 
+// Iniciar o servidor
 app.listen(port, () => {
     console.log(`Server running in ${process.env.NODE_ENV || 'development'} environment on port ${port}`);
 });
