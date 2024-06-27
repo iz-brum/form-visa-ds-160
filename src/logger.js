@@ -2,29 +2,28 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+// Configuração dos caminhos dos arquivos
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 const logFilePath = path.join(__dirname, '../logs/access.log');
 
+// Objeto para armazenar contagens de acessos
 let accessCounts = {};
 
-// Função para incrementar a contagem de acessos
+// Função para incrementar a contagem de acessos a uma rota
 function incrementAccessCount(route, ip) {
     if (!accessCounts[route]) {
         accessCounts[route] = { count: 0, ips: new Set() };
     }
     accessCounts[route].count += 1;
     accessCounts[route].ips.add(ip);
-
-    console.log(`Rota: ${route} | Acessos: ${accessCounts[route].count} | IPs: ${Array.from(accessCounts[route].ips).join(', ')}`);
 }
 
 // Middleware para registrar acessos
 export function logRequest(req, res, next) {
     const route = req.originalUrl;
     const ip = req.ip;
-    
+
     incrementAccessCount(route, ip);
 
     const logEntry = `${new Date().toISOString()} - ${ip} - ${route}\n`;
