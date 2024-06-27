@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "pais_emissao_passaporteEmissor",
         "pais_emissao_passaporte_perdido"
     ];
-    populateCountrySelects(paisSelectIds);
+    populateCountrySelect(paisSelectIds);
 });
 
 document.addEventListener("DOMContentLoaded", function () {
