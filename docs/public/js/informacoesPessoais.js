@@ -6,10 +6,11 @@
 function populateCountrySelects(paisSelectIds) {
     console.log('Populando dropdowns de países...');
 
-    fetch('/public/json/countryTranslations.json')
+    // Ajustar o caminho para o JSON de traduções
+    fetch('./json/countryTranslations.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Erro ao carregar traduções de países para o caminho /public/json/');
+                throw new Error('Erro ao carregar traduções de países');
             }
             return response.json();
         })
@@ -34,7 +35,7 @@ function populateCountrySelects(paisSelectIds) {
                                 paisSelect.innerHTML = ''; // Limpar as opções existentes
                                 var firstOptionText;
 
-                                switch(paisSelectId) {
+                                switch (paisSelectId) {
                                     case 'pais_nascimento':
                                         firstOptionText = 'Selecione seu país de nascimento';
                                         break;
@@ -72,10 +73,9 @@ function populateCountrySelects(paisSelectIds) {
                 });
         })
         .catch(error => {
-            console.error('Erro ao carregar traduções de países para a rota /api/countries:', error);
+            console.error('Erro ao carregar traduções de países:', error);
         });
 }
-
 
 
 // Função para preencher o dropdown de estados
@@ -181,8 +181,8 @@ function getCitiesByState(estadoCode, cidadeSelectId) {
         });
 }
 
- // Função para popular o seletor de nacionalidades
- function populateNationalities(selectId) {
+// Função para popular o seletor de nacionalidades
+function populateNationalities(selectId) {
     const nationalitySelect = document.getElementById(selectId);
 
     // Carrega o arquivo JSON de traduções de nacionalidades
@@ -332,7 +332,7 @@ function removeLastNationality() {
     } else {
         const minNationalityMessage = document.createElement('p');
         minNationalityMessage.style.color = 'red'; // Cor vermelha
-        minNationalityMessage.style.fontSize = '0.89rem'; 
+        minNationalityMessage.style.fontSize = '0.89rem';
         minNationalityMessage.innerHTML = '<strong>Você deve manter pelo menos uma nacionalidade.</strong>';
         nacionalidadeMessages.appendChild(minNationalityMessage);
 
