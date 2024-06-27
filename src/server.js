@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 import { fileURLToPath } from 'url';
 import { getNameFromGeonameId, processFormData } from './formUtils.js';
 import cors from 'cors';
-import { logRequest } from './logger.js'; // Importando o middleware de logging
+import { logRequest } from './logger.js';
 
 const app = express();
 const port = process.env.PORT || 3000;

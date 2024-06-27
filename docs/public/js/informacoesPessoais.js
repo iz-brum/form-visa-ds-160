@@ -7,6 +7,7 @@ function populateCountrySelect(countrySelectId) {
     console.log('Populando dropdown de países...');
     var countrySelect = document.getElementById(countrySelectId);
 
+    // Verificar se a URL está correta
     fetch("/api/countries")
         .then(response => {
             if (!response.ok) {
@@ -64,57 +65,6 @@ function getStatesByCountry(countryCode, stateSelectId) {
                 });
         });
 }
-// Função para preencher o dropdown de estados
-function getStatesByCountry(paisCode, estadoSelectId) {
-    fetch('/api/config')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao buscar configuração');
-            }
-            return response.json();
-        })
-        .then(config => {
-            var estadoSelect = $('#' + estadoSelectId);
-            estadoSelect.empty().append($('<option>', {
-                value: '',
-                text: 'Selecione seu estado'
-            }));
-
-            if (!config.username) {
-                console.error('Configuração de username não encontrada.');
-                estadoSelect.append($('<option>', {
-                    text: 'Erro na configuração'
-                }));
-                return;
-            }
-
-            fetch(`https://secure.geonames.org/childrenJSON?geonameId=${paisCode}&username=${config.username}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.totalResultsCount > 0) {
-                        var estados = data.geonames;
-                        estados.forEach(estado => {
-                            estadoSelect.append($('<option>', {
-                                value: estado.geonameId,
-                                text: estado.name
-                            }));
-                        });
-                        estadoSelect.select2();
-                    } else {
-                        estadoSelect.append($('<option>', {
-                            text: 'Nenhum estado disponível'
-                        }));
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao buscar estados:', error);
-                });
-        })
-        .catch(error => {
-            console.error('Erro ao buscar configuração:', error);
-        });
-}
-
 
 // Função para preencher o dropdown de cidades
 function getCitiesByState(estadoCode, cidadeSelectId) {
@@ -232,8 +182,6 @@ function toggleOtherNamesFields() {
     toggleFields(radioButton, "div_outro_nome", "block");
 }
 
-
-
 // Contador de nacionalidades adicionais
 let nacionalidadeAdicionalCounter = 0;
 
@@ -249,8 +197,6 @@ function toggleNationalitySecond() {
     // Limpar mensagens de aviso, se existirem
     mensagens_nacionalidade.innerHTML = '';
 }
-
-
 
 function addNationality() {
     nacionalidadeAdicionalCounter++;
@@ -269,8 +215,6 @@ function addNationality() {
     const newNationalityHTML = `
         <fieldset class="conjunto_campos_g2 bgc_continar_nacionalidade container_nacionalidade envoltura_input">
         <div class="indice">${nacionalidadeAdicionalCounter}</div>
-
-
             <select id="nacionalidade_segunda_${id_suffix}" class="selecao_padrao_01"> 
                 <option value="">Selecione a nacionalidade</option>
             </select>
@@ -302,7 +246,6 @@ function addNationality() {
     };
 }
 
-
 function removeLastNationality() {
     const nacionalidadeContainers = document.querySelectorAll('#nacionalidade_segunda_div .container_nacionalidade');
     const nacionalidadeMessages = document.getElementById('mensagens_nacionalidade'); // Div para mensagens de aviso
@@ -330,8 +273,6 @@ function removeLastNationality() {
         return 0;
     }
 }
-
-
 
 function toggleMaritalStatusFields() {
     var select = document.getElementById("estado_civil");
@@ -410,4 +351,3 @@ window.addEventListener('resize', function () {
     // Verificar e ajustar a rolagem horizontal
     checkHorizontalScroll();
 });
-
