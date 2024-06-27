@@ -9,7 +9,7 @@ function populateCountrySelects(paisSelectIds) {
     fetch('/public/json/countryTranslations.json')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Erro ao carregar traduções de países');
+                throw new Error('Erro ao carregar traduções de países para o caminho /public/json/');
             }
             return response.json();
         })
@@ -72,9 +72,10 @@ function populateCountrySelects(paisSelectIds) {
                 });
         })
         .catch(error => {
-            console.error('Erro ao carregar traduções de países:', error);
+            console.error('Erro ao carregar traduções de países para a rota /api/countries:', error);
         });
 }
+
 
 
 // Função para preencher o dropdown de estados
