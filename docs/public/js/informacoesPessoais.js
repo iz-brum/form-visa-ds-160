@@ -3,12 +3,14 @@
 // Funções Relacionadas Aos Dados Pessoais 
 
 // Função para preencher o dropdown de países com o Select2 e traduzir os nomes para o português
-function populateCountrySelect(countrySelectId) {
+function populateCountrySelect(countrySelectIds) {
     console.log('Populando dropdown de países...');
-    var countrySelect = document.getElementById(countrySelectId);
+    var countrySelects = countrySelectIds.map(id => document.getElementById(id));
 
-    if (!countrySelect) {
-        console.error(`Elemento com ID ${countrySelectId} não encontrado.`);
+    var missingIds = countrySelectIds.filter((id, index) => !countrySelects[index]);
+
+    if (missingIds.length > 0) {
+        console.error(`Elemento(s) com ID ${missingIds.join(', ')} não encontrado(s).`);
         return;
     }
 
@@ -33,13 +35,15 @@ function populateCountrySelect(countrySelectId) {
                     console.log('Dados de países recebidos da API:', data);
                     var countries = data.geonames;
                     countries.sort((a, b) => a.countryName.localeCompare(b.countryName));
-                    countries.forEach(country => {
-                        var translatedName = countryTranslations[country.countryCode] || country.countryName;
-                        var option = new Option(translatedName, country.geonameId);
-                        countrySelect.add(option);
+                    countrySelects.forEach(countrySelect => {
+                        countries.forEach(country => {
+                            var translatedName = countryTranslations[country.countryCode] || country.countryName;
+                            var option = new Option(translatedName, country.geonameId);
+                            countrySelect.add(option);
+                        });
+                        console.log('Inicializando Select2...');
+                        $(countrySelect).select2();
                     });
-                    console.log('Inicializando Select2...');
-                    $(countrySelect).select2();
                 })
                 .catch(error => {
                     console.error('Erro ao buscar dados de países:', error);
