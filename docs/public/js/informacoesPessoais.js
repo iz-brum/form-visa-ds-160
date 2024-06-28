@@ -98,56 +98,36 @@ function getStatesByCountry(countryCode, stateSelectId) {
 }
 
 
-// Função para preencher o dropdown de cidades
-function getCitiesByState(estadoCode, cidadeSelectId) {
-    fetch('/api/config')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao buscar configuração');
-            }
-            return response.json();
-        })
-        .then(config => {
-            var cidadeSelect = $('#' + cidadeSelectId);
-            cidadeSelect.empty().append($('<option>', {
-                value: '',
-                text: 'Selecione sua cidade'
-            }));
-
-            if (!config.username) {
-                console.error('Configuração de username não encontrada.');
-                cidadeSelect.append($('<option>', {
-                    text: 'Erro na configuração'
-                }));
-                return;
-            }
-
-            fetch(`https://secure.geonames.org/childrenJSON?geonameId=${estadoCode}&username=${config.username}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.totalResultsCount > 0) {
-                        var cities = data.geonames;
-                        cities.forEach(cidade => {
-                            cidadeSelect.append($('<option>', {
-                                value: cidade.geonameId,
-                                text: cidade.name
-                            }));
-                        });
-                        cidadeSelect.select2();
-                    } else {
-                        cidadeSelect.append($('<option>', {
-                            text: 'Nenhuma cidade disponível'
-                        }));
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao buscar cidades:', error);
+// Função para preencher o dropdown de estados
+function getStatesByCountry(countryCode, stateSelectId) {
+    var stateSelect = $('#' + stateSelectId);
+    stateSelect.empty().append($('<option>', {
+        value: '',
+        text: 'Selecione o estado'
+    }));
+    fetch(`https://secure.geonames.org/childrenJSON?geonameId=${countryCode}&username=izann_brum`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.totalResultsCount > 0) {
+                var states = data.geonames;
+                states.forEach(state => {
+                    stateSelect.append($('<option>', {
+                        value: state.geonameId,
+                        text: state.name
+                    }));
                 });
+                stateSelect.select2();
+            } else {
+                stateSelect.append($('<option>', {
+                    text: 'Nenhum estado disponível'
+                }));
+            }
         })
         .catch(error => {
-            console.error('Erro ao buscar configuração:', error);
+            console.error('Erro ao buscar estados:', error);
         });
 }
+
 
 // Função para popular o seletor de nacionalidades
 function populateNationalities(selectId) {
