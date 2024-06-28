@@ -56,8 +56,14 @@ function populateCountrySelect(countrySelectIds) {
 
 // Função para preencher o dropdown de estados
 function getStatesByCountry(countryCode, stateSelectId) {
-    fetch('/api/config')
-        .then(response => response.json())
+    // Ajustar o caminho para o JSON de configuração
+    fetch('./public/json/config.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao buscar configuração');
+            }
+            return response.json();
+        })
         .then(config => {
             var stateSelect = $('#' + stateSelectId);
             stateSelect.empty().append($('<option>', {
@@ -85,8 +91,12 @@ function getStatesByCountry(countryCode, stateSelectId) {
                 .catch(error => {
                     console.error('Erro ao buscar estados:', error);
                 });
+        })
+        .catch(error => {
+            console.error('Erro ao buscar configuração:', error);
         });
 }
+
 
 // Função para preencher o dropdown de cidades
 function getCitiesByState(estadoCode, cidadeSelectId) {
