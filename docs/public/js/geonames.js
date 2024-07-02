@@ -118,7 +118,7 @@ function generateAddressFields(container_id) {
     if (container) {
         console.log('Container found:', container_id);
         const addressFields = `
-            <fieldset>
+            <fieldset class="">
                 <!-- CEP -->
                 <div class="envoltura_input">
                     <input type="text" class="input_personalizado input_cep" id="cep_${container_id}" name="cep" autocomplete="postal-code" placeholder="">

@@ -40,8 +40,8 @@ function toggleYearInputForLostOrStolenVisa() {
 
 // Função para mostrar ou ocultar os detalhes relacionados a vistos cancelados ou revogados
 function toggleVisaCanceledDetails() {
-    var radioButton = document.getElementById("visaCanceledYes");
-    toggleFields(radioButton, "visaCanceledDetails", "block");
+    var radioButton = document.getElementById("visto_cancelado_sim");
+    toggleFields(radioButton, "detalhes_visto_cancelado", "block");
 }
 
 
@@ -67,24 +67,24 @@ function addVisit() {
 
     if (visitaCount < MAX_VISITS) {
         visitaCount++;
-        const idSuffix = `_${visitaCount}`;
+        const id_suffix = `_${visitaCount}`;
         const visitaMessages = document.getElementById("mensagens_visitaa");
         visitaMessages.innerHTML = ''; // Limpa todas as mensagens
 
         const newVisitHTML = `
-            <fieldset class="conjunto_campos_g2">
-                <div class="indice"
-                    style="position: relative; margin: 0 auto; bottom:9px; width: 25px; height: 25px; text-align: centro; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
-                    ${visitaCount}</div>
-
-                <div class="container_input_data">
-                    <label for="data_entrada_${id_suffix}">Data de entrada:</label>
-                    <input type="date" id="data_entrada_${id_suffix}" name="data_entrada_${id_suffix}">
+            <fieldset class="conjunto_campos_g2 container_cards_style ">
+                <div class="indice">
+                    ${visitaCount}
                 </div>
 
-                <div class="container_input_data">
-                    <label for="data_saida_${id_suffix}">Data de saída:</label>
-                    <input type="date" id="data_saida_${id_suffix}" name="data_saida_${id_suffix}">
+                <div class="envoltura_input">
+                    <input type="date" class="input_personalizado" name="data_entrada_${id_suffix}" id="data_entrada_${id_suffix}" style="width: 100%; text-align: left;" placeholder="">
+                    <label for="data_entrada_${id_suffix}" class="rotulo_personalizado">Data de entrada</label>
+                </div>
+
+                <div class="envoltura_input">
+                    <input type="date" class="input_personalizado" name="data_saida_${id_suffix}" id="data_saida_${id_suffix}" style="width: 100%; text-align: left;" placeholder="">
+                    <label for="data_saida_${id_suffix}" class="rotulo_personalizado">Data de saída</label>
                 </div>
             </fieldset>
         `;
@@ -133,7 +133,7 @@ function toggleAmericanLicenseFields() {
 
 function addAmericanLicense() {
     americanLicenseCount++;
-    const idSuffix = `_${americanLicenseCount}`; // Garante IDs únicos
+    const id_suffix = `_${americanLicenseCount}`; // Garante IDs únicos
 
     const licenseMessages = document.getElementById('mensagens_carteira');
     licenseMessages.innerHTML = ''; // Limpa todas as mensagens de erro
@@ -141,24 +141,19 @@ function addAmericanLicense() {
     const americanLicenseList = document.getElementById('lista_carteiras_americanas');
 
     const newLicenseHTML = `
-        <fieldset class="conjunto_campos_g2">
-            <div class="indice" style="position: relative; margin: 0 auto; bottom:9px; width: 25px; height: 25px; text-align: centro; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">
+        <fieldset class="conjunto_campos_g2 container_cards_style">
+            <div class="indice">
                 ${americanLicenseCount}
             </div>
 
             <div class="envoltura_input">
-                <input type="text" id="numero_carteira_${id_suffix}" name="numero_carteira_${id_suffix}"
-                    class="input_personalizado" placeholder="">
-                <label for="numero_carteira_${id_suffix}" class="rotulo_personalizado">
-                    Licença
-                </label>
+                <input type="text" id="numero_carteira_${id_suffix}" name="numero_carteira_${id_suffix}" class="input_personalizado" placeholder="">
+                <label for="numero_carteira_${id_suffix}" class="rotulo_personalizado">Licença</label>
             </div>
+
             <div class="envoltura_input">
-                <input type="text" id="estado_emissor_carteira_${id_suffix}" name="estado_emissor_carteira_${id_suffix}"
-                    class="input_personalizado" placeholder="">
-                <label for="estado_emissor_carteira_${id_suffix}" class="rotulo_personalizado">
-                    Estado emissor da Licença
-                </label>
+                <input type="text" id="estado_emissor_carteira_${id_suffix}" name="estado_emissor_carteira_${id_suffix}" class="input_personalizado" placeholder="">
+                <label for="estado_emissor_carteira_${id_suffix}" class="rotulo_personalizado">Estado emissor da Licença</label>
             </div>
         </fieldset>
     `;

@@ -1,23 +1,19 @@
-/* Importações de fontes */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital,wght@1,700&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito&family=Roboto:wght@400;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
-/* Ocultar todas as seções, exceto a primeira */
 section:not(:first-child) {
     display: none;
 }
 
-/* Variáveis para reutilização */
-/* Escolha uma das paletas sugeridas */
 :root {
-    --primary-color: #0288D1; /* Azul Escuro */
-    --secondary-color: #B3E5FC; /* Azul Claro */
-    --highlight-color: #81C784; /* Verde Claro */
-    --bg-color-light: #F5F5F5; /* Cinza Claro */
-    --border-color: #ccc; /* Cinza */
-    --text-color-dark: #333; /* Cinza Escuro */
-    --text-color-light: #FFF; /* Branco */
-    --complementary-color: #201d6dd4; /*  */
+    --primary-color: #0288D1;
+    --secondary-color: #B3E5FC;
+    --highlight-color: #81C784;
+    --bg-color-light: #F5F5F5;
+    --border-color: #ccc;
+    --text-color-dark: #333;
+    --text-color-light: #FFF;
+    --complementary-color: #201d6dd4;
     --font-family-primary: 'Roboto', sans-serif;
     --font-family-secondary: 'Bebas Neue', sans-serif;
     --button-font: 'Nunito', sans-serif;
@@ -25,7 +21,6 @@ section:not(:first-child) {
     --primary-color-active: #0288D1;
 }
 
-/* Estilos base */
 body {
     font-family: var(--font-family-primary);
     font-size: 16px;
@@ -37,9 +32,8 @@ body {
     color: var(--text-color-dark);
 }
 
-/* Navbar */
 .navbar {
-    background-color: #F3E5F5;    /* Cinza Azul Claro */
+    background-color: #F3E5F5;
     border-radius: 0px 0px 0.7em 0.7em
 }
 
@@ -50,35 +44,42 @@ body {
     margin: 0 auto;
 }
 
+.legenda_padrao_01 {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 0.8rem;
+    font-size: calc(0.975rem + .3vw);
+    line-height: inherit;
+}
+
+.legend_long, .legend_short {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: var(--text-color-dark);
+}
+
 .legend_long {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    font-size: 1rem; /* Ajuste conforme necessário */
-    color: var(--text_color_dark);
+    font-size: 0.8rem;
 }
 
 .legend_short {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 1.2rem; /* Ajuste conforme necessário */
-    color: var(--text_color_dark);
+    font-size: 1.2rem;
 }
 
-
-/* Estilos para a barra de progresso */
-.progress-container {
+.progress_container {
     display: flex;
     align-items: center;
-    margin: 5vw 0.56rem;
-    padding: 5px 8px;
+    margin: 2vw 0.7rem;
+    padding: 10px 8px;
     background-color: #0084cd;
     border-radius: 4px;
     position: sticky;
-    top: 0;
-    z-index: 1000; /* Garantir que fique acima de outros elementos */
+    top: -1px;
+    z-index: 1000;
 }
 
-.step-counter {
+.step_counter {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,76 +87,71 @@ body {
     margin-right: 20px;
 }
 
-.progress-circle {
+.progress_circle {
     width: 50px;
     height: 50px;
     transform: scale(1.2);
     margin-left: 0.3rem;
 }
 
-.bg-circle {
+.bg_circle {
     fill: none;
     stroke: #e0e0e0;
     stroke-width: 5;
 }
 
-.progress-circle-fill {
+.progress_circle_fill {
     fill: none;
     stroke: #1b26ff;
     stroke-width: 5;
-    stroke-dasharray: 125.6; /* Circunferência do círculo */
+    stroke-dasharray: 125.6;
     stroke-dashoffset: 125.6;
     transition: stroke-dashoffset 0.3s ease;
 }
 
-.progress-text {
+.progress_text {
     font-size: 0.6rem;
     fill: whitesmoke;
     font-weight: 500;
 }
 
-.form-title {
+.form_title {
     flex: 1;
-}
-
-.form-title h1 {
-    font-size: 1.2rem;
-    color: white;
-    margin: 0px 0px 5px 0px;
     text-align: end;
+    color: white;
 }
 
-.form-title p {
+.form_title h1 {
+    font-size: 1.2rem;
+    margin: 0px 0px 5px 0px;
+}
+
+.form_title p {
     font-size: 0.8rem;
     color: rgba(249, 240, 223, 0.829);
     margin: 5px 0px 0px 0px;
-    text-align: end;
 }
 
-
-/* Estilo dos grupos de campos */
-.conjunto_campos_g1,
-.conjunto_campos_g2 {
+.conjunto_campos_g1, .conjunto_campos_g2 {
     border: 1px solid var(--border-color);
-    border-radius: 5px;
     margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .conjunto_campos_g1 {
     background-color: var(--primary-color);
-    padding: 1rem 0.8rem;
     color: var(--text-color-light);
+    border: 0;
 }
 
 .conjunto_campos_g2 {
     background-color: var(--bg-color-light);
     color: var(--text-color-dark);
-    padding: 10px;
 }
 
-/* Estilo da seção inicial */
 .secao_inicial {
-    padding: 0.5rem;
+    padding: 0.7rem;
     text-align: center;
 }
 
@@ -172,7 +168,6 @@ body {
     align-items: center;
 }
 
-/* Estilo de alertas */
 .alerta {
     margin-bottom: 1.5rem;
 }
@@ -202,21 +197,30 @@ body {
 
 .popup {
     display: none;
-    position: absolute;
+    position: relative;
     background-color: var(--bg-color-light);
     border: 1px solid var(--border-color);
     border-radius: 5px;
-    padding: 0.5rem;
+    padding: 0.9rem;
     width: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    top: -44px;
+    margin-bottom: -76px;
+}
+
+.popup.avisos {
+    background-color: rgb(0 0 0 / 87%);
+    color: whitesmoke;
+    top: -66px;
+    border-radius: 0px 0px 12px 12px;
 }
 
 .icone_fechar {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: -10px;
+    right: 5px;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 
 .info p {
@@ -225,11 +229,10 @@ body {
     max-width: 812.04px;
 }
 
-/* Estilo da seção central */
 .centro_secao {
     padding: 0;
-    max-width: 96%;
-    margin: 1rem auto;
+    max-width: 100%;
+    margin: 1rem 0.7rem;
     text-align: center;
 }
 
@@ -246,6 +249,7 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 5px;
     margin-bottom: 0.6rem;
+    text-align: center;
 }
 
 .caixa_observacao {
@@ -254,7 +258,6 @@ body {
     color: var(--text-color-dark);
 }
 
-/* Estilo dos inputs */
 .envoltura_input {
     position: relative;
     margin-bottom: 10px;
@@ -264,7 +267,7 @@ body {
     width: 100%;
     padding: 13px 10px 5px 10px;
     border: 1px solid var(--border-color);
-    border-radius: 5px;
+    border-radius: 6px;
     transition: border-color 0.3s ease;
 }
 
@@ -294,7 +297,6 @@ body {
     color: var(--primary-color-active);
 }
 
-/* Estilo dos rádios personalizados */
 .div_radio_personalizado {
     display: flex;
     justify-content: center;
@@ -321,7 +323,7 @@ body {
     display: inline-block;
     padding: 8px 12px;
     border: 2px solid var(--border-color);
-    border-radius: 5px;
+    border-radius: 12px;
     transition: border-color 0.3s ease;
 }
 
@@ -338,7 +340,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Estilo das seleções */
 .selecao_padrao_01 {
     width: 100%;
     padding: 10px;
@@ -355,9 +356,7 @@ body {
     margin: 5% 0 3% 0;
 }
 
-/* Estilo dos botões de nacionalidade e visitas anteriores */
-.btn_nacionalidade,
-.btn_visitas_anteriores {
+.btn_nacionalidade, .btn_visitas_anteriores {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -369,52 +368,39 @@ body {
     box-sizing: border-box;
 }
 
-.btn_imagem_adicionar,
-.btn_imagem_excluir {
+.btn_imagem_adicionar, .btn_imagem_excluir {
     width: 30px;
     height: 30px;
-}
-
-.legenda_padrao_01 {
-    float: left;
-    width: 100%;
-    padding: 0 10px;
-    margin-bottom: 0.8rem;
-    font-size: calc(0.975rem + .3vw);
-    line-height: inherit;
 }
 
 .indice {
     position: relative;
     margin: 0.5rem auto;
-    bottom: 9px;
+    bottom: 10px;
     width: 25px;
     height: 25px;
     text-align: center;
     border-radius: 50%;
-    background-color: black;
+    background-color: #2d8ddc;
     color: whitesmoke;
     line-height: 25px;
     font-size: 1.2em;
 }
 
-/* sasasas */
 .input_container {
     width: 100%;
     margin-bottom: 15px;
 }
 
 .selecao_data {
-    max-width: 300px; /* Ajuste conforme necessário */
-    margin: 0 auto; /* Centraliza o elemento */
+    width: 100%;
+    margin: 0 auto;
 }
 
-input[type="text"] > .selecao_data {
+input[type="text"]>.selecao_data {
     text-align: center;
     font-family: 'Lato', sans-serif;
 }
-
-/* sasasas */
 
 .input-select {
     width: 100%;
@@ -425,7 +411,6 @@ input[type="text"] > .selecao_data {
     box-sizing: border-box;
 }
 
-/* Sobrescrever estilos do Select2 */
 .select2-container {
     width: 100% !important;
 }
@@ -449,7 +434,14 @@ input[type="text"] > .selecao_data {
     transform: translateY(-50%) !important;
 }
 
-/* Contêiner de botões */
+.select_oculto {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    padding-right: 20px;
+}
+
 .container_botoes {
     display: flex;
     flex-direction: column;
@@ -461,19 +453,16 @@ input[type="text"] > .selecao_data {
     position: relative;
     width: 90%;
     max-width: 300px;
-    /* Ajuste conforme necessário */
     margin: 0 auto 0.5rem auto;
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 25px;
-    /* Bordas arredondadas */
     background-color: var(--primary-color);
     color: var(--text-color-light);
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-align: center;
-    /* Centraliza o texto */
 }
 
 .container_botoes button:hover {
@@ -492,15 +481,12 @@ input[type="text"] > .selecao_data {
 
 .secao_anterior i {
     left: 1.2rem;
-    /* Ajuste conforme necessário */
 }
 
 .proxima_secao i {
     right: 1.2rem;
-    /* Ajuste conforme necessário */
 }
 
-/* Estilo dos botões */
 .btn_personalizado {
     display: flex;
     align-items: center;
@@ -510,12 +496,16 @@ input[type="text"] > .selecao_data {
 
 .btn_personalizado span {
     flex-grow: 1;
-    /* Faz com que o texto ocupe o espaço restante */
     text-align: center;
 }
 
-.bgc_continar_nacionalidade {
-    background-color: var(--complementary-color);
+.container_cards_style {
+    background-color: #ffffff;
+    border: 2px solid #007bff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
 }
 
 .consulado {
@@ -528,15 +518,140 @@ input[type="text"] > .selecao_data {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
 .secao_titulo_padrao {
-    font-family: 'Montserrat', sans-serif; /* Fonte estilosa e robusta */
-    font-weight: 700; /* Peso da fonte */
-    color: var(--primary-color); /* Cor primária */
-    text-align: center; /* Centralizado */
-    margin: 1rem 0; /* Espaçamento acima e abaixo */
-    text-transform: uppercase; /* Texto em maiúsculas para impacto */
-    letter-spacing: 0px; /* Espaçamento entre letras */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0px;
 }
 
-.secao_titulo_padrao > h2 {
-    font-size: 1.2rem; /* Tamanho grande para destaque */
+.secao_titulo_padrao>h2 {
+    font-size: 1.2rem;
+}
+
+.select2-container--default .select2-results>.select2-results__options {
+    max-height: 50vh !important;
+    overflow-y: auto !important;
+}
+
+.button_container {
+    display: flex;
+    gap: 7vw;
+    justify-content: center;
+}
+
+.button {
+    --main-focus: #2d8cf0;
+    --font-color: #323232;
+    --bg-color-sub: #dedede;
+    --bg-color: #eee;
+    --main-color: #323232;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.button_icon, .button_text {
+    transition: all 0.3s;
+}
+
+.button .button_text {
+    flex: 1;
+    text-align: center;
+    color: var(--font-color);
+    font-weight: 600;
+}
+
+.button .button_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 40px;
+    background-color: var(--bg-color-sub);
+    margin: 0 -7px;
+}
+
+.button .svg {
+    width: 20px;
+    fill: var(--main-color);
+}
+
+.button:hover {
+    background: var(--bg-color);
+}
+
+.button:hover .button_text {
+    color: transparent;
+}
+
+.button:hover .button_icon {
+    width: 100%;
+}
+
+.button:active, .button.reset-animation {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px var(--main-color);
+}
+
+.button_add {
+    --main-color: #28a745;
+}
+
+.button_add .svg {
+    fill: #28a745;
+}
+
+.button_delete {
+    --main-color: #dc3545;
+}
+
+.button_delete .svg {
+    fill: #dc3545;
+}
+
+.input_personalizado.numero_passaporte {
+    text-transform: uppercase;
+}
+
+/* Ocultar setas para cima e para baixo no Chrome, Safari, Edge e Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.truncar_texto {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.truncar_texto option {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.label_top_10px {
+    top: 10px !important;
+}
+
+.select_pad__top_15px {
+    padding-top: 15px !important;
 }

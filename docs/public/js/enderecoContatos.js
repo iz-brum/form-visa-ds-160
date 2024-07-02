@@ -83,13 +83,13 @@ function addAdditionalPhone() {
     var newPhoneField = document.createElement("div");
     newPhoneField.innerHTML = `
             
-        <fieldset class="conjunto_campos_g2">
+        <fieldset class="conjunto_campos_g2 container_cards_style ">
 
-            <div class="indice" style="position: relative; margin: 0 auto; bottom:9px; width: 25px; height: 25px; text-align: centro; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">${contPhones}</div>
+            <div class="indice">${contPhones}</div>
     
-            <div class="envoltura_input">
-                <input type="tel" class="input_personalizado" id="telefone_celular" name="telefone_celular" placeholder="">
-                <label for="telefone_celular" class="rotulo_personalizado">Telefone/Celular</label>
+            <div class="envoltura_input my-2">
+                <input type="number" class="input_personalizado" id="telefone_celular_${contPhones}" name="telefone_celular_${contPhones}" placeholder="">
+                <label for="telefone_celular_${contPhones}" class="rotulo_personalizado">Telefone/Celular</label>
             </div>
 
         </fieldset>
@@ -126,33 +126,42 @@ function removeLastAdditionalPhone() {
 
 
 
-let contEmails = 0;
+let cont_emails = 0;
 
 function toggleAdditionalEmails() {
+    // Obtém o botão de rádio "Sim" para outros e-mails
     var radioButton = document.getElementById("usou_outros_emails_sim");
+    
+    // Exibe ou oculta os campos adicionais de e-mail com base no valor do botão de rádio
     toggleFields(radioButton, "emails_adicionais", "block");
 
-    if (contEmails === 0) {
+    // Verifica se é a primeira vez que estamos adicionando um campo adicional
+    if (cont_emails === 0) {
         addAdditionalEmail();
     }
-    // Remove a mensagem de aviso, se existir
-    const errorDiv = container.querySelector('.erro_email');
-    errorDiv.textContent = "";
-    errorDiv.style.display = 'none';
-}
 
+    // Obtém o container do erro de e-mail
+    const container = document.getElementById("emails_adicionais");
+    const errorDiv = container.querySelector('.erro_email');
+
+    // Limpa a mensagem de erro se existir
+    if (errorDiv) {
+        errorDiv.textContent = "";
+        errorDiv.style.display = 'none';
+    }
+}
 // Função para adicionar um novo campo de e-mail adicional
 function addAdditionalEmail() {
     // Remove a mensagem de erro, se existir
     const container = document.querySelector("#emails_adicionais");
-    const errorDiv = container.querySelector('.erro_email');
+    const errorDiv = container.querySelector('erro_email');
     if (errorDiv) {
         errorDiv.textContent = "";
         errorDiv.style.display = 'none';
     }
 
     // Incrementa o contador de e-mails
-    contEmails++;
+    cont_emails++;
 
     // Obtém o container para adicionar o novo campo de e-mail
     const additionalEmailContainer = document.querySelector(".container_email_adicional");
@@ -162,7 +171,7 @@ function addAdditionalEmail() {
     newEmailField.innerHTML = `
         <fieldset class="conjunto_campos_g2">
 
-            <div class="indice" style="position: relative; margin: 0 auto; bottom: 9px; width: 25px; height: 25px; text-align: centro; border-radius: 50%; background-color: #007bff; color: #fff; line-height: 25px; font-size: 1.2em;">${contEmails}</div>
+            <div class="indice">${cont_emails}</div>
     
             <div class="envoltura_input">
                 <input type="email" class="input_personalizado" id="email_adicional_${cont_emails}" name="email_adicional_${cont_emails}" placeholder="">
@@ -188,10 +197,10 @@ function removeLastAdditionalEmail() {
         // Remove o último campo de e-mail adicional
         var lastEmailField = additionalEmailInputs[additionalEmailInputs.length - 1];
         container.querySelector('.container_email_adicional').removeChild(lastEmailField);
-        contEmails--; // Decrementa o contador de campos de e-mail
+        cont_emails--; // Decrementa o contador de campos de e-mail
     } else {
         // Exibe a mensagem de erro se houver apenas um campo de e-mail adicional
-        const errorDiv = container.querySelector('.erro_email');
+        const errorDiv = container.querySelector('erro_email');
         errorDiv.textContent = "É necessário manter pelo menos um e-mail.";
         errorDiv.style.display = 'block';
 

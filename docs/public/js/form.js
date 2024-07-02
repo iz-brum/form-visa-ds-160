@@ -1,47 +1,24 @@
-
 document.addEventListener('DOMContentLoaded', function () {
-    const radioButtons = document.querySelectorAll('input[name="outros_nomes_usados"]');
-
-    radioButtons.forEach(radio => {
-        radio.addEventListener('change', toggleOtherNamesFields);
-    });
-
-    function toggleOtherNamesFields() {
-        radioButtons.forEach(radio => {
-            const label = radio.parentElement;
-            if (radio.checked) {
-                label.classList.add('selected');
-            } else {
-                label.classList.remove('selected');
-            }
-        });
+    const currentYear = new Date().getFullYear();
+    const dataOcorridoInput = document.getElementById('data_ocorrido');
+    if (dataOcorridoInput) {
+        dataOcorridoInput.setAttribute('max', currentYear);
     }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
     const today = new Date().toISOString().split('T')[0];
-    document.getElementById('data_nascimento').setAttribute('max', today);
-});
+    const dataNascimentoInput = document.getElementById('data_nascimento');
+    if (dataNascimentoInput) {
+        dataNascimentoInput.setAttribute('max', today);
+    }
 
-// Chamando a função para preencher todos os dropdowns de países
-document.addEventListener("DOMContentLoaded", function () {
-    const paisSelectIds = [
-        "pais_nascimento",
-        "pais_emissao_passaporte",
-        "pais_emissao_passaporteEmissor",
-        "pais_emissao_passaporte_perdido"
-    ];
-    populateCountrySelect(paisSelectIds);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    console.log('segundo DomContentLoaded');
+    // Load saved form data
+    loadFormData();
 
     const sections = document.querySelectorAll("section");
     const totalSteps = sections.length;
     let currentSection = parseInt(localStorage.getItem('currentSection')) || 0;
 
-    document.querySelector('.progress-text').textContent = `${currentSection + 1} de ${totalSteps}`;
+    document.querySelector('.progress_text').textContent = `${currentSection + 1} de ${totalSteps}`;
 
     const sectionTitles = [
         "FORMULÁRIO DS-160",
@@ -49,11 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
         "DADOS PESSOAIS",
         "VIAGEM AOS EUA",
         "COMPANHEIROS DE VIAGEM",
-        "VIAGENS ANTERIORES AO EUA",
-        "ENDEREÇO E CONTATOS",
+        "VIAGENS ANTERIORES AOS EUA",
+        "ENDEREÇO E CONTATO",
         "PASSAPORTE",
         "REDES SOCIAIS",
-        "CONTATOS NO EUA",
+        "CONTATOS NOS EUA",
         "FAMILIARES",
         "OCUPAÇÃO ATUAL",
         "OCUPAÇÕES ANTERIORES",
@@ -70,17 +47,17 @@ document.addEventListener("DOMContentLoaded", function () {
         window.scrollTo(0, 0);
 
         // Atualiza a barra de progresso e o indicador de etapa
-        document.getElementById('form-title').innerText = sectionTitles[indice];
-        document.getElementById('next-step').innerText = `Next: ${sectionTitles[indice + 1] || 'Fim'}`;
+        document.getElementById('form_title').innerText = sectionTitles[indice];
+        document.getElementById('next_step').innerText = `Next: ${sectionTitles[indice + 1] || 'Fim'}`;
         updateProgressCircle(indice);
     }
 
     function updateProgressCircle(indice) {
-        const progressCircle = document.querySelector('.progress-circle-fill');
-        const text = document.querySelector('.progress-text');
+        const progressCircle = document.querySelector('.progress_circle_fill');
+        const text = document.querySelector('.progress_text');
         const progress = ((indice + 1) / totalSteps) * 125.6;
         progressCircle.style.strokeDashoffset = 125.6 - progress;
-        text.textContent = `${indice + 1} of ${totalSteps}`;
+        text.textContent = `${indice + 1} de ${totalSteps}`;
     }
 
     function nextSection() {
@@ -101,12 +78,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const nextButtons = document.querySelectorAll(".proxima_secao");
     nextButtons.forEach(button => {
-        button.addEventListener("click", nextSection);
+        button.addEventListener("click", () => {
+            saveFormData();
+            nextSection();
+        });
     });
 
     const prevButtons = document.querySelectorAll(".secao_anterior");
     prevButtons.forEach(button => {
-        button.addEventListener("click", prevSection);
+        button.addEventListener("click", () => {
+            saveFormData();
+            prevSection();
+        });
+    });
+
+    // Salva o formulário após cada alteração de input
+    const inputs = document.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('input', saveFormData);
+        input.addEventListener('change', saveFormData); // Garantir que selects e outros inputs disparem o salvamento
     });
 
     // Mostra a seção salva ou a primeira seção
@@ -149,19 +139,17 @@ function toggleFieldForOtherOption(selectElement, targetElementId, action) {
 }
 
 function setNaoSeAplica(inputId) {
-    // console.log('não se aplica aplicado em ', inputId);
     var inputField = document.getElementById(inputId);
     inputField.value = "Not Apply";
 }
 
-// Selecionar elementos
 const triggerParagraph = document.querySelector('.trigger-paragraph');
 const popupContent = document.getElementById('conteudo_popup');
+const closeIcon = document.querySelector('.icone_fechar');
 let popupVisible = false;
 let hidePopupTimeout;
 
-
-// Funções auxiliares
+// Função para alternar a visibilidade do popup
 function togglePopupVisibility() {
     if (!popupVisible) {
         showPopup();
@@ -170,25 +158,54 @@ function togglePopupVisibility() {
     }
 }
 
+// Função para exibir o popup
 function showPopup() {
     popupContent.style.display = 'block';
     popupVisible = true;
 }
 
+// Função para ocultar o popup
 function hidePopup() {
     popupContent.style.display = 'none';
     popupVisible = false;
 }
 
-function hidePopupWithDelay() {
-    hidePopupTimeout = setTimeout(() => {
-        hidePopup();
-    }, 300); // 300ms delay
+// Adicionar manipulador de eventos para o parágrafo acionador
+triggerParagraph.addEventListener('click', togglePopupVisibility);
+
+// Adicionar manipulador de eventos para fechar o popup ao clicar no ícone de fechar
+closeIcon.addEventListener('click', hidePopup);
+
+// Função para salvar os dados do formulário
+function saveFormData() {
+    const formData = {};
+    const formElements = document.querySelectorAll('input, select, textarea');
+
+    formElements.forEach(element => {
+        if (element.type !== 'button' && element.type !== 'submit' && element.type !== 'reset') {
+            if (element.value !== null && element.value !== undefined && element.value !== "") {
+                formData[element.id] = element.value;
+            }
+        }
+    });
+
+    localStorage.setItem('formData', JSON.stringify(formData));
+    console.log("Dados salvos no Local Storage");
 }
 
-// Adicionar manipulador de eventos para fechar o pop-up ao clicar no ícone de fechar
-const closeIcon = document.querySelector('.icone_fechar');
-closeIcon.addEventListener('click', function () {
-    hidePopup();
-});
+// Função para carregar os dados do formulário
+function loadFormData() {
+    const formData = JSON.parse(localStorage.getItem('formData'));
 
+    if (formData) {
+        const formElements = document.querySelectorAll('input, select, textarea');
+
+        formElements.forEach(element => {
+            if (formData[element.id] !== undefined) {
+                element.value = formData[element.id];
+            }
+        });
+
+        console.log("Dados carregados do Local Storage");
+    }
+}

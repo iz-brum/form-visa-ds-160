@@ -11,64 +11,40 @@
     <link href="public/css/style.css" rel="stylesheet">
     <link href="public/css/mobile.css" rel="stylesheet" media="screen and (max-width: 575.98px)">
     <link href="public/css/tablet.css" rel="stylesheet" media="screen and (min-width: 576px) and (max-width: 991.98px)">
-    <link href="public/css/laptop.css" rel="stylesheet"
-        media="screen and (min-width: 992px) and (max-width: 1199.98px)">
+    <link href="public/css/laptop.css" rel="stylesheet" media="screen and (min-width: 1200px)">
     <link href="public/css/desktop.css" rel="stylesheet" media="screen and (min-width: 1200px)">
 
     <!-- Link para a fonte do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Link para importar o CSS da fonte Nunito -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Link para importar o CSS da fonte Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Link para importar o CSS da fonte Lato -->
-
-    <!-- Adicionado CSS do Select2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- Adicionado CSS do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Adicionado jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <!-- Adicione o CSS do Flatpickr -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
-    <!-- Adicione o JavaScript do Flatpickr -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/confetti.css">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
 
     <!-- CSS do Select2 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 
-    <!-- JS do Select2 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-
-
+    <!-- Adicionando fontes e estilos externos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="fundo_personalizado_info">
-    <!-- Navbar -->
-    <!-- <nav class="navbar">
-        <div class="container">
-            <a class="navbar-brand mx-auto" href="#">
-                <img src="public/imgs/mv-logo.png" alt="logo da multivistos" height="35" class="logo_topo">
-            </a>
-        </div>
-    </nav> -->
 
-    <div class="progress-container">
-        <div class="step-counter">
-            <svg class="progress-circle" width="50" height="50">
-                <circle cx="25" cy="25" r="20" class="bg-circle"></circle>
-                <circle cx="25" cy="25" r="20" class="progress-circle-fill"></circle>
-                <text x="25" y="25" class="progress-text" text-anchor="middle" dy=".3em">1 de 4</text>
+    <div class="progress_container">
+        <div class="step_counter">
+            <svg class="progress_circle" width="50" height="50">
+                <circle cx="25" cy="25" r="20" class="bg_circle"></circle>
+                <circle cx="25" cy="25" r="20" class="progress_circle_fill"></circle>
+                <text x="25" y="25" class="progress_text" text-anchor="middle" dy=".3em">1 de 4</text>
             </svg>
         </div>
-        <div class="form-title">
-            <h1 id="form-title">FORMULÁRIO DS-160</h1>
-            <p id="next-step">Next: ESCOLHA DO CONSULADO</p>
+        <div class="form_title">
+            <h1 id="form_title">FORMULÁRIO DS-160</h1>
+            <p id="next_step">Next: ESCOLHA DO CONSULADO</p>
         </div>
     </div>
 
@@ -77,10 +53,6 @@
 
             <!-- Tela inicial -->
             <section class="secao_inicial">
-                <!-- 
-                <div class="titulo_principal">
-                    <h1 class="">Formulário modelo DS-160 para pedido de visto EUA</h1>
-                </div> -->
 
                 <div class="conteudo_flex">
                     <div class="alerta">
@@ -99,20 +71,25 @@
                         </div>
 
                         <!-- Pop-up content -->
-                        <div class="popup" id="conteudo_popup" style="display: none;">
+                        <div class="popup avisos" id="conteudo_popup" style="display: none;">
                             <!-- Div de pop-up -->
                             <span class="icone_fechar">×</span>
-                            <p class="m-0">» As taxas de serviço e consular NÃO são reembolsáveis!</p>
-                            <p class="m-0">» A aprovação do visto depende exclusivamente da decisão do oficial consular
+                            <p class="p-1 fs-5">» As taxas de serviço e consular NÃO são reembolsáveis!</p>
+                            <p class="p-1 fs-5">» A aprovação do visto depende exclusivamente da decisão do oficial
+                                consular
                                 americano.</p>
-                            <p class="m-0">» Mesmo em casos isentos de entrevista é possível que durante a análise o
+                            <p class="p-1 fs-5">» Mesmo em casos isentos de entrevista é possível que durante a análise
+                                o
                                 aplicante seja chamado para comparecer a embaixada.</p>
-                            <p class="m-0">» Os agendamentos podem ser cancelados pela embaixada sem aviso prévio!</p>
-                            <p class="m-0">» A taxa consular é reajustada de acordo com a cotação do dólar e tem um ano
+                            <p class="p-1 fs-5">» Os agendamentos podem ser cancelados pela embaixada sem aviso prévio!
+                            </p>
+                            <p class="p-1 fs-5">» A taxa consular é reajustada de acordo com a cotação do dólar e tem um
+                                ano
                                 de validade a partir da data do pagamento.</p>
-                            <p class="m-0">» Não podemos garantir datas de agendamento pois o sistema americano é
+                            <p class="p-1 fs-5">» Não podemos garantir datas de agendamento pois o sistema americano é
                                 atualizado constantemente!</p>
-                            <p class="m-0">» Caso seja necessário o preenchimento de um novo formulário por: alterações
+                            <p class="p-1 fs-5">» Caso seja necessário o preenchimento de um novo formulário por:
+                                alterações
                                 de informações ou mudança na cidade do agendamento, valores adicionais serão cobrados!
                             </p>
                         </div>
@@ -168,9 +145,6 @@
             <!-- INICIO DA SEÇÃO SOBRE DADOS PESSOAIS -->
             <section class="centro_secao">
                 <div class="text-center">
-                    <!-- <header class="secao_titulo_padrao">
-                        <h2>INFORMAÇÕES PESSOAIS</h2>
-                    </header> -->
 
                     <fieldset class="conjunto_campos_g1 border-0 mb-0">
                         <div class="envoltura_input">
@@ -187,7 +161,7 @@
                         </div>
 
                         <fieldset class="conjunto_campos_g2">
-                            <legend class="legenda_padrao_01 legend_long">Você já usou outros nomes? (exemplo: solteiro,
+                            <legend class="legend_long">Você já usou outros nomes? (exemplo: solteiro,
                                 religioso,
                                 profissional, pseudônimo, etc)</legend>
                             <div class="div_radio_personalizado">
@@ -203,7 +177,8 @@
                                 </label>
                             </div>
 
-                            <div class="" id="div_outro_nome" style="display: none;">
+                            <div class="" id="div_outro_nome" style="display: none;"
+                                data-conditional="outros_nomes_sim">
                                 <div class="envoltura_input">
                                     <input type="text" id="outro_nome" name="outro_nome" class="input_personalizado"
                                         placeholder=" ">
@@ -219,7 +194,7 @@
                         </fieldset>
 
                         <fieldset class="conjunto_campos_g2">
-                            <legend class="legenda_padrao_01 legend_short">Gênero</legend>
+                            <legend class="legend_short">Gênero</legend>
                             <div class="div_radio_personalizado">
                                 <label class="rotulo_radio" for="genero_masculino">
                                     <input type="radio" class="input_radio" id="genero_masculino" name="genero"
@@ -235,7 +210,7 @@
                         </fieldset>
 
                         <fieldset class="conjunto_campos_g2">
-                            <legend class="legenda_padrao_01 legend_short">Estado civil</legend>
+                            <legend class="legend_short">Estado civil</legend>
                             <div class="input-container mb-2">
                                 <select class="selecao_padrao_01 select2" id="estado_civil" name="estado_civil"
                                     onchange="toggleMaritalStatusFields()">
@@ -250,7 +225,7 @@
                                 </select>
                             </div>
 
-                            <div style="display:none;" class="envoltura_input" id="outros_estados_civis">
+                            <div style="display: none;" class="envoltura_input" id="outros_estados_civis">
                                 <fieldset class="">
                                     <input type="text" id="estado_civil_especificacao" name="estado_civil_especificacao"
                                         class="input_personalizado" placeholder=" "
@@ -262,14 +237,14 @@
                         </fieldset>
 
                         <fieldset class="conjunto_campos_g2">
-                            <legend class="legenda_padrao_01 legend_short">Data de nascimento</legend>
+                            <legend class="legend_short">Data de nascimento</legend>
                             <div class="calendario container p-1 mt-4">
                                 <div class="row justify-content-center align-items-center">
                                     <div class="selecao_data col-12 col-md-auto input_container mb-2">
                                         <input type="text" id="data_nascimento_display"
-                                            class="selecao_data text-center form-control" placeholder="dd/mm/aaaa">
-                                        <div id="error_message" style="color: red; display: none;">Data inválida. Insira
-                                            uma data anterior ou igual à data atual.</div>
+                                            class="selecao_data text-center form-control" placeholder="dd/mm/aaaa"
+                                            inputmode="numeric">
+                                        <div id="error_message" style="color: red; display: none;">Data inválida.</div>
                                     </div>
                                 </div>
                             </div>
@@ -277,11 +252,11 @@
                         </fieldset>
 
                         <fieldset class="conjunto_campos_g2">
-                            <legend class="legenda_padrao_01 legend_short">Local de nascimento</legend>
+                            <legend class="legend_short">Local de nascimento</legend>
 
                             <div class="mb-2 input-container">
                                 <select id="pais_nascimento" name="pais_nascimento"
-                                    onchange="updateStatePlaceholder(this.value, 'estado_nascimento'); getStatesByCountry(this.value, 'estado_nascimento')"
+                                    onchange="getStatesByCountry(this.value, 'estado_nascimento')"
                                     class="input-select select2">
                                     <option value="" disabled selected>Selecione seu país de nascimento</option>
                                     <!-- Adicione outras opções de país aqui -->
@@ -290,16 +265,16 @@
 
                             <div class="mb-2 input-container">
                                 <select id="estado_nascimento" name="estado_nascimento"
-                                    onchange="updateCityPlaceholder(this.value, 'cidade_nascimento'); getCitiesByState(this.value, 'cidade_nascimento')"
-                                    class="input-select select2" disabled>
+                                    onchange="getCitiesByState(this.value, 'cidade_nascimento')"
+                                    class="input-select select2 select_oculto" disabled>
                                     <option value="" selected disabled>Selecione um país antes</option>
                                     <!-- Opções de estado serão preenchidas dinamicamente -->
                                 </select>
                             </div>
 
                             <div class="mb-2 input-container">
-                                <select id="cidade_nascimento" name="cidade_nascimento" class="input-select select2"
-                                    disabled>
+                                <select id="cidade_nascimento" name="cidade_nascimento"
+                                    class="input-select select2 select_oculto" disabled>
                                     <option value="" selected disabled>Selecione um estado antes</option>
                                     <!-- Opções de cidade serão preenchidas dinamicamente -->
                                 </select>
@@ -307,17 +282,14 @@
                         </fieldset>
 
                         <fieldset class="conjunto_campos_g2">
-                            <legend class="legenda_padrao_01 legend_short">Nacionalidade</legend>
+                            <legend class="legend_short">Nacionalidade</legend>
 
                             <select id="nacionalidade" name="nacionalidade" class="input-select select2">
                                 <option value="" selected disabled>Selecione sua nacionalidade</option>
                                 <!-- Opções de nacionalidade serão preenchidas dinamicamente -->
                             </select>
-                        </fieldset>
 
-                        <fieldset class="conjunto_campos_g2">
-                            <legend class="legenda_padrao_01 legend_long">Você possui outra nacionalidade além da
-                                indicada acima?
+                            <legend class="mt-4 legend_short">Você possui outra nacionalidade além da indicada acima?
                             </legend>
                             <div class="div_radio_personalizado">
                                 <label class="rotulo_radio" for="outra_nacionalidade_sim">
@@ -332,31 +304,43 @@
                                 </label>
                             </div>
 
-                            <div id="nacionalidade_segunda_div" style="display: none;">
-                                <p class="mt-1 px-0">Informe todas as nacionalidades que você possuir!</p>
+                            <div id="nacionalidade_segunda_div" class="mt-4" style="display: none;">
+                                <p class="mt-1 px-0 fw-bold mb-0">Informe todas as nacionalidades que você possuir!</p>
                                 <div class="container_nacionalidade" id="nacionalidades_adicionais">
                                     <!-- Adicione dinamicamente os campos de entrada aqui -->
                                 </div>
-
                                 <div id="mensagens_nacionalidade"></div>
-
-                                <div class="mb-3 mactions d-flex justify-content-center align-items-center">
-                                    <button type="button" class="btn_nacionalidade" aria-label="Adicionar"
+                                <div class="button_container">
+                                    <button class="button button_add" type="button"
                                         onclick="addNationality(); checkHorizontalScroll()">
-                                        <img src="public/svg/plus-svgrepo-com.svg" alt="Adicionar"
-                                            class="btn_imagem_adicionar">
+                                        <span class="button_text">Add</span>
+                                        <span class="button_icon">
+                                            <svg class="svg" fill="none" height="24" stroke="currentColor"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <line x1="12" x2="12" y1="5" y2="19"></line>
+                                                <line x1="5" x2="19" y1="12" y2="12"></line>
+                                            </svg>
+                                        </span>
                                     </button>
-                                    <button type="button" class="btn_nacionalidade" aria-label="Excluir"
+                                    <button class="button button_delete" type="button"
                                         onclick="removeLastNationality(); checkHorizontalScroll()">
-                                        <img src="public/svg/trash-svgrepo-com.svg" alt="Excluir"
-                                            class="btn_imagem_excluir">
+                                        <span class="button_text">Dell</span>
+                                        <span class="button_icon">
+                                            <svg class="svg" fill="none" height="24" stroke="currentColor"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <line x1="5" x2="19" y1="12" y2="12"></line>
+                                            </svg>
+                                        </span>
                                     </button>
                                 </div>
                             </div>
                         </fieldset>
 
+
                         <fieldset class="conjunto_campos_g2 mb-0">
-                            <legend class="legenda_padrao_01">Documentos de identificação</legend>
+                            <legend class="legend_short">Documentos</legend>
                             <div class="envoltura_input">
                                 <input type="text" class="input_personalizado" id="numero_rg" name="numero_rg"
                                     oninput="formatar_numero_rg(this)" placeholder=" ">
@@ -402,19 +386,16 @@
 
             <!-- INICIO DA SEÇÃO SOBRE VIAGEM AOS EUA -->
             <section class="centro_secao">
-                <div class="text-center">
-                    <!-- <div class="secao_titulo_padrao">
-                        <h2>INFORMAÇÕES SOBRE A VIAGEM AOS EUA</h2>
-                    </div> -->
+                <div class="text-center conjunto_campos_g1">
 
-                    <fieldset class="conjunto_campos_g2">
-                        <legend class="legenda_padrao_01 legenda_1em">Você é o aplicante principal?
+                    <fieldset class="conjunto_campos_g2 mb-0">
+                        <legend class="legenda_padrao_01 legend_short">Você é o aplicante principal?
                             <i class="fas fa-question-circle ml-4" id="icone_pergunta"></i>
                         </legend>
 
                         <!-- Pop-up -->
                         <div id="popup" class="popup">
-                            <p>
+                            <p class="mb-0">
                                 Atenção, pois todos os requerentes de visto de Turismo (B2) ou Negócios (B1) são
                                 aplicantes
                                 principais, mesmo viajando com sua família. Você não é o aplicante principal se estiver
@@ -439,7 +420,7 @@
                             </label>
                         </div>
 
-                        <div class="mx-3 my-0 " id="questoes_aplicante_principal" style="display: none;">
+                        <div class="text-center " id="questoes_aplicante_principal" style="display: none;">
                             <div class="text-center">
                                 <label for="motivo_viagem" class="mt-1 mb-1">Motivo da Viagem</label>
                                 <select class="input-select select2" id="motivo_viagem" name="motivo_viagem"
@@ -452,7 +433,7 @@
                                     <option value="Outros">Outros</option>
                                 </select>
                             </div>
-                            <div class="envoltura_input my-1" id="outros_especificacao_motivo" style="display: none;">
+                            <div class="envoltura_input my-0" id="outros_especificacao_motivo" style="display: none;">
                                 <input type="text" class="input_personalizado" id="motivo_especificacao"
                                     name="motivo_especificacao" placeholder="">
                                 <label for="motivo_especificacao"
@@ -460,7 +441,7 @@
                             </div>
                         </div>
 
-                        <div class="text-start" id="questoes_aplicante_nao_principal" style="display: none;">
+                        <div class="text-center" id="questoes_aplicante_nao_principal" style="display: none;">
                             <p class="aviso_01">Preencha estes campos apenas se você for um acompanhante de um portador
                                 de visto de
                                 <strong>TRABALHO</strong> ou <strong>ESTUDOS</strong>.
@@ -482,24 +463,24 @@
                             </div>
 
                             <div class="mt-2">
-                                <select id="categoria_visto" name="categoria_visto" class="input-select select2"
+                                <select id="categoria_visto" name="categoria_visto" class="input-select fs-auto"
                                     onchange="showAdditionalFieldsVisaCategory()">
-                                    <option value="" selected disabled hidden>Selecione a categoria do visto requerido
+                                    <option value="" selected disabled hidden>Selecione a categoria do visto
                                     </option>
-                                    <option value="Turista">Turista (B1/B2)</option>
+                                    <!-- <option value="Turista">Turista (B1/B2)</option> -->
                                     <option value="Estudante">Estudante (F/M)</option>
                                     <option value="Trabalho">Trabalho (H, L, O, P, Q)</option>
-                                    <option value="Intercambio">Intercâmbio (J)</option>
-                                    <option value="Imigrante">Imigrante (diversas categorias)</option>
+                                    <!-- <option value="Intercambio">Intercâmbio (J)</option> -->
+                                    <!-- <option value="Imigrante">Imigrante (diversas categorias)</option> -->
                                 </select>
 
-                                <div id="container_sevis_id" class="envoltura_input mt-2" style="display: none;">
+                                <div id="container_sevis_id" class="envoltura_input" style="display: none;">
                                     <input type="text" class="input_personalizado" placeholder="" id="sevis_id"
                                         name="sevis_id">
                                     <label for="sevis_id" class="rotulo_personalizado">Nº da Sevis ID</label>
                                 </div>
 
-                                <div id="container_numero_peticao" class="envoltura_input mt-2" style="display: none;">
+                                <div id="container_numero_peticao" class="envoltura_input" style="display: none;">
                                     <input type="text" class="input_personalizado" placeholder="" id="numero_peticao"
                                         name="numero_peticao">
                                     <label for="numero_peticao" class="rotulo_personalizado">Nº da petição
@@ -525,14 +506,11 @@
 
             <!-- INICIO DA SEÇÃO SOBRE COMPANHEIROS DE VIAGEM -->
             <section class="centro_secao">
-                <div class="text-center">
+                <div class="text-center conjunto_campos_g1">
 
-                    <!-- <div class="secao_titulo_padrao">
-                        <h2>INFORMAÇÕES SOBRE COMPANHEIROS DE VIAGEM</h2>
-                    </div> -->
-
-                    <fieldset class="conjunto_campos_g2">
-                        <legend class="legenda_padrao_01 legenda_1em">Existem outras pessoas viajando com você?</legend>
+                    <fieldset class="conjunto_campos_g2 mb-0">
+                        <legend class="legenda_padrao_01 legend_short">Existem outras pessoas viajando com você?
+                        </legend>
 
                         <div class="div_radio_personalizado">
                             <label class="rotulo_radio" for="viajando_com_pessoas_sim">
@@ -547,7 +525,7 @@
                             </label>
                         </div>
 
-                        <div id="questoes_companheiros" class="mx-3 my-0 text-center mt-2" style="display: none;">
+                        <div id="questoes_companheiros" class="mt-2" style="display: none;">
                             <div class="">
                                 <select class="selecao_padrao_01 p-fs" id="tipo_relacao" name="tipo_relacao"
                                     onchange="handleRelationshipType()">
@@ -604,13 +582,13 @@
 
             <!-- INICIO DA SEÇÃO SOBRE VIAGENS ANTERIORES AOS EUA -->
             <section class="centro_secao">
-                <div class="text-center">
+                <div class="text-center conjunto_campos_g1">
                     <!-- <div class="secao_titulo_padrao">
                         <h2>INFORMAÇÕES SOBRE VIAGENS ANTERIORES AOS EUA</h2>
                     </div> -->
 
                     <fieldset class="conjunto_campos_g2">
-                        <legend class="legenda_padrao_01 legenda_1em">Você já esteve nos Estados Unidos?</legend>
+                        <legend class="legenda_padrao_01 legend_short">Você já esteve nos EUA?</legend>
                         <div class="div_radio_personalizado">
                             <label class="rotulo_radio" for="visitaou_eua_sim">
                                 <input type="radio" class="input_radio" id="visitaou_eua_sim" name="visitaou_eua"
@@ -624,27 +602,39 @@
                             </label>
                         </div>
                         <div id="campos_visitaa" style="display: none;">
-                            <p>Informe suas últimas visitaas aos Estados Unidos.</p>
+                            <p class="mt-3 px-0 fw-bold mb-0">Informe suas últimas visitas aos EUA.</p>
                             <p class="mt-0"><strong>(MÁXIMO 5)</strong></p>
                             <div id="conta_visitaas"></div>
-                            <div class="mb-3 mactions d-flex justify-content-center align-items-center">
-                                <button type="button" class="btn_visitas_anteriores" onclick="addVisit()"
-                                    aria-label="Adicionar">
-                                    <img src="public/svg/plus-svgrepo-com.svg" class="btn_imagem_adicionar"
-                                        alt="Adicionar">
+
+                            <div id="mensagens_visitaa"></div>
+                            <div class="button_container">
+                                <button class="button button_add" type="button" onclick="addVisit()">
+                                    <span class="button_text">Add</span>
+                                    <span class="button_icon">
+                                        <svg class="svg" fill="none" height="24" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <line x1="12" x2="12" y1="5" y2="19"></line>
+                                            <line x1="5" x2="19" y1="12" y2="12"></line>
+                                        </svg>
+                                    </span>
                                 </button>
-                                <button type="button" class="btn_visitas_anteriores" onclick="removeLastVisit()"
-                                    aria-label="Excluir">
-                                    <img src="public/svg/trash-svgrepo-com.svg" class="btn_imagem_excluir"
-                                        alt="Excluir">
+                                <button class="button button_delete" type="button" onclick="removeLastVisit()">
+                                    <span class="button_text">Dell</span>
+                                    <span class="button_icon">
+                                        <svg class="svg" fill="none" height="24" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <line x1="5" x2="19" y1="12" y2="12"></line>
+                                        </svg>
+                                    </span>
                                 </button>
                             </div>
-                            <div id="mensagens_visitaa"></div>
                         </div>
                     </fieldset>
 
-                    <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você possui/mantém uma carteira de habilitação
+                    <fieldset class="conjunto_campos_g2">
+                        <legend class="legenda_padrao_01 legend_long">Você possui/mantém uma carteira de habilitação
                             americana?</legend>
                         <div class="div_radio_personalizado">
                             <label class="rotulo_radio" for="possui_carteira_americana_sim">
@@ -661,27 +651,43 @@
                             </label>
                         </div>
                         <div id="campos_carteira_americana" style="display: none;">
-                            <p>Informações sobre sua(s) carteira(s) de habilitação americana, inclusive se possuir mais
-                                de uma.</p>
+                            <p class="mt-1 px-0 fw-bold mb-0">Informe todas carteira(s) de habilitação americana, que
+                                possuir.</p>
                             <div id="lista_carteiras_americanas"></div>
-                            <div class="mb-3 mactions d-flex justify-content-center alinhamento_centro">
-                                <button type="button" class="btn_visitas_anteriores" onclick="addAmericanLicense()"
+                            <div id="mensagens_carteira"></div>
+
+                            <div class="button_container">
+                                <button class="button button_add" type="button" onclick="addAmericanLicense()"
                                     aria-label="Adicionar">
-                                    <img src="public/svg/plus-svgrepo-com.svg" class="btn_imagem_adicionar"
-                                        alt="Adicionar">
+                                    <span class="button_text">Add</span>
+                                    <span class="button_icon">
+                                        <svg class="svg" fill="none" height="24" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <line x1="12" x2="12" y1="5" y2="19"></line>
+                                            <line x1="5" x2="19" y1="12" y2="12"></line>
+                                        </svg>
+                                    </span>
                                 </button>
-                                <button type="button" class="btn_visitas_anteriores" onclick="removeAmericanLicense()"
+                                <button class="button button_delete" type="button" onclick="removeAmericanLicense()"
                                     aria-label="Excluir">
-                                    <img src="public/svg/trash-svgrepo-com.svg" class="btn_imagem_excluir"
-                                        alt="Excluir">
+                                    <span class="button_text">Dell</span>
+                                    <span class="button_icon">
+                                        <svg class="svg" fill="none" height="24" stroke="currentColor"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <line x1="5" x2="19" y1="12" y2="12"></line>
+                                            <line x1="12" x2="12" y1="5" y2="19"></line>
+                                            <!-- Linha vertical para o ícone de remoção -->
+                                        </svg>
+                                    </span>
                                 </button>
                             </div>
-                            <div id="mensagens_carteira"></div>
                         </div>
                     </fieldset>
 
-                    <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você já teve um visto dos EUA emitido?</legend>
+                    <fieldset class="conjunto_campos_g2">
+                        <legend class="legenda_padrao_01 legend_long">Você já teve um visto dos EUA emitido?</legend>
                         <div class="div_radio_personalizado">
                             <label class="rotulo_radio" for="tem_visto_americano_sim">
                                 <input type="radio" class="input_radio" id="tem_visto_americano_sim"
@@ -701,17 +707,17 @@
                                 <label for="numero_ultimo_visto_americano" class="rotulo_personalizado">Número do visto
                                     emitido</label>
                             </div>
-                            <div class="container_input_data">
-                                <label for="data_ultimo_visto_americano" class="text-center">Data do último visto
-                                    emitido</label>
+                            <div class="envoltura_input">
                                 <input type="date" id="data_ultimo_visto_americano" name="data_ultimo_visto_americano"
-                                    class="text-center w-100">
+                                    class="input_personalizado">
+                                <label for="data_ultimo_visto_americano" class="rotulo_personalizado">Data de
+                                    expedição</label>
                             </div>
                         </div>
                     </fieldset>
 
-                    <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você está aplicando para o mesmo tipo de visto
+                    <fieldset class="conjunto_campos_g2">
+                        <legend class="legenda_padrao_01 legend_long">Você está aplicando para o mesmo tipo de visto
                             (conforme o anterior)?</legend>
                         <div class="div_radio_personalizado">
                             <label class="rotulo_radio" for="mesmo_tipo_visto_sim">
@@ -727,8 +733,8 @@
                         </div>
                     </fieldset>
 
-                    <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você está aplicando no mesmo país onde seu visto
+                    <fieldset class="conjunto_campos_g2">
+                        <legend class="legenda_padrao_01 legend_long">Você está aplicando no mesmo país onde seu visto
                             anterior foi emitido e este país é a sua principal residência?</legend>
                         <div class="div_radio_personalizado">
                             <label class="rotulo_radio" for="mesmo_pais_residencia_sim">
@@ -744,8 +750,8 @@
                         </div>
                     </fieldset>
 
-                    <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você já forneceu as digitais de todos os seus
+                    <fieldset class="conjunto_campos_g2">
+                        <legend class="legenda_padrao_01 legend_long">Você já forneceu as digitais de todos os seus
                             dedos
                             quando obteve seu último visto dos EUA?</legend>
                         <div class="div_radio_personalizado">
@@ -762,8 +768,8 @@
                         </div>
                     </fieldset>
 
-                    <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você já teve algum visto dos EUA roubado ou
+                    <fieldset class="conjunto_campos_g2">
+                        <legend class="legenda_padrao_01 legend_long">Você já teve algum visto dos EUA roubado ou
                             perdido/extraviado?</legend>
                         <div class="div_radio_personalizado">
                             <label class="rotulo_radio" for="visto_anterior_perdido_sim">
@@ -779,17 +785,19 @@
                                 <span class="span_radio">Não</span>
                             </label>
                         </div>
-                        <div class="col-8 envoltura_input" id="ano_perda_visto_container"
+                        <div class="envoltura_input" id="ano_perda_visto_container"
                             style="display: none; margin: 0 auto;">
-                            <input type="text" class="input_personalizado" id="ano_perda_visto" name="ano_perda_visto"
-                                placeholder="">
-                            <label for="ano_perda_visto" class="rotulo_personalizado">Data do ocorrido (apenas o
+                            <input type="number" class="input_personalizado" id="data_ocorrido" name="data_ocorrido"
+                                placeholder="Data do ocorrido (apenas o ANO)" min="1900" max=""
+                                oninput="validarAno(this)">
+                            <label for="data_ocorrido" class="rotulo_personalizado">Data do ocorrido (apenas o
                                 ANO)</label>
                         </div>
+
                     </fieldset>
 
-                    <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você já teve algum visto dos EUA cancelado ou
+                    <fieldset class="conjunto_campos_g2 mb-0">
+                        <legend class="legenda_padrao_01 legend_long">Você já teve algum visto dos EUA cancelado ou
                             revogado?</legend>
                         <div class="div_radio_personalizado">
                             <label class="rotulo_radio" for="visto_cancelado_sim">
@@ -811,9 +819,9 @@
                                     ocorreu</label>
                             </div>
                             <div>
-                                <select class="selecao_padrao_01" id="tipo_visto_cancelado" name="tipo_visto_cancelado"
+                                <select class="truncar_texto" id="tipo_visto_cancelado" name="tipo_visto_cancelado"
                                     onchange="toggleFieldForOtherOption(this, 'container_outro_tipo_visto', 'block')">
-                                    <option value="" selected disabled hidden>Selecione o tipo do visto cancelado
+                                    <option value="" selected disabled hidden>Selecione a categoria
                                     </option>
                                     <option value="Visto de Turismo">Visto de Turismo</option>
                                     <option value="Visto de Negócios">Visto de Negócios</option>
@@ -831,14 +839,15 @@
                                 <div class="envoltura_input" id="container_outro_tipo_visto" style="display: none;">
                                     <input type="text" class="input_personalizado" id="outro_tipo_visto"
                                         name="outro_tipo_visto" placeholder="">
-                                    <label for="outro_tipo_visto" class="rotulo_personalizado">Tipo do visto
-                                        cancelado</label>
+                                    <label for="outro_tipo_visto" class="rotulo_personalizado">Categoria do
+                                        visto</label>
                                 </div>
                             </div>
-                            <div class="container_input_data">
-                                <label for="data_cancelamento_visto">Data do ocorrido</label>
-                                <input class="w-100" type="date" id="data_cancelamento_visto"
+                            <div class="envoltura_input">
+                                <input class="input_personalizado" type="date" id="data_cancelamento_visto"
                                     name="data_cancelamento_visto">
+                                <label for="data_cancelamento_visto" class="rotulo_personalizado">Data do
+                                    ocorrido</label>
                             </div>
                         </div>
                     </fieldset>
@@ -859,56 +868,49 @@
 
             <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE ENDEREÇO/CONTATOS -->
             <section class="centro_secao">
-                <div class="text-center">
-                    <!-- <div class="secao_titulo_padrao">
-                        <h2>ENDEREÇO E CONTATOS</h2>
-                    </div> -->
+                <div class="">
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Seu endereço completo</legend>
+                        <!-- <legend class="legenda_padrao_01 legend_short">Seu endereço completo</legend> -->
 
                         <div class="formulario_endereco" id="form_endereco_pessoal">
                             <!-- ESTRUTURA INSERIDA COM JAVASCRIPT -->
                         </div>
 
-                        <p class="rotulo"
-                            style="display: block; font-size: small; padding: 0px 10px; margin:-5px -15px 10px -15px;">
-                            Este é o endereço para onde seu passaporte será enviado após a conclusão do processo?</p>
-
-                        <div class="div_radio_personalizado">
-                            <label class="rotulo_radio" for="endereco_passaporte_sim">
-                                <input type="radio" class="input_radio" id="endereco_passaporte_sim"
-                                    name="opcao_endereco_passaporte" value="Sim"
-                                    onchange="togglePassportAddressFields()">
-                                <span class="span_radio">Sim</span>
-                            </label>
-
-                            <label class="rotulo_radio" for="endereco_passaporte_nao">
-                                <input type="radio" class="input_radio" id="endereco_passaporte_nao"
-                                    name="opcao_endereco_passaporte" value="Não"
-                                    onchange="togglePassportAddressFields()">
-                                <span class="span_radio">Não</span>
-                            </label>
-                        </div>
-
-                        <div class="envoltura_input" id="responsavel_endereco_passaporte" style="display: none;">
-                            <input type="text" class="input_personalizado" id="input_responsavel_endereco_passaporte"
-                                name="input_responsavel_endereco_passaporte" placeholder="">
-                            <label for="input_responsavel_endereco_passaporte" class="rotulo_personalizado">Nome do
-                                responsável</label>
-                        </div>
-
-                        <div id="campos_endereco_passaporte" style="display: none;">
-                            <p class="text-center mb-2">Endereço de entrega</p>
-                            <div class="formulario_endereco" id="form_endereco_destino_passaporte">
-                                <!-- ESTRUTURA INSERIDA COM JAVASCRIPT -->
+                        <fieldset class="conjunto_campos_g2 mb-4">
+                            <legend class="legenda_padrao_01 legend_long">
+                                Este é o endereço para onde seu passaporte será enviado após a conclusão do processo?
+                            </legend>
+                            <div class="div_radio_personalizado">
+                                <label class="rotulo_radio" for="endereco_passaporte_sim">
+                                    <input type="radio" class="input_radio" id="endereco_passaporte_sim"
+                                        name="opcao_endereco_passaporte" value="Sim"
+                                        onchange="togglePassportAddressFields()">
+                                    <span class="span_radio">Sim</span>
+                                </label>
+                                <label class="rotulo_radio" for="endereco_passaporte_nao">
+                                    <input type="radio" class="input_radio" id="endereco_passaporte_nao"
+                                        name="opcao_endereco_passaporte" value="Não"
+                                        onchange="togglePassportAddressFields()">
+                                    <span class="span_radio">Não</span>
+                                </label>
                             </div>
-                        </div>
-                    </fieldset>
+                            <div class="envoltura_input" id="responsavel_endereco_passaporte" style="display: none;">
+                                <input type="text" class="input_personalizado"
+                                    id="input_responsavel_endereco_passaporte"
+                                    name="input_responsavel_endereco_passaporte" placeholder="">
+                                <label for="input_responsavel_endereco_passaporte" class="rotulo_personalizado">Nome do
+                                    responsável</label>
+                            </div>
+                            <div id="campos_endereco_passaporte" style="display: none;">
+                                <p class="my-2 px-0 fw-bold fs-6">Endereço de entrega do passaporte</p>
+                                <div class="formulario_endereco" id="form_endereco_destino_passaporte">
+                                    <!-- ESTRUTURA INSERIDA COM JAVASCRIPT -->
+                                </div>
+                            </div>
+                        </fieldset>
 
-
-                    <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Informações de Contato</legend>
+                        <!-- <legend class="legenda_padrao_01 legend_short">Informações de Contato</legend> -->
 
                         <div class="detalhes_contato">
                             <div class="envoltura_input">
@@ -930,10 +932,9 @@
                             </div>
                         </div>
 
-                        <div class="telefones_adicionais">
-                            <p
-                                style="display: block; font-size: small; padding: 0px 10px; margin:-5px -15px 10px -15px;">
-                                Você usou outro(s) telefone(s) nos últimos 5 anos?</p>
+                        <fieldset class="telefones_adicionais conjunto_campos_g2 mb-4">
+                            <legend class="legenda_padrao_01 legend_short">
+                                Você usou outro(s) telefone(s) nos últimos 5 anos?</legend>
 
                             <div class="div_radio_personalizado">
                                 <label for="usou_Outros_Telefones_Sim" class="rotulo_radio">
@@ -952,32 +953,40 @@
                             </div>
 
                             <div id="telefones_Adicionais" style="display: none;">
-
+                                <p class="mt-1 px-0 fw-bold mb-0">Informe o máximo de números de telefone usados.</p>
                                 <!-- Container para adicionar números de telefone -->
                                 <div id="telefones_adicionais_container"></div>
+                                <div id="mensagem_erro_telefone"><!-- mensagem de erro --></div>
 
-                                <div class="mb-3 mactions d-flex justify-content-center align-items-center">
-                                    <button type="button" class="btn_nacionalidade" aria-label="Adicionar"
-                                        onclick="addAdditionalPhone()">
-                                        <img src="public/svg/plus-svgrepo-com.svg" alt="Adicionar"
-                                            class="btn_imagem_adicionar">
+                                <div class="button_container">
+                                    <button class="button button_add" type="button" onclick="addAdditionalPhone()"
+                                        aria-label="Adicionar">
+                                        <span class="button_text">Add</span>
+                                        <span class="button_icon">
+                                            <svg class="svg" fill="none" height="24" stroke="currentColor"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <line x1="12" x2="12" y1="5" y2="19"></line>
+                                                <line x1="5" x2="19" y1="12" y2="12"></line>
+                                            </svg>
+                                        </span>
                                     </button>
-
-                                    <button type="button" class="btn_nacionalidade" aria-label="Excluir"
-                                        onclick="removeLastAdditionalPhone()">
-                                        <img src="public/svg/trash-svgrepo-com.svg" alt="Excluir"
-                                            class="btn_imagem_excluir">
+                                    <button class="button button_delete" type="button"
+                                        onclick="removeLastAdditionalPhone()" aria-label="Excluir">
+                                        <span class="button_text">Dell</span>
+                                        <span class="button_icon">
+                                            <svg class="svg" fill="none" height="24" stroke="currentColor"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <line x1="5" x2="19" y1="12" y2="12"></line>
+                                            </svg>
+                                        </span>
                                     </button>
                                 </div>
-
-                                <div id="mensagem_erro_telefone"><!-- mensagem de erro --></div>
                             </div>
+                        </fieldset>
 
-                        </div>
-                    </fieldset>
-
-                    <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Informações de E-mail</legend>
+                        <!-- <legend class="legenda_padrao_01 legend_short">Informações de E-mail</legend> -->
 
                         <div class="envoltura_input">
                             <input type="email" id="email" name="email" class="input_personalizado" placeholder="">
@@ -985,11 +994,10 @@
                             <label for="email" class="rotulo_personalizado">E-mail</label>
                         </div>
 
-                        <div class="item_email">
-                            <p
-                                style="display: block; font-size: small; padding: 0px 10px; margin:-5px -15px 10px -15px;">
+                        <fieldset class="item_email conjunto_campos_g2 mb-0">
+                            <legend class="legenda_padrao_01 legend_short">
                                 Você usou outro(s) e-mail(s) nos últimos 5 anos?
-                            </p>
+                            </legend>
 
                             <div class="div_radio_personalizado">
                                 <label class="rotulo_radio" for="usou_outros_emails_sim">
@@ -1007,25 +1015,37 @@
 
 
                             <div id="emails_adicionais" style="display: none;">
+                                <p class="">Informe o máximo de emails usados.</p>
                                 <div class="container_email_adicional"></div>
+                                <div class="erro_email"></div>
 
-                                <div class="mb-3 mactions d-flex justify-content-center align-items-center">
-                                    <button type="button" class="btn_nacionalidade" aria-label="Adicionar"
-                                        onclick="addAdditionalEmail()">
-                                        <img src="public/svg/plus-svgrepo-com.svg" alt="Adicionar"
-                                            class="btn_imagem_adicionar">
+                                <div class="button_container">
+                                    <button class="button button_add" type="button" onclick="addAdditionalEmail()"
+                                        aria-label="Adicionar">
+                                        <span class="button_text">Add</span>
+                                        <span class="button_icon">
+                                            <svg class="svg" fill="none" height="24" stroke="currentColor"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <line x1="12" x2="12" y1="5" y2="19"></line>
+                                                <line x1="5" x2="19" y1="12" y2="12"></line>
+                                            </svg>
+                                        </span>
                                     </button>
-
-                                    <button type="button" class="btn_nacionalidade" aria-label="Excluir"
-                                        onclick="removeLastAdditionalEmail()">
-                                        <img src="public/svg/trash-svgrepo-com.svg" alt="Excluir"
-                                            class="btn_imagem_excluir">
+                                    <button class="button button_delete" type="button"
+                                        onclick="removeLastAdditionalEmail()" aria-label="Excluir">
+                                        <span class="button_text">Dell</span>
+                                        <span class="button_icon">
+                                            <svg class="svg" fill="none" height="24" stroke="currentColor"
+                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                <line x1="5" x2="19" y1="12" y2="12"></line>
+                                            </svg>
+                                        </span>
                                     </button>
                                 </div>
-
-                                <div class="erro_email"></div>
                             </div>
-                        </div>
+                        </fieldset>
                     </fieldset>
                 </div>
 
@@ -1045,83 +1065,85 @@
             <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE PASSAPORTE -->
             <section class="centro_secao">
                 <div class="text-center">
-
-                    <!-- <div class="secao_titulo_padrao">
-                        <h2>INFORMAÇÕES SOBRE SEU PASSAPORTE</h2>
-                    </div> -->
-
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Detalhes do Passaporte</legend>
-
                         <div class="envoltura_input">
-                            <input type="text" class="input_personalizado" placeholder="" id="numero_passaporte"
-                                name="numero_passaporte">
+                            <input type="text" class="input_personalizado" id="numero_passaporte"
+                                name="numero_passaporte" placeholder=" ">
                             <label for="numero_passaporte" class="rotulo_personalizado">Número/Série</label>
                         </div>
 
                         <div class="envoltura_input">
-                            <input type="text" class="input_personalizado" placeholder=""
-                                id="numero_controle_passaporte" name="numero_controle_passaporte">
+                            <input type="text" class="input_personalizado" id="numero_controle_passaporte"
+                                name="numero_controle_passaporte" placeholder=" ">
                             <label for="numero_controle_passaporte" class="rotulo_personalizado">Número de
                                 controle</label>
                         </div>
 
-                        <div class="mb-2">
-                            <select id="pais_emissao_passaporteEmissor" name="pais_emissao_passaporteEmissor"
-                                style="width: 100%;  margin: 2% 0; text-align: centro;">
-                                <option value="">País emissor</option>
+
+                        <div class="envoltura_input">
+                            <select id="pais_emissor_passaporte" name="pais_emissor_passaporte"
+                                class="select_pad__top_15px input-select select2">
+                                <option value="" selected disabled>Selecione um país</option>
                             </select>
+                            <label for="pais_emissor_passaporte" class="label_top_10px rotulo_personalizado">País
+                                emissor</label>
                         </div>
 
-                        <div class="mb-1">
+                        <div class="envoltura_input">
                             <select id="pais_emissao_passaporte" name="pais_emissao_passaporte"
-                                onchange="updateStatePlaceholder(this.value, 'estado_emissao_passaporte'); getStatesByCountry(this.value, 'estado_emissao_passaporte')"
-                                style="width: 100%;  margin: 2% 0; text-align: centro;">
-                                <option value="" selected disabled>País onde foi emitido</option>
+                                onchange="getStatesByCountry(this.value, 'estado_emissao_passaporte')"
+                                class="select_pad__top_15px input-select select2">
+                                <option value="" selected disabled>Selecione um país</option>
                             </select>
+                            <label for="pais_emissor_passaporte" class="label_top_10px rotulo_personalizado">País de
+                                emissão</label>
                         </div>
 
-                        <div class="mb-1">
+                        <div class="envoltura_input">
                             <select id="estado_emissao_passaporte" name="estado_emissao_passaporte"
-                                onchange="updateCityPlaceholder(this.value, 'cidade_emissao_passaporte'); getCitiesByState(this.value, 'cidade_emissao_passaporte')"
-                                style="width: 100%;  margin: 2% 0; text-align: centro;" disabled>
-                                <option value="">Estado onde foi emitido</option>
+                                onchange="getCitiesByState(this.value, 'cidade_emissao_passaporte')"
+                                class="select_pad__top_15px input-select select2" disabled>
+                                <option value="" selected disabled>Selecione o estado</option>
                             </select>
+                            <label for="pais_emissor_passaporte" class="label_top_10px rotulo_personalizado">Estado de
+                                emissão</label>
+
                         </div>
 
-                        <div class="mb-1">
+                        <div class="envoltura_input">
                             <select id="cidade_emissao_passaporte" name="cidade_emissao_passaporte"
-                                style="width: 100%;  margin: 2% 0; text-align: centro;" disabled>
-                                <option value="">Cidade onde foi emitido</option>
+                                class="select_pad__top_15px input-select select2" disabled>
+                                <option value="" selected disabled>Selecione a cidade</option>
                             </select>
+                            <label for="pais_emissor_passaporte" class="label_top_10px rotulo_personalizado">Cidade de
+                                emissão</label>
+
                         </div>
 
-                        <div class="mt-2 mb-0 container_input_data">
-                            <label for="data_emissao_passaporte">Data de emissão</label>
-                            <input type="date" class="w-100" id="data_emissao_passaporte"
-                                name="data_emissao_passaporte">
+                        <div class="envoltura_input">
+                            <input type="date" id="data_emissao_passaporte" name="data_emissao_passaporte"
+                                class="input_personalizado">
+                            <label for="data_emissao_passaporte" class="rotulo_personalizado">Data de emissão</label>
                         </div>
 
-                        <div class="mt-2 mb-0 container_input_data">
-                            <label for="data_expiracao_passaporte">Data de vencimento</label>
-                            <input type="date" class="w-100" id="data_expiracao_passaporte"
-                                name="data_expiracao_passaporte">
+                        <div class="envoltura_input">
+                            <input type="date" id="data_expiracao_passaporte" name="data_expiracao_passaporte"
+                                class="input_personalizado">
+                            <label for="data_expiracao_passaporte" class="rotulo_personalizado">Data de
+                                vencimento</label>
                         </div>
 
-
-                        <fieldset class="conjunto_campos_g2 mt-2">
-                            <legend class="legenda_padrao_01">Você já teve algum passaporte roubado ou
-                                perdido?</legend>
-
+                        <fieldset class="conjunto_campos_g2">
+                            <legend class="legend_short">Você já teve algum passaporte roubado ou perdido?</legend>
                             <div class="div_radio_personalizado">
-                                <label for="passaporte_roubado_ou_perdido_sim" class="rotulo_radio">
+                                <label class="rotulo_radio" for="passaporte_roubado_ou_perdido_sim">
                                     <input type="radio" class="input_radio" id="passaporte_roubado_ou_perdido_sim"
                                         name="passaporte_roubado_ou_perdido" value="Sim"
                                         onclick="togglePassportQuestions(true)">
                                     <span class="span_radio">Sim</span>
                                 </label>
 
-                                <label for="passaporte_roubado_ou_perdido_nao" class="rotulo_radio">
+                                <label class="rotulo_radio" for="passaporte_roubado_ou_perdido_nao">
                                     <input type="radio" class="input_radio" id="passaporte_roubado_ou_perdido_nao"
                                         name="passaporte_roubado_ou_perdido" value="Não"
                                         onclick="togglePassportQuestions(false)">
@@ -1129,19 +1151,17 @@
                                 </label>
                             </div>
 
-
                             <div class="envoltura_input" id="numero_passaporteQuestion" style="display: none;">
-                                <input type="text" class="input_personalizado" placeholder="" id="numero_passaporteLost"
-                                    name="numero_passaporteLost">
+                                <input type="text" class="input_personalizado" id="numero_passaporteLost"
+                                    name="numero_passaporteLost" placeholder=" ">
                                 <label for="numero_passaporteLost" class="rotulo_personalizado">Número do passaporte
-                                    (opcional)
-                                </label>
+                                    (opcional)</label>
                             </div>
 
-                            <div class="mb-1" id="pais_emissao_passaporteQuestion" style="display: none;">
+                            <div class="envoltura_input" id="pais_emissao_passaporteQuestion" style="display: none;">
                                 <select id="pais_emissao_passaporte_perdido" name="pais_emissao_passaporte_perdido"
-                                    style="width: 100%;  margin: 2% 0; text-align: centro;">
-                                    <option value="">Selecione o país que emitiu</option>
+                                    class="input-select select2">
+                                    <option value="" selected disabled>Selecione o país que emitiu</option>
                                 </select>
                             </div>
                         </fieldset>
@@ -1158,7 +1178,9 @@
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
-            </section><!-- FIM DA SEÇÃO INFORMAÇÕES SOBRE PASSAPORTE -->
+            </section>
+            <!-- FIM DA SEÇÃO INFORMAÇÕES SOBRE PASSAPORTE -->
+
 
 
             <!-- INICIO DA SEÇÃO INFORMAÇÕES SOBRE REDES SOCIAIS -->
@@ -1169,7 +1191,7 @@
                     </div> -->
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você possui conta em alguma rede social?</legend>
+                        <legend class="legenda_padrao_01 legend_short">Você possui conta em alguma rede social?</legend>
 
                         <div class="div_radio_personalizado">
                             <label for="rede_social_sim" class="rotulo_radio">
@@ -1192,13 +1214,12 @@
                             <div class="container_rede_social_adicional"></div>
 
                             <div class="mb-3 mactions d-flex justify-content-center align-items-center">
-                                <button type="button" class="btn_nacionalidade" aria-label="Adicionar"
-                                    onclick="addSocialMediaField()">
+                                <button type="button" class="" aria-label="Adicionar" onclick="addSocialMediaField()">
                                     <img src="public/svg/plus-svgrepo-com.svg" alt="Adicionar"
                                         class="btn_imagem_adicionar">
                                 </button>
 
-                                <button type="button" class="btn_nacionalidade" aria-label="Excluir"
+                                <button type="button" class="" aria-label="Excluir"
                                     onclick="removeLastSocialMediaField()">
                                     <img src="public/svg/trash-svgrepo-com.svg" alt="Excluir"
                                         class="btn_imagem_excluir">
@@ -1231,7 +1252,7 @@
                     </div> -->
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Detalhes</legend>
+                        <legend class="legenda_padrao_01 legend_short">Detalhes</legend>
 
                         <div class="envoltura_input">
                             <input type="text" class="input_personalizado" id="primeiro_nome_us" name="primeiro_nome_us"
@@ -1308,7 +1329,7 @@
                     </div> -->
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">DADOS DO PAI</legend>
+                        <legend class="legenda_padrao_01 legend_short">DADOS DO PAI</legend>
 
                         <div class="envoltura_input">
                             <input type="text" class="input_personalizado" id="nome_completo_pai"
@@ -1354,7 +1375,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">DADOS DA MÃE</legend>
+                        <legend class="legenda_padrao_01 legend_short">DADOS DA MÃE</legend>
 
                         <div class="envoltura_input">
                             <input type="text" class="input_personalizado" id="nome_completo_mae"
@@ -1400,7 +1421,7 @@
 
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">DADOS DO CONJUGE OU EX-CONJUGE</legend>
+                        <legend class="legenda_padrao_01 legend_short">DADOS DO CONJUGE OU EX-CONJUGE</legend>
 
                         <div class="container_status">
                             <label for="spouseStatus">Situação civil informada</label>
@@ -1484,7 +1505,7 @@
 
                             <!-- Seção de Trabalho -->
                             <fieldset class="border rounded pd_1 mt-3" id="secao_trabalho" style="display: none;">
-                                <legend class="legenda_padrao_01 legenda_1em text-uppercase">Detalhes do Emprego
+                                <legend class="legenda_padrao_01 legend_short text-uppercase">Detalhes do Emprego
                                 </legend>
 
                                 <div class="envoltura_input">
@@ -1574,7 +1595,7 @@
 
                             <fieldset class="border rounded pd_1 mt-3" id="descricao_desempregado"
                                 style="display: none;">
-                                <legend class="legenda_padrao_01 legenda_1em text-uppercase">Desempregado</legend>
+                                <legend class="legenda_padrao_01 legend_short text-uppercase">Desempregado</legend>
                                 <!-- Descrição para desempregados -->
                                 <div class="envoltura_input">
                                     <textarea id="desempregado" name="desempregado" rows="4" class="input_personalizado"
@@ -1586,7 +1607,8 @@
 
                             <!-- Seção de Escola -->
                             <fieldset class="border rounded pd_1 mt-3" id="secao_escola" style="display: none;">
-                                <legend class="legenda_padrao_01 legenda_1em text-uppercase">Detalhes da Escola</legend>
+                                <legend class="legenda_padrao_01 legend_short text-uppercase">Detalhes da Escola
+                                </legend>
 
                                 <div class="envoltura_input">
                                     <input type="text" id="nome_completo_escola" name="nome_completo_escola"
@@ -1652,7 +1674,7 @@
                             </fieldset>
 
                             <fieldset class="border rounded pd_1 mt-3" id="aposentado" style="display: none;">
-                                <legend class="legenda_padrao_01 legenda_1em text-uppercase">Aposentado</legend>
+                                <legend class="legenda_padrao_01 legend_short text-uppercase">Aposentado</legend>
                                 <!-- Descrição para aposentado -->
                                 <div class="envoltura_input">
                                     <p style="font-size: small;">Insira as informções no próximo slide!</p>
@@ -1682,7 +1704,7 @@
                     </div> -->
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em text-uppercase">Trabalhos anteriores</legend>
+                        <legend class="legenda_padrao_01 legend_short text-uppercase">Trabalhos anteriores</legend>
                         <span>Informar os <strong>2 últimos</strong> locais de trabalho, como
                             empregado ou
                             empregador, sem contar o atual.</span>
@@ -1799,7 +1821,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em text-uppercase">Formação Escolar</legend>
+                        <legend class="legenda_padrao_01 legend_short text-uppercase">Formação Escolar</legend>
                         <span>Ensino <strong>Superior</strong> ou Ensino <strong>Médio</strong>.</span>
                         <span>Caso tenha estudado apenas a <strong>Escola Primária</strong> anotar: “Somente escola
                             primária”</span>
@@ -1853,7 +1875,8 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você viajou para outros países nos últimos 5 anos?
+                        <legend class="legenda_padrao_01 legend_short">Você viajou para outros países nos últimos 5
+                            anos?
                         </legend>
 
                         <div class="div_radio_personalizado">
@@ -1880,14 +1903,12 @@
                             </div>
 
                             <div class="mb-3 mactions d-flex justify-content-center align-items-center">
-                                <button type="button" class="btn_nacionalidade" aria-label="Adicionar"
-                                    onclick="addVisit2()">
+                                <button type="button" class="" aria-label="Adicionar" onclick="addVisit2()">
                                     <img src="public/svg/plus-svgrepo-com.svg" alt="Adicionar"
                                         class="btn_imagem_adicionar">
                                 </button>
 
-                                <button type="button" class="btn_nacionalidade" aria-label="Remover"
-                                    onclick="removeLastVisit2()">
+                                <button type="button" class="" aria-label="Remover" onclick="removeLastVisit2()">
                                     <img src="public/svg/trash-svgrepo-com.svg" alt="Remover"
                                         class="btn_imagem_excluir">
                                 </button>
@@ -1901,7 +1922,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você já pertenceu, contribuiu ou trabalhou para
+                        <legend class="legenda_padrao_01 legend_short">Você já pertenceu, contribuiu ou trabalhou para
                             uma
                             organização profissional, social ou de caridade?</legend>
 
@@ -1926,12 +1947,12 @@
                                 <!-- Espaço para inserir organizações dinamicamente -->
                             </div>
                             <div class="mb-3 mactions d-flex justify-content-center align-items-center">
-                                <button type="button" class="btn_nacionalidade" aria-label="Adicionar"
+                                <button type="button" class="" aria-label="Adicionar"
                                     title="Clique para adicionar uma nova organização" onclick="addOrganizacao()">
                                     <img src="public/svg/plus-svgrepo-com.svg" alt="Adicionar"
                                         class="btn_imagem_adicionar">
                                 </button>
-                                <button type="button" class="btn_nacionalidade" aria-label="Remover"
+                                <button type="button" class="" aria-label="Remover"
                                     title="Clique para remover a última organização adicionada"
                                     onclick="removeLastOrganizacao()">
                                     <img src="public/svg/trash-svgrepo-com.svg" alt="Remover"
@@ -1946,7 +1967,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você tem alguma habilidade especializada ou de
+                        <legend class="legenda_padrao_01 legend_short">Você tem alguma habilidade especializada ou de
                             formação, em armas de fogo, explosivos,
                             armas
                             nucleares, biológicas ou experiência química?</legend>
@@ -1973,7 +1994,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você prestou serviço militar?</legend>
+                        <legend class="legenda_padrao_01 legend_short">Você prestou serviço militar?</legend>
 
                         <div class="div_radio_personalizado">
                             <label class="rotulo_radio">
@@ -2031,7 +2052,8 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você já serviu, foi um membro, ou esteve envolvido
+                        <legend class="legenda_padrao_01 legend_short">Você já serviu, foi um membro, ou esteve
+                            envolvido
                             com uma unidade paramilitar, unidade de vigilante, grupo rebelde, o grupo de guerrilha, ou a
                             organização insurgente?
                         </legend>
@@ -2102,7 +2124,7 @@
 
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">Você tem alguma doença transmissível que possa
+                        <legend class="legenda_padrao_01 legend_short">Você tem alguma doença transmissível que possa
                             representar um risco à saúde pública,
                             como a tuberculose?</legend>
 
@@ -2130,7 +2152,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Você possui algum distúrbio mental ou físico que possa representar uma ameaça para a
                             segurança ou bem-estar de si mesmo ou outros?</legend>
 
@@ -2158,7 +2180,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Você é ou já foi um viciado em drogas?
                         </legend>
 
@@ -2184,7 +2206,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Alguma vez você já foi preso ou condenado por qualquer ofensa ou crime, ainda que objeto de
                             um indulto, anistia ou ação similar?
                         </legend>
@@ -2211,7 +2233,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Alguma vez você violou, ou foi envolvido em uma conspiração para violar qualquer lei
                             relativa às substâncias controladas?
                         </legend>
@@ -2238,7 +2260,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Você planeja exercer a prostituição nos Estados Unidos ou já esteve envolvido com
                             prostituição nos últimos 10 anos?
                         </legend>
@@ -2268,7 +2290,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Já esteve envolvido ou procurou se envolver em lavagem de dinheiro?
                         </legend>
 
@@ -2296,7 +2318,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Procurará envolvimento em atividades ilegais enquanto nos Estados Unidos?
                         </legend>
 
@@ -2322,7 +2344,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Você procurará o envolvimento em atividades terroristas, enquanto nos Estados Unidos ou já
                             está envolvido em atividades terroristas?
                         </legend>
@@ -2352,7 +2374,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Alguma vez você já prestou ou teve a intenção de prestar assistência financeira ou outro
                             apoio a terroristas ou organizações terroristas?
                         </legend>
@@ -2381,7 +2403,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Você é um membro ou representante de uma organização terrorista?
                         </legend>
 
@@ -2411,7 +2433,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Alguma vez você já ordenou, incitou, esteve comprometido, assistido ou participou no
                             genocídio?
                         </legend>
@@ -2438,7 +2460,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Alguma vez você já cometeu, ordenou, incitou, assistido, ou participou de atos de tortura?
                         </legend>
 
@@ -2464,7 +2486,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Você já cometeu, ordenou, incitou, ou participou de execuções extrajudiciais, assassinatos
                             políticos, ou outros atos de violência?
                         </legend>
@@ -2491,7 +2513,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Alguma vez foi responsável diretamente ou indiretamente de graves violações da liberdade
                             religiosa?
                         </legend>
@@ -2520,7 +2542,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Alguma vez foi objeto de uma audiência de deportação ou remoção?
                         </legend>
 
@@ -2548,7 +2570,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Alguma vez procurou obter ou ajudar outros a obter um visto de entrada nos Estados Unidos,
                             ou qualquer outro benefício de imigração dos Estados Unidos por fraude ou deturpação
                             deliberada ou outros meios ilícitos?
@@ -2578,7 +2600,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Você ultrapassou ilegalmente o período de tempo concedido por um funcionário da imigração
                             violando os termos de um visto E.U.A?
                         </legend>
@@ -2608,7 +2630,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Alguma vez manteve a custódia de uma criança cidadã E.U.A fora dos Estados Unidos a partir
                             de uma pessoa que tiver a guarda legal de um tribunal E.U.A?
                         </legend>
@@ -2637,7 +2659,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Alguma vez você já votou nos Estados Unidos em violação de qualquer lei ou regulamento?
                         </legend>
 
@@ -2663,7 +2685,7 @@
                     </fieldset>
 
                     <fieldset class="conjunto_campos_g1">
-                        <legend class="legenda_padrao_01 legenda_1em">
+                        <legend class="legenda_padrao_01 legend_short">
                             Alguma vez você já renunciou à cidadania norte-americana com a finalidade de evitar o
                             imposto?
                         </legend>
@@ -2824,6 +2846,16 @@
         </form>
     </div>
 
+
+    <!-- Adicionando jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Adicionando jQuery Mask -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <!-- Adicionando outros scripts que dependem de jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Importando JS -->
     <script src="public/js/informacoesPessoais.js"></script>
     <script src="public/js/viagemEUA.js"></script>
@@ -2839,30 +2871,171 @@
     <script src="public/js/vistoEstudante.js"></script>
     <script src="public/js/consulado.js"></script>
 
+    <script src="public/js/localNascimento.js"></script>
     <script src="public/js/geonames.js"></script>
     <script src="public/js/form.js"></script>
     <script src="public/js/formatacao_documentos.js"></script>
     <script src="public/js/form-handler.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-
-    <!-- JS do jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- JS do Select2 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-
-    <!-- JS do Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JS do jQuery Mask -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-
     <script>
-        $(document).ready(function () {
-            $('.select2').select2();
-        });
+        // Função para salvar dados no localStorage
+        function saveToLocalStorage(key, value) {
+            if (value) {
+                console.log(`Saving to localStorage: ${key} = ${value}`);
+                localStorage.setItem(key, value);
+            } else {
+                console.log(`Removing from localStorage: ${key}`);
+                localStorage.removeItem(key);
+            }
+        }
+
+        // Função para carregar dados do localStorage
+        function loadFromLocalStorage(key) {
+            const value = localStorage.getItem(key);
+            console.log(`Loading from localStorage: ${key} = ${value}`);
+            return value;
+        }
+
+        // Função para restaurar valores salvos nos campos do formulário
+        function restoreFormValues() {
+            const form = document.getElementById('formulario');
+            const elements = form.querySelectorAll('input, select, textarea');
+
+            elements.forEach(element => {
+                const savedValue = loadFromLocalStorage(element.id);
+                if (savedValue) {
+                    if (element.type === 'radio' || element.type === 'checkbox') {
+                        if (element.value === savedValue) {
+                            element.checked = true;
+                        }
+                    } else {
+                        element.value = savedValue;
+                        $(element).trigger('change'); // Trigger change for select2 elements
+                    }
+                }
+            });
+        }
+
+        // Função para resetar os estados e cidades ao mudar o país
+        function resetStateAndCity() {
+            $('#estado_nascimento').empty().append($('<option>', {
+                value: '',
+                text: 'Selecione um país antes'
+            })).prop('disabled', true);
+            $('#cidade_nascimento').empty().append($('<option>', {
+                value: '',
+                text: 'Selecione um estado antes'
+            })).prop('disabled', true);
+            saveToLocalStorage('estado_nascimento', '');
+            saveToLocalStorage('cidade_nascimento', '');
+        }
+
+        // Função para resetar a cidade ao mudar o estado
+        function resetCity() {
+            $('#cidade_nascimento').empty().append($('<option>', {
+                value: '',
+                text: 'Selecione um estado antes'
+            })).prop('disabled', true);
+            saveToLocalStorage('cidade_nascimento', '');
+        }
+
+        // Função para inicializar o formulário
+        function initializeForm() {
+            console.log('Document loaded');
+            populateCountrySelect(['pais_nascimento', 'pais_emissor_passaporte', 'pais_emissao_passaporte']);
+            disableSelects();
+            handleSelectChange();
+            restoreFormValues();
+
+            // Evento para salvar os valores selecionados ao mudar os selects
+            document.addEventListener('change', function (event) {
+                if (event.target.tagName === 'SELECT' || event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+                    console.log(`Field changed: ${event.target.id} = ${event.target.value}`);
+                    saveToLocalStorage(event.target.id, event.target.value);
+                    if (event.target.id === 'pais_nascimento') {
+                        resetStateAndCity();
+                        getStatesByCountry(event.target.value, 'estado_nascimento');
+                    } else if (event.target.id === 'estado_nascimento') {
+                        resetCity();
+                        getCitiesByState(event.target.value, 'cidade_nascimento');
+                    }
+                    handleSelectChange();
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeForm);
+
+        // Função para restaurar valores salvos nos campos do formulário
+        function restoreFormValues() {
+            const form = document.getElementById('formulario');
+            const elements = form.querySelectorAll('input, select, textarea');
+
+            elements.forEach(element => {
+                const savedValue = loadFromLocalStorage(element.id);
+                if (savedValue) {
+                    if (element.type === 'radio' || element.type === 'checkbox') {
+                        if (element.value === savedValue) {
+                            element.checked = true;
+                        }
+                    } else {
+                        element.value = savedValue;
+                        $(element).trigger('change'); // Trigger change for select2 elements
+                    }
+                }
+            });
+        }
+
+        // Função para resetar os estados e cidades ao mudar o país
+        function resetStateAndCity() {
+            $('#estado_nascimento').empty().append($('<option>', {
+                value: '',
+                text: 'Selecione um país antes'
+            })).prop('disabled', true);
+            $('#cidade_nascimento').empty().append($('<option>', {
+                value: '',
+                text: 'Selecione um estado antes'
+            })).prop('disabled', true);
+            saveToLocalStorage('estado_nascimento', '');
+            saveToLocalStorage('cidade_nascimento', '');
+        }
+
+        // Função para resetar a cidade ao mudar o estado
+        function resetCity() {
+            $('#cidade_nascimento').empty().append($('<option>', {
+                value: '',
+                text: 'Selecione um estado antes'
+            })).prop('disabled', true);
+            saveToLocalStorage('cidade_nascimento', '');
+        }
+
+        // Função para inicializar o formulário
+        function initializeForm() {
+            console.log('Document loaded');
+            populateCountrySelect(['pais_nascimento', 'pais_emissor_passaporte', 'pais_emissao_passaporte']);
+            disableSelects();
+            handleSelectChange();
+            restoreFormValues();
+
+            // Evento para salvar os valores selecionados ao mudar os selects
+            document.addEventListener('change', function (event) {
+                if (event.target.tagName === 'SELECT' || event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+                    console.log(`Field changed: ${event.target.id} = ${event.target.value}`);
+                    saveToLocalStorage(event.target.id, event.target.value);
+                    if (event.target.id === 'pais_nascimento') {
+                        resetStateAndCity();
+                        getStatesByCountry(event.target.value, 'estado_nascimento');
+                    } else if (event.target.id === 'estado_nascimento') {
+                        resetCity();
+                        getCitiesByState(event.target.value, 'cidade_nascimento');
+                    }
+                    handleSelectChange();
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeForm);
+
 
         document.addEventListener('DOMContentLoaded', function () {
             const dateInputDisplay = $('#data_nascimento_display');
@@ -2875,31 +3048,53 @@
                 return date.getFullYear() === year && date.getMonth() + 1 === month && date.getDate() === day;
             }
 
-            dateInputDisplay.mask('00/00/0000', {
-                onComplete: function (cep) {
-                    const parts = cep.split('/');
-                    const day = parseInt(parts[0], 10);
-                    const month = parseInt(parts[1], 10);
-                    const year = parseInt(parts[2], 10);
-                    const formattedDate = `${year}-${('0' + month).slice(-2)}-${('0' + day).slice(-2)}`;
-                    const selectedDate = new Date(year, month - 1, day);
+            if (window.matchMedia("(max-width: 768px)").matches) {
+                // Mobile
+                dateInputDisplay.attr('inputmode', 'numeric'); // Garante que o teclado numérico seja aberto
+                dateInputDisplay.mask('00/00/0000', {
+                    onComplete: function (cep) {
+                        const parts = cep.split('/');
+                        const day = parseInt(parts[0], 10);
+                        const month = parseInt(parts[1], 10);
+                        const year = parseInt(parts[2], 10);
+                        const formattedDate = `${year}-${('0' + month).slice(-2)}-${('0' + day).slice(-2)}`;
+                        const selectedDate = new Date(year, month - 1, day);
 
-                    if (selectedDate > today || !isValidDate(day, month, year)) {
+                        if (selectedDate > today || !isValidDate(day, month, year)) {
+                            errorMessage.style.display = 'block';
+                            dateInputDisplay.val('');
+                            dateInputHidden.value = '';
+
+                            setTimeout(() => {
+                                errorMessage.style.display = 'none';
+                            }, 5000);
+                        } else {
+                            errorMessage.style.display = 'none';
+                            dateInputHidden.value = formattedDate;
+                        }
+                    }
+                });
+            } else {
+                // Desktop
+                dateInputDisplay.attr('type', 'date');
+                dateInputDisplay.on('change', function () {
+                    const selectedDate = new Date(this.value);
+                    if (selectedDate > today) {
                         errorMessage.style.display = 'block';
-                        dateInputDisplay.val('');
+                        this.value = '';
                         dateInputHidden.value = '';
 
-                        // Remove a mensagem de erro após 5 segundos
                         setTimeout(() => {
                             errorMessage.style.display = 'none';
                         }, 5000);
                     } else {
                         errorMessage.style.display = 'none';
-                        dateInputHidden.value = formattedDate;
+                        dateInputHidden.value = this.value;
                     }
-                }
-            });
+                });
+            }
         });
+
     </script>
 
 </body>

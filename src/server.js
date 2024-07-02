@@ -5,11 +5,27 @@ import fetch from 'node-fetch';
 import { fileURLToPath } from 'url';
 import { getNameFromGeonameId, processFormData } from './formUtils.js';
 import cors from 'cors';
+import helmet from 'helmet';
 import { logRequest } from './logger.js';
+import csp from 'helmet-csp';
 
 const app = express();
 const port = process.env.PORT || 3000;
 const geonamesUsername = process.env.GEONAMES_USERNAME || 'izann_brum';
+
+app.use(helmet());
+app.use(csp({
+    directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://code.jquery.com", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdn.jsdelivr.net", "https://cdnjs.cloudflare.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
+        imgSrc: ["'self'", "data:"],
+        connectSrc: ["'self'", "https://secure.geonames.org"],
+        objectSrc: ["'none'"],
+        upgradeInsecureRequests: true,
+    }
+}));
 
 const corsOptions = {
     origin: '*',
